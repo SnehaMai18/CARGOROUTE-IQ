@@ -70,7 +70,7 @@ Prerequisites
 cd cargoRoute-IQ-Project
 
 **Frontend Deployment**
-cd frontendproject
+2.cd frontendproject
 npm install
 npm start
 *   The application will be accessible at `http://localhost:3000`[cite: 1].
