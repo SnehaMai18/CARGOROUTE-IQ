@@ -51,7 +51,10 @@ cargoRoute-IQ-Project/
     └── src/styles/          # CSS Modules & Global Styles
 
 
-    🚦 Getting Started
+    ```
+
+
+###Getting Started
 Prerequisites
 Node.js: v18+[cite: 1]
 
@@ -88,3 +91,5 @@ npm start
 The frontend is equipped with Jest and React Testing Library[cite: 1].
 ```bash
 npm test
+
+
