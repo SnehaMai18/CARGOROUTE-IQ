@@ -1,0 +1,44 @@
+{
+	"folders": [
+		{
+			"path": "../../../../../../../New folder/KpiReportService"
+		},
+		{
+			"path": "../../.."
+		},
+		{
+			"path": "../../../../BookingService (2) 1"
+		},
+		{
+			"path": "../../../../DispatchService"
+		},
+		{
+			"path": "../../../../CargoRoute-IAM (3)/CargoRoute-IAM"
+		},
+		{
+			"path": "../../../../../../../New folder/ApiGateway"
+		},
+		{
+			"path": "../../../../../../../New folder/4.7BillingService"
+		},
+		{
+			"path": "../../../../ManifestsServiceDemo"
+		},
+		{
+			"path": "../../../../ExceptionService"
+		},
+		{
+			"path": "../../../../FleetService 1/FleetService"
+		},
+		{
+			"path": "../../../../RoutingService 1/RoutingService"
+		},
+		{
+			"path": "../../../../../OneDrive - Cognizant/Documents/microservicecode"
+		}
+	],
+	"settings": {
+		"java.configuration.updateBuildConfiguration": "interactive",
+		"java.compile.nullAnalysis.mode": "disabled"
+	}
+}

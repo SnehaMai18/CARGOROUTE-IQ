@@ -1,0 +1,72 @@
+.conditions-card {
+  background: #ffffff;
+  border: 1px solid #d7e3f4;
+  border-radius: 16px;
+  padding: 20px;
+  box-shadow: 0 6px 18px rgba(15, 23, 42, 0.08);
+  transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+}
+
+.conditions-card:hover {
+  transform: translateY(-2px);
+  border-color: #b9ceed;
+  box-shadow: 0 12px 26px rgba(15, 23, 42, 0.12);
+}
+
+.conditions-card__title {
+  margin: 0 0 14px 0;
+  font-size: 1.02rem;
+  line-height: 1.4;
+  font-weight: 700;
+  color: #001f5b;
+}
+
+.conditions-card__grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 14px;
+}
+
+.conditions-card__column {
+  border: 1px solid #e3ebf8;
+  border-radius: 12px;
+  background: #f7faff;
+  padding: 14px;
+  min-width: 0;
+}
+
+.conditions-card__header {
+  font-size: 1rem;
+  line-height: 1.4;
+  font-weight: 600;
+  color: #1e3a8a;
+  margin-bottom: 10px;
+  text-align: center;
+}
+
+.conditions-card__value {
+  font-size: 0.95rem;
+  line-height: 1.5;
+  color: #0f172a;
+  font-weight: 400;
+  word-break: break-word;
+  text-align: center;
+}
+
+.conditions-card__empty {
+  margin: 0;
+  font-size: 0.95rem;
+  line-height: 1.5;
+  color: #64748b;
+}
+
+@media (max-width: 768px) {
+  .conditions-card {
+    padding: 14px;
+  }
+
+  .conditions-card__grid {
+    grid-template-columns: 1fr;
+    gap: 10px;
+  }
+}

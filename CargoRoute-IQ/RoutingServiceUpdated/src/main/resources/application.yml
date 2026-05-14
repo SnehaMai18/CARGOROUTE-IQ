@@ -1,0 +1,19 @@
+spring:
+  application:
+    name: ROUTING-SERVICE # Service name registered in Eureka
+  datasource:
+    url: jdbc:mysql://localhost:3306/cargoroute?useSSL=false&serverTimezone=UTC
+    username: root # change to your DB username
+    password: root # change to your DB password
+    driver-class-name: com.mysql.cj.jdbc.Driver
+  jpa:
+    hibernate:
+      ddl-auto: update # update schema automatically
+    show-sql: true # log SQL queries
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.MySQLDialect
+
+server:
+  port: 8085 # RoutingService runs on port 8085
+

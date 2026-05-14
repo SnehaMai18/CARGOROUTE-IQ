@@ -1,0 +1,204 @@
+package com.example.demo.repository;
+
+import com.example.demo.entities.ProofOfDelivery;
+import com.example.demo.entities.enums.PodType;
+import com.example.demo.entities.enums.ProofOfDeliveryStatus;
+
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Test;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.data.jpa.test.autoconfigure.DataJpaTest;
+import org.springframework.boot.jpa.test.autoconfigure.TestEntityManager;
+import org.springframework.test.context.TestPropertySource;
+
+import java.time.LocalDateTime;
+import java.util.List;
+import java.util.Optional;
+
+import static org.assertj.core.api.Assertions.assertThat;
+
+@DataJpaTest
+@TestPropertySource(properties = {
+        "spring.jpa.database-platform=org.hibernate.dialect.H2Dialect",
+        "eureka.client.enabled=false"
+})
+class ProofOfDeliveryRepositoryTest {
+
+    @Autowired
+    private TestEntityManager entityManager;
+
+    @Autowired
+    private ProofOfDeliveryRepository repository;
+
+    private ProofOfDelivery pod1;
+    private ProofOfDelivery pod2;
+    private ProofOfDelivery pod3;
+
+    /* ---------- Setup ---------- */
+    @BeforeEach
+    void setUp() {
+        pod1 = buildPod(1001L, 501L, PodType.Photo, ProofOfDeliveryStatus.PENDING);
+        pod2 = buildPod(1002L, 501L, PodType.Signature, ProofOfDeliveryStatus.UPLOADED);
+        pod3 = buildPod(1003L, 502L, PodType.Photo, ProofOfDeliveryStatus.VERIFIED);
+
+        entityManager.persist(pod1);
+        entityManager.persist(pod2);
+        entityManager.persist(pod3);
+        entityManager.flush();
+    }
+
+    /* ---------- Helper ---------- */
+    private ProofOfDelivery buildPod(
+            Long bookingId,
+            Long driverId,
+            PodType podType,
+            ProofOfDeliveryStatus status) {
+
+        ProofOfDelivery pod = new ProofOfDelivery();
+        pod.setBookingID(bookingId);
+        pod.setDriverId(driverId);
+        pod.setDeliveredAt(LocalDateTime.now());
+        pod.setReceivedBy("Customer");
+        pod.setPodURI("http://pod/" + bookingId);
+        pod.setPodType(podType);
+        pod.setStatus(status);
+        return pod;
+    }
+
+    /* ---------- Save / FindById ---------- */
+    @Test
+    @DisplayName("Save POD — persists and auto-generates ID")
+    void testSavePod() {
+        ProofOfDelivery pod = buildPod(
+                2001L, 601L, PodType.Photo, ProofOfDeliveryStatus.PENDING);
+
+        ProofOfDelivery saved = repository.save(pod);
+
+        assertThat(saved).isNotNull();
+        assertThat(saved.getPodID()).isNotNull().isPositive();
+        assertThat(saved.getBookingID()).isEqualTo(2001L);
+    }
+
+    @Test
+    @DisplayName("Find POD by ID — found")
+    void testFindById_Found() {
+        Optional<ProofOfDelivery> found =
+                repository.findById(pod1.getPodID());
+
+        assertThat(found).isPresent();
+        assertThat(found.get().getBookingID()).isEqualTo(1001L);
+    }
+
+    @Test
+    @DisplayName("Find POD by ID — not found")
+    void testFindById_NotFound() {
+        Optional<ProofOfDelivery> found =
+                repository.findById(9999L);
+
+        assertThat(found).isNotPresent();
+    }
+
+    /* ---------- Find All ---------- */
+    @Test
+    @DisplayName("Find all PODs — returns all records")
+    void testFindAll() {
+        List<ProofOfDelivery> all = repository.findAll();
+        assertThat(all).hasSize(3);
+    }
+
+    /* ---------- findByBookingID ---------- */
+    @Test
+    @DisplayName("findByBookingID — returns matching POD")
+    void testFindByBookingID_Found() {
+        ProofOfDelivery found =
+                repository.findByBookingID(1001L);
+
+        assertThat(found).isNotNull();
+        assertThat(found.getPodID())
+                .isEqualTo(pod1.getPodID());
+    }
+
+    @Test
+    @DisplayName("findByBookingID — returns null when not found")
+    void testFindByBookingID_NotFound() {
+        ProofOfDelivery found =
+                repository.findByBookingID(9999L);
+
+        assertThat(found).isNull();
+    }
+
+    /* ---------- findByDriverId ---------- */
+    @Test
+    @DisplayName("findByDriverId — returns matching PODs")
+    void testFindByDriverId() {
+        List<ProofOfDelivery> results =
+                repository.findByDriverId(501L);
+
+        assertThat(results).hasSize(2);
+        assertThat(results)
+                .allMatch(p -> p.getDriverId().equals(501L));
+    }
+
+    @Test
+    @DisplayName("findByDriverId — empty list when no match")
+    void testFindByDriverId_NoResults() {
+        List<ProofOfDelivery> results =
+                repository.findByDriverId(999L);
+
+        assertThat(results).isEmpty();
+    }
+
+    /* ---------- findByPodType ---------- */
+    @Test
+    @DisplayName("findByPodType — returns matching PODs")
+    void testFindByPodType() {
+        List<ProofOfDelivery> results =
+                repository.findByPodType(PodType.Photo);
+
+        assertThat(results).hasSize(2);
+    }
+
+    /* ---------- findByStatus ---------- */
+    @Test
+    @DisplayName("findByStatus — returns matching PODs")
+    void testFindByStatus() {
+        List<ProofOfDelivery> results =
+                repository.findByStatus(
+                        ProofOfDeliveryStatus.UPLOADED);
+
+        assertThat(results).hasSize(1);
+        assertThat(results.get(0).getBookingID()).isEqualTo(1002L);
+    }
+
+    /* ---------- Delete ---------- */
+    @Test
+    @DisplayName("Delete POD by ID — POD no longer exists")
+    void testDeleteById() {
+        Long id = pod2.getPodID();
+
+        repository.deleteById(id);
+        entityManager.flush();
+
+        assertThat(repository.findById(id))
+                .isNotPresent();
+    }
+
+    /* ---------- Count / Exists ---------- */
+    @Test
+    @DisplayName("Count — returns correct number of PODs")
+    void testCount() {
+        assertThat(repository.count()).isEqualTo(3);
+    }
+
+    @Test
+    @DisplayName("ExistsById — true for existing, false for unknown")
+    void testExistsById() {
+        assertThat(repository.existsById(pod1.getPodID()))
+                .isTrue();
+
+        assertThat(repository.existsById(8888L))
+                .isFalse();
+    }
+}

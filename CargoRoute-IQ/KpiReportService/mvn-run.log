@@ -1,0 +1,874 @@
+[INFO] Scanning for projects...
+[INFO] 
+[INFO] ------------------< com.example.demo:REPORT-SERVICE >-------------------
+[INFO] Building ReportService 0.0.1-SNAPSHOT
+[INFO]   from pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] >>> spring-boot:3.2.4:run (default-cli) > test-compile @ REPORT-SERVICE >>>
+[INFO] 
+[INFO] --- resources:3.3.1:resources (default-resources) @ REPORT-SERVICE ---
+[INFO] Copying 1 resource from src\main\resources to target\classes
+[INFO] Copying 0 resource from src\main\resources to target\classes
+[INFO] 
+[INFO] --- compiler:3.11.0:compile (default-compile) @ REPORT-SERVICE ---
+[INFO] Nothing to compile - all classes are up to date
+[INFO] 
+[INFO] --- resources:3.3.1:testResources (default-testResources) @ REPORT-SERVICE ---
+[INFO] Copying 1 resource from src\test\resources to target\test-classes
+[INFO] 
+[INFO] --- compiler:3.11.0:testCompile (default-testCompile) @ REPORT-SERVICE ---
+[INFO] Nothing to compile - all classes are up to date
+[INFO] 
+[INFO] <<< spring-boot:3.2.4:run (default-cli) < test-compile @ REPORT-SERVICE <<<
+[INFO] 
+[INFO] 
+[INFO] --- spring-boot:3.2.4:run (default-cli) @ REPORT-SERVICE ---
+[INFO] Attaching agents: []
+
+  .   ____          _            __ _ _
+ /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+ \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+  '  |____| .__|_| |_|_| |_\__, | / / / /
+ =========|_|==============|___/=/_/_/_/
+ :: Spring Boot ::                (v3.2.4)
+
+2026-04-24T17:50:35.099+05:30  INFO 23768 --- [REPORT-SERVICE] [  restartedMain] c.e.demo.TariffService1Application       : Starting TariffService1Application using Java 25.0.1 with PID 23768 (C:\New folder\KpiReportService\target\classes started by 2471986 in C:\New folder\KpiReportService)
+2026-04-24T17:50:35.101+05:30  INFO 23768 --- [REPORT-SERVICE] [  restartedMain] c.e.demo.TariffService1Application       : No active profile set, falling back to 1 default profile: "default"
+2026-04-24T17:50:35.165+05:30  INFO 23768 --- [REPORT-SERVICE] [  restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2026-04-24T17:50:35.165+05:30  INFO 23768 --- [REPORT-SERVICE] [  restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2026-04-24T17:50:36.252+05:30  INFO 23768 --- [REPORT-SERVICE] [  restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2026-04-24T17:50:36.505+05:30  INFO 23768 --- [REPORT-SERVICE] [  restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 204 ms. Found 2 JPA repository interfaces.
+2026-04-24T17:50:36.889+05:30  INFO 23768 --- [REPORT-SERVICE] [  restartedMain] o.s.cloud.context.scope.GenericScope     : BeanFactory id=901ec211-d789-3806-9d82-e50cc570fb87
+WARNING: A restricted method in java.lang.System has been called
+WARNING: java.lang.System::load has been called by org.apache.tomcat.jni.Library in an unnamed module (file:/C:/Users/2471986/.m2/repository/org/apache/tomcat/embed/tomcat-embed-core/10.1.19/tomcat-embed-core-10.1.19.jar)
+WARNING: Use --enable-native-access=ALL-UNNAMED to avoid a warning for callers in this module
+WARNING: Restricted methods will be blocked in a future release unless native access is enabled
+
+2026-04-24T17:50:37.635+05:30  INFO 23768 --- [REPORT-SERVICE] [  restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 2003 (http)
+2026-04-24T17:50:37.650+05:30  INFO 23768 --- [REPORT-SERVICE] [  restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2026-04-24T17:50:37.650+05:30  INFO 23768 --- [REPORT-SERVICE] [  restartedMain] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.19]
+2026-04-24T17:50:37.733+05:30  INFO 23768 --- [REPORT-SERVICE] [  restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2026-04-24T17:50:37.733+05:30  INFO 23768 --- [REPORT-SERVICE] [  restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 2567 ms
+2026-04-24T17:50:37.893+05:30  INFO 23768 --- [REPORT-SERVICE] [  restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2026-04-24T17:50:37.986+05:30  INFO 23768 --- [REPORT-SERVICE] [  restartedMain] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.4.4.Final
+2026-04-24T17:50:38.037+05:30  INFO 23768 --- [REPORT-SERVICE] [  restartedMain] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2026-04-24T17:50:38.410+05:30  INFO 23768 --- [REPORT-SERVICE] [  restartedMain] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2026-04-24T17:50:38.448+05:30  INFO 23768 --- [REPORT-SERVICE] [  restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2026-04-24T17:50:38.862+05:30  INFO 23768 --- [REPORT-SERVICE] [  restartedMain] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@3633033
+2026-04-24T17:50:38.864+05:30  INFO 23768 --- [REPORT-SERVICE] [  restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2026-04-24T17:50:38.926+05:30  WARN 23768 --- [REPORT-SERVICE] [  restartedMain] org.hibernate.orm.deprecation            : HHH90000025: MySQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2026-04-24T17:50:39.906+05:30  INFO 23768 --- [REPORT-SERVICE] [  restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2026-04-24T17:50:39.958+05:30  INFO 23768 --- [REPORT-SERVICE] [  restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2026-04-24T17:50:40.403+05:30  WARN 23768 --- [REPORT-SERVICE] [  restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2026-04-24T17:50:40.836+05:30  INFO 23768 --- [REPORT-SERVICE] [  restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2026-04-24T17:50:40.906+05:30  INFO 23768 --- [REPORT-SERVICE] [  restartedMain] DiscoveryClientOptionalArgsConfiguration : Eureka HTTP Client uses RestTemplate.
+2026-04-24T17:50:40.941+05:30  WARN 23768 --- [REPORT-SERVICE] [  restartedMain] iguration$LoadBalancerCaffeineWarnLogger : Spring Cloud LoadBalancer is currently working with the default cache. While this cache implementation is useful for development and tests, it's recommended to use Caffeine cache in production.You can switch to using Caffeine cache, by adding it and org.springframework.cache.caffeine.CaffeineCacheManager to the classpath.
+2026-04-24T17:50:40.964+05:30  INFO 23768 --- [REPORT-SERVICE] [  restartedMain] o.s.c.n.eureka.InstanceInfoFactory       : Setting initial instance status as: STARTING
+2026-04-24T17:50:41.002+05:30  INFO 23768 --- [REPORT-SERVICE] [  restartedMain] com.netflix.discovery.DiscoveryClient    : Initializing Eureka in region us-east-1
+2026-04-24T17:50:41.006+05:30  INFO 23768 --- [REPORT-SERVICE] [  restartedMain] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-04-24T17:50:41.015+05:30  INFO 23768 --- [REPORT-SERVICE] [  restartedMain] com.netflix.discovery.DiscoveryClient    : Disable delta property : false
+2026-04-24T17:50:41.015+05:30  INFO 23768 --- [REPORT-SERVICE] [  restartedMain] com.netflix.discovery.DiscoveryClient    : Single vip registry refresh property : null
+2026-04-24T17:50:41.015+05:30  INFO 23768 --- [REPORT-SERVICE] [  restartedMain] com.netflix.discovery.DiscoveryClient    : Force full registry fetch : false
+2026-04-24T17:50:41.015+05:30  INFO 23768 --- [REPORT-SERVICE] [  restartedMain] com.netflix.discovery.DiscoveryClient    : Application is null : false
+2026-04-24T17:50:41.015+05:30  INFO 23768 --- [REPORT-SERVICE] [  restartedMain] com.netflix.discovery.DiscoveryClient    : Registered Applications size is zero : true
+2026-04-24T17:50:41.015+05:30  INFO 23768 --- [REPORT-SERVICE] [  restartedMain] com.netflix.discovery.DiscoveryClient    : Application version is -1: true
+2026-04-24T17:50:41.015+05:30  INFO 23768 --- [REPORT-SERVICE] [  restartedMain] com.netflix.discovery.DiscoveryClient    : Getting all instance registry info from the eureka server
+2026-04-24T17:50:41.375+05:30  INFO 23768 --- [REPORT-SERVICE] [  restartedMain] com.netflix.discovery.DiscoveryClient    : The response status is 200
+2026-04-24T17:50:41.377+05:30  INFO 23768 --- [REPORT-SERVICE] [  restartedMain] com.netflix.discovery.DiscoveryClient    : Starting heartbeat executor: renew interval is: 30
+2026-04-24T17:50:41.379+05:30  INFO 23768 --- [REPORT-SERVICE] [  restartedMain] c.n.discovery.InstanceInfoReplicator     : InstanceInfoReplicator onDemand update allowed rate per min is 4
+2026-04-24T17:50:41.382+05:30  INFO 23768 --- [REPORT-SERVICE] [  restartedMain] com.netflix.discovery.DiscoveryClient    : Discovery Client initialized at timestamp 1777033241380 with initial instances count: 6
+2026-04-24T17:50:41.386+05:30  INFO 23768 --- [REPORT-SERVICE] [  restartedMain] o.s.c.n.e.s.EurekaServiceRegistry        : Registering application REPORT-SERVICE with eureka with status UP
+2026-04-24T17:50:41.386+05:30  INFO 23768 --- [REPORT-SERVICE] [  restartedMain] com.netflix.discovery.DiscoveryClient    : Saw local status change event StatusChangeEvent [timestamp=1777033241386, current=UP, previous=STARTING]
+2026-04-24T17:50:41.388+05:30  INFO 23768 --- [REPORT-SERVICE] [foReplicator-%d] com.netflix.discovery.DiscoveryClient    : DiscoveryClient_REPORT-SERVICE/LTIN647338.cts.com:REPORT-SERVICE:2003: registering service...
+2026-04-24T17:50:41.447+05:30  INFO 23768 --- [REPORT-SERVICE] [foReplicator-%d] com.netflix.discovery.DiscoveryClient    : DiscoveryClient_REPORT-SERVICE/LTIN647338.cts.com:REPORT-SERVICE:2003 - registration status: 204
+2026-04-24T17:50:41.451+05:30  INFO 23768 --- [REPORT-SERVICE] [  restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 2003 (http) with context path ''
+2026-04-24T17:50:41.452+05:30  INFO 23768 --- [REPORT-SERVICE] [  restartedMain] .s.c.n.e.s.EurekaAutoServiceRegistration : Updating port to 2003
+2026-04-24T17:50:41.464+05:30  INFO 23768 --- [REPORT-SERVICE] [  restartedMain] c.e.demo.TariffService1Application       : Started TariffService1Application in 6.958 seconds (process running for 7.642)
+2026-04-24T17:50:53.145+05:30  INFO 23768 --- [REPORT-SERVICE] [nio-2003-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2026-04-24T17:50:53.145+05:30  INFO 23768 --- [REPORT-SERVICE] [nio-2003-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2026-04-24T17:50:53.147+05:30  INFO 23768 --- [REPORT-SERVICE] [nio-2003-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 2 ms
+Hibernate: select r1_0.reportid,r1_0.generated_at,r1_0.generated_by,r1_0.metricsjson,r1_0.parametersjson,r1_0.scope from report r1_0 where r1_0.scope=? and r1_0.generated_at between ? and ?
+Hibernate: select k1_0.kpiid,k1_0.current_value,k1_0.definition,k1_0.name,k1_0.reporting_period,k1_0.target from kpi k1_0 where k1_0.name=?
+Hibernate: update kpi set current_value=?,definition=?,name=?,reporting_period=?,target=? where kpiid=?
+2026-04-24T17:51:47.316+05:30  INFO 23768 --- [REPORT-SERVICE] [   File Watcher] rtingClassPathChangeChangedEventListener : Restarting due to 52 class path changes (0 additions, 1 deletion, 51 modifications)
+2026-04-24T17:51:47.323+05:30  INFO 23768 --- [REPORT-SERVICE] [       Thread-6] o.s.c.n.e.s.EurekaServiceRegistry        : Unregistering application REPORT-SERVICE with eureka with status DOWN
+2026-04-24T17:51:47.323+05:30  INFO 23768 --- [REPORT-SERVICE] [       Thread-6] com.netflix.discovery.DiscoveryClient    : Saw local status change event StatusChangeEvent [timestamp=1777033307323, current=DOWN, previous=UP]
+2026-04-24T17:51:47.323+05:30  INFO 23768 --- [REPORT-SERVICE] [foReplicator-%d] com.netflix.discovery.DiscoveryClient    : DiscoveryClient_REPORT-SERVICE/LTIN647338.cts.com:REPORT-SERVICE:2003: registering service...
+2026-04-24T17:51:47.348+05:30  INFO 23768 --- [REPORT-SERVICE] [foReplicator-%d] com.netflix.discovery.DiscoveryClient    : DiscoveryClient_REPORT-SERVICE/LTIN647338.cts.com:REPORT-SERVICE:2003 - registration status: 204
+2026-04-24T17:51:47.364+05:30  INFO 23768 --- [REPORT-SERVICE] [       Thread-6] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2026-04-24T17:51:47.372+05:30  INFO 23768 --- [REPORT-SERVICE] [       Thread-6] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2026-04-24T17:51:47.397+05:30  INFO 23768 --- [REPORT-SERVICE] [       Thread-6] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2026-04-24T17:51:47.398+05:30  INFO 23768 --- [REPORT-SERVICE] [       Thread-6] com.netflix.discovery.DiscoveryClient    : Shutting down DiscoveryClient ...
+2026-04-24T17:51:50.404+05:30  INFO 23768 --- [REPORT-SERVICE] [       Thread-6] com.netflix.discovery.DiscoveryClient    : Unregistering ...
+2026-04-24T17:51:50.426+05:30  INFO 23768 --- [REPORT-SERVICE] [       Thread-6] com.netflix.discovery.DiscoveryClient    : DiscoveryClient_REPORT-SERVICE/LTIN647338.cts.com:REPORT-SERVICE:2003 - deregister  status: 200
+2026-04-24T17:51:50.427+05:30  INFO 23768 --- [REPORT-SERVICE] [       Thread-6] com.netflix.discovery.DiscoveryClient    : Completed shut down of DiscoveryClient
+
+  .   ____          _            __ _ _
+ /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+ \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+  '  |____| .__|_| |_|_| |_\__, | / / / /
+ =========|_|==============|___/=/_/_/_/
+ :: Spring Boot ::                (v3.2.4)
+
+2026-04-24T17:51:50.647+05:30  INFO 23768 --- [REPORT-SERVICE] [  restartedMain] c.e.demo.TariffService1Application       : Starting TariffService1Application using Java 25.0.1 with PID 23768 (C:\New folder\KpiReportService\target\classes started by 2471986 in C:\New folder\KpiReportService)
+2026-04-24T17:51:50.648+05:30  INFO 23768 --- [REPORT-SERVICE] [  restartedMain] c.e.demo.TariffService1Application       : No active profile set, falling back to 1 default profile: "default"
+2026-04-24T17:51:51.493+05:30  INFO 23768 --- [REPORT-SERVICE] [  restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2026-04-24T17:51:51.551+05:30  INFO 23768 --- [REPORT-SERVICE] [  restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 57 ms. Found 2 JPA repository interfaces.
+2026-04-24T17:51:51.881+05:30  INFO 23768 --- [REPORT-SERVICE] [  restartedMain] o.s.cloud.context.scope.GenericScope     : BeanFactory id=901ec211-d789-3806-9d82-e50cc570fb87
+2026-04-24T17:51:52.169+05:30  INFO 23768 --- [REPORT-SERVICE] [  restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 2003 (http)
+2026-04-24T17:51:52.175+05:30  INFO 23768 --- [REPORT-SERVICE] [  restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2026-04-24T17:51:52.175+05:30  INFO 23768 --- [REPORT-SERVICE] [  restartedMain] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.19]
+2026-04-24T17:51:52.299+05:30  INFO 23768 --- [REPORT-SERVICE] [  restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2026-04-24T17:51:52.300+05:30  INFO 23768 --- [REPORT-SERVICE] [  restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1647 ms
+2026-04-24T17:51:52.437+05:30  INFO 23768 --- [REPORT-SERVICE] [  restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2026-04-24T17:51:52.450+05:30  INFO 23768 --- [REPORT-SERVICE] [  restartedMain] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2026-04-24T17:51:52.468+05:30  INFO 23768 --- [REPORT-SERVICE] [  restartedMain] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2026-04-24T17:51:52.472+05:30  INFO 23768 --- [REPORT-SERVICE] [  restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-2 - Starting...
+2026-04-24T17:51:52.511+05:30  INFO 23768 --- [REPORT-SERVICE] [  restartedMain] com.zaxxer.hikari.pool.HikariPool        : HikariPool-2 - Added connection com.mysql.cj.jdbc.ConnectionImpl@69ff6ab3
+2026-04-24T17:51:52.511+05:30  INFO 23768 --- [REPORT-SERVICE] [  restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-2 - Start completed.
+2026-04-24T17:51:52.515+05:30  WARN 23768 --- [REPORT-SERVICE] [  restartedMain] org.hibernate.orm.deprecation            : HHH90000025: MySQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2026-04-24T17:51:52.676+05:30  INFO 23768 --- [REPORT-SERVICE] [  restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2026-04-24T17:51:52.698+05:30  INFO 23768 --- [REPORT-SERVICE] [  restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2026-04-24T17:51:53.125+05:30  WARN 23768 --- [REPORT-SERVICE] [  restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2026-04-24T17:51:53.483+05:30  INFO 23768 --- [REPORT-SERVICE] [  restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2026-04-24T17:51:53.654+05:30  INFO 23768 --- [REPORT-SERVICE] [  restartedMain] DiscoveryClientOptionalArgsConfiguration : Eureka HTTP Client uses RestTemplate.
+2026-04-24T17:51:53.693+05:30  WARN 23768 --- [REPORT-SERVICE] [  restartedMain] iguration$LoadBalancerCaffeineWarnLogger : Spring Cloud LoadBalancer is currently working with the default cache. While this cache implementation is useful for development and tests, it's recommended to use Caffeine cache in production.You can switch to using Caffeine cache, by adding it and org.springframework.cache.caffeine.CaffeineCacheManager to the classpath.
+2026-04-24T17:51:53.718+05:30  INFO 23768 --- [REPORT-SERVICE] [  restartedMain] o.s.c.n.eureka.InstanceInfoFactory       : Setting initial instance status as: STARTING
+2026-04-24T17:51:53.721+05:30  INFO 23768 --- [REPORT-SERVICE] [  restartedMain] com.netflix.discovery.DiscoveryClient    : Initializing Eureka in region us-east-1
+2026-04-24T17:51:53.722+05:30  INFO 23768 --- [REPORT-SERVICE] [  restartedMain] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-04-24T17:51:53.722+05:30  INFO 23768 --- [REPORT-SERVICE] [  restartedMain] com.netflix.discovery.DiscoveryClient    : Disable delta property : false
+2026-04-24T17:51:53.723+05:30  INFO 23768 --- [REPORT-SERVICE] [  restartedMain] com.netflix.discovery.DiscoveryClient    : Single vip registry refresh property : null
+2026-04-24T17:51:53.723+05:30  INFO 23768 --- [REPORT-SERVICE] [  restartedMain] com.netflix.discovery.DiscoveryClient    : Force full registry fetch : false
+2026-04-24T17:51:53.723+05:30  INFO 23768 --- [REPORT-SERVICE] [  restartedMain] com.netflix.discovery.DiscoveryClient    : Application is null : false
+2026-04-24T17:51:53.723+05:30  INFO 23768 --- [REPORT-SERVICE] [  restartedMain] com.netflix.discovery.DiscoveryClient    : Registered Applications size is zero : true
+2026-04-24T17:51:53.723+05:30  INFO 23768 --- [REPORT-SERVICE] [  restartedMain] com.netflix.discovery.DiscoveryClient    : Application version is -1: true
+2026-04-24T17:51:53.723+05:30  INFO 23768 --- [REPORT-SERVICE] [  restartedMain] com.netflix.discovery.DiscoveryClient    : Getting all instance registry info from the eureka server
+2026-04-24T17:51:53.847+05:30  INFO 23768 --- [REPORT-SERVICE] [  restartedMain] com.netflix.discovery.DiscoveryClient    : The response status is 200
+2026-04-24T17:51:53.851+05:30  INFO 23768 --- [REPORT-SERVICE] [  restartedMain] com.netflix.discovery.DiscoveryClient    : Starting heartbeat executor: renew interval is: 30
+2026-04-24T17:51:53.852+05:30  INFO 23768 --- [REPORT-SERVICE] [  restartedMain] c.n.discovery.InstanceInfoReplicator     : InstanceInfoReplicator onDemand update allowed rate per min is 4
+2026-04-24T17:51:53.853+05:30  INFO 23768 --- [REPORT-SERVICE] [  restartedMain] com.netflix.discovery.DiscoveryClient    : Discovery Client initialized at timestamp 1777033313853 with initial instances count: 5
+2026-04-24T17:51:53.860+05:30  INFO 23768 --- [REPORT-SERVICE] [  restartedMain] o.s.c.n.e.s.EurekaServiceRegistry        : Registering application REPORT-SERVICE with eureka with status UP
+2026-04-24T17:51:53.861+05:30  INFO 23768 --- [REPORT-SERVICE] [  restartedMain] com.netflix.discovery.DiscoveryClient    : Saw local status change event StatusChangeEvent [timestamp=1777033313861, current=UP, previous=STARTING]
+2026-04-24T17:51:53.862+05:30  INFO 23768 --- [REPORT-SERVICE] [foReplicator-%d] com.netflix.discovery.DiscoveryClient    : DiscoveryClient_REPORT-SERVICE/LTIN647338.cts.com:REPORT-SERVICE:2003: registering service...
+2026-04-24T17:51:53.872+05:30  INFO 23768 --- [REPORT-SERVICE] [  restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 2003 (http) with context path ''
+2026-04-24T17:51:53.875+05:30  INFO 23768 --- [REPORT-SERVICE] [  restartedMain] .s.c.n.e.s.EurekaAutoServiceRegistration : Updating port to 2003
+2026-04-24T17:51:53.892+05:30  INFO 23768 --- [REPORT-SERVICE] [foReplicator-%d] com.netflix.discovery.DiscoveryClient    : DiscoveryClient_REPORT-SERVICE/LTIN647338.cts.com:REPORT-SERVICE:2003 - registration status: 204
+2026-04-24T17:51:53.903+05:30  INFO 23768 --- [REPORT-SERVICE] [  restartedMain] c.e.demo.TariffService1Application       : Started TariffService1Application in 3.362 seconds (process running for 80.082)
+2026-04-24T17:51:53.909+05:30  INFO 23768 --- [REPORT-SERVICE] [  restartedMain] .ConditionEvaluationDeltaLoggingListener : Condition evaluation unchanged
+2026-04-24T17:51:55.033+05:30  INFO 23768 --- [REPORT-SERVICE] [   File Watcher] rtingClassPathChangeChangedEventListener : Restarting due to 1 class path change (1 addition, 0 deletions, 0 modifications)
+2026-04-24T17:51:55.035+05:30  INFO 23768 --- [REPORT-SERVICE] [       Thread-9] o.s.c.n.e.s.EurekaServiceRegistry        : Unregistering application REPORT-SERVICE with eureka with status DOWN
+2026-04-24T17:51:55.035+05:30  INFO 23768 --- [REPORT-SERVICE] [       Thread-9] com.netflix.discovery.DiscoveryClient    : Saw local status change event StatusChangeEvent [timestamp=1777033315035, current=DOWN, previous=UP]
+2026-04-24T17:51:55.035+05:30  INFO 23768 --- [REPORT-SERVICE] [foReplicator-%d] com.netflix.discovery.DiscoveryClient    : DiscoveryClient_REPORT-SERVICE/LTIN647338.cts.com:REPORT-SERVICE:2003: registering service...
+2026-04-24T17:51:55.041+05:30  INFO 23768 --- [REPORT-SERVICE] [foReplicator-%d] com.netflix.discovery.DiscoveryClient    : DiscoveryClient_REPORT-SERVICE/LTIN647338.cts.com:REPORT-SERVICE:2003 - registration status: 204
+2026-04-24T17:51:55.052+05:30  INFO 23768 --- [REPORT-SERVICE] [       Thread-9] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2026-04-24T17:51:55.053+05:30  INFO 23768 --- [REPORT-SERVICE] [       Thread-9] com.zaxxer.hikari.HikariDataSource       : HikariPool-2 - Shutdown initiated...
+2026-04-24T17:51:55.071+05:30  INFO 23768 --- [REPORT-SERVICE] [       Thread-9] com.zaxxer.hikari.HikariDataSource       : HikariPool-2 - Shutdown completed.
+2026-04-24T17:51:55.073+05:30  INFO 23768 --- [REPORT-SERVICE] [       Thread-9] com.netflix.discovery.DiscoveryClient    : Shutting down DiscoveryClient ...
+2026-04-24T17:51:58.083+05:30  INFO 23768 --- [REPORT-SERVICE] [       Thread-9] com.netflix.discovery.DiscoveryClient    : Unregistering ...
+2026-04-24T17:51:58.141+05:30  INFO 23768 --- [REPORT-SERVICE] [       Thread-9] com.netflix.discovery.DiscoveryClient    : DiscoveryClient_REPORT-SERVICE/LTIN647338.cts.com:REPORT-SERVICE:2003 - deregister  status: 200
+2026-04-24T17:51:58.141+05:30  INFO 23768 --- [REPORT-SERVICE] [       Thread-9] com.netflix.discovery.DiscoveryClient    : Completed shut down of DiscoveryClient
+
+  .   ____          _            __ _ _
+ /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+ \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+  '  |____| .__|_| |_|_| |_\__, | / / / /
+ =========|_|==============|___/=/_/_/_/
+ :: Spring Boot ::                (v3.2.4)
+
+2026-04-24T17:51:58.362+05:30  INFO 23768 --- [REPORT-SERVICE] [  restartedMain] c.e.demo.TariffService1Application       : Starting TariffService1Application using Java 25.0.1 with PID 23768 (C:\New folder\KpiReportService\target\classes started by 2471986 in C:\New folder\KpiReportService)
+2026-04-24T17:51:58.363+05:30  INFO 23768 --- [REPORT-SERVICE] [  restartedMain] c.e.demo.TariffService1Application       : No active profile set, falling back to 1 default profile: "default"
+2026-04-24T17:51:59.223+05:30  INFO 23768 --- [REPORT-SERVICE] [  restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2026-04-24T17:51:59.281+05:30  INFO 23768 --- [REPORT-SERVICE] [  restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 57 ms. Found 2 JPA repository interfaces.
+2026-04-24T17:51:59.568+05:30  INFO 23768 --- [REPORT-SERVICE] [  restartedMain] o.s.cloud.context.scope.GenericScope     : BeanFactory id=901ec211-d789-3806-9d82-e50cc570fb87
+2026-04-24T17:51:59.818+05:30  INFO 23768 --- [REPORT-SERVICE] [  restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 2003 (http)
+2026-04-24T17:51:59.820+05:30  INFO 23768 --- [REPORT-SERVICE] [  restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2026-04-24T17:51:59.822+05:30  INFO 23768 --- [REPORT-SERVICE] [  restartedMain] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.19]
+2026-04-24T17:51:59.982+05:30  INFO 23768 --- [REPORT-SERVICE] [  restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2026-04-24T17:51:59.983+05:30  INFO 23768 --- [REPORT-SERVICE] [  restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1614 ms
+2026-04-24T17:52:00.158+05:30  INFO 23768 --- [REPORT-SERVICE] [  restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2026-04-24T17:52:00.168+05:30  INFO 23768 --- [REPORT-SERVICE] [  restartedMain] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2026-04-24T17:52:00.190+05:30  INFO 23768 --- [REPORT-SERVICE] [  restartedMain] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2026-04-24T17:52:00.194+05:30  INFO 23768 --- [REPORT-SERVICE] [  restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-3 - Starting...
+2026-04-24T17:52:00.235+05:30  INFO 23768 --- [REPORT-SERVICE] [  restartedMain] com.zaxxer.hikari.pool.HikariPool        : HikariPool-3 - Added connection com.mysql.cj.jdbc.ConnectionImpl@2ac2012a
+2026-04-24T17:52:00.236+05:30  INFO 23768 --- [REPORT-SERVICE] [  restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-3 - Start completed.
+2026-04-24T17:52:00.240+05:30  WARN 23768 --- [REPORT-SERVICE] [  restartedMain] org.hibernate.orm.deprecation            : HHH90000025: MySQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2026-04-24T17:52:00.409+05:30  INFO 23768 --- [REPORT-SERVICE] [  restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2026-04-24T17:52:00.441+05:30  INFO 23768 --- [REPORT-SERVICE] [  restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2026-04-24T17:52:00.909+05:30  WARN 23768 --- [REPORT-SERVICE] [  restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2026-04-24T17:52:01.580+05:30  INFO 23768 --- [REPORT-SERVICE] [  restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2026-04-24T17:52:02.128+05:30  INFO 23768 --- [REPORT-SERVICE] [  restartedMain] DiscoveryClientOptionalArgsConfiguration : Eureka HTTP Client uses RestTemplate.
+2026-04-24T17:52:02.212+05:30  WARN 23768 --- [REPORT-SERVICE] [  restartedMain] iguration$LoadBalancerCaffeineWarnLogger : Spring Cloud LoadBalancer is currently working with the default cache. While this cache implementation is useful for development and tests, it's recommended to use Caffeine cache in production.You can switch to using Caffeine cache, by adding it and org.springframework.cache.caffeine.CaffeineCacheManager to the classpath.
+2026-04-24T17:52:02.249+05:30  INFO 23768 --- [REPORT-SERVICE] [  restartedMain] o.s.c.n.eureka.InstanceInfoFactory       : Setting initial instance status as: STARTING
+2026-04-24T17:52:02.254+05:30  INFO 23768 --- [REPORT-SERVICE] [  restartedMain] com.netflix.discovery.DiscoveryClient    : Initializing Eureka in region us-east-1
+2026-04-24T17:52:02.254+05:30  INFO 23768 --- [REPORT-SERVICE] [  restartedMain] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-04-24T17:52:02.255+05:30  INFO 23768 --- [REPORT-SERVICE] [  restartedMain] com.netflix.discovery.DiscoveryClient    : Disable delta property : false
+2026-04-24T17:52:02.255+05:30  INFO 23768 --- [REPORT-SERVICE] [  restartedMain] com.netflix.discovery.DiscoveryClient    : Single vip registry refresh property : null
+2026-04-24T17:52:02.255+05:30  INFO 23768 --- [REPORT-SERVICE] [  restartedMain] com.netflix.discovery.DiscoveryClient    : Force full registry fetch : false
+2026-04-24T17:52:02.255+05:30  INFO 23768 --- [REPORT-SERVICE] [  restartedMain] com.netflix.discovery.DiscoveryClient    : Application is null : false
+2026-04-24T17:52:02.255+05:30  INFO 23768 --- [REPORT-SERVICE] [  restartedMain] com.netflix.discovery.DiscoveryClient    : Registered Applications size is zero : true
+2026-04-24T17:52:02.256+05:30  INFO 23768 --- [REPORT-SERVICE] [  restartedMain] com.netflix.discovery.DiscoveryClient    : Application version is -1: true
+2026-04-24T17:52:02.256+05:30  INFO 23768 --- [REPORT-SERVICE] [  restartedMain] com.netflix.discovery.DiscoveryClient    : Getting all instance registry info from the eureka server
+2026-04-24T17:52:02.427+05:30  INFO 23768 --- [REPORT-SERVICE] [  restartedMain] com.netflix.discovery.DiscoveryClient    : The response status is 200
+2026-04-24T17:52:02.433+05:30  INFO 23768 --- [REPORT-SERVICE] [  restartedMain] com.netflix.discovery.DiscoveryClient    : Starting heartbeat executor: renew interval is: 30
+2026-04-24T17:52:02.433+05:30  INFO 23768 --- [REPORT-SERVICE] [  restartedMain] c.n.discovery.InstanceInfoReplicator     : InstanceInfoReplicator onDemand update allowed rate per min is 4
+2026-04-24T17:52:02.433+05:30  INFO 23768 --- [REPORT-SERVICE] [  restartedMain] com.netflix.discovery.DiscoveryClient    : Discovery Client initialized at timestamp 1777033322433 with initial instances count: 5
+2026-04-24T17:52:02.445+05:30  INFO 23768 --- [REPORT-SERVICE] [  restartedMain] o.s.c.n.e.s.EurekaServiceRegistry        : Registering application REPORT-SERVICE with eureka with status UP
+2026-04-24T17:52:02.446+05:30  INFO 23768 --- [REPORT-SERVICE] [  restartedMain] com.netflix.discovery.DiscoveryClient    : Saw local status change event StatusChangeEvent [timestamp=1777033322446, current=UP, previous=STARTING]
+2026-04-24T17:52:02.448+05:30  INFO 23768 --- [REPORT-SERVICE] [foReplicator-%d] com.netflix.discovery.DiscoveryClient    : DiscoveryClient_REPORT-SERVICE/LTIN647338.cts.com:REPORT-SERVICE:2003: registering service...
+2026-04-24T17:52:02.478+05:30  INFO 23768 --- [REPORT-SERVICE] [foReplicator-%d] com.netflix.discovery.DiscoveryClient    : DiscoveryClient_REPORT-SERVICE/LTIN647338.cts.com:REPORT-SERVICE:2003 - registration status: 204
+2026-04-24T17:52:02.483+05:30  INFO 23768 --- [REPORT-SERVICE] [  restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 2003 (http) with context path ''
+2026-04-24T17:52:02.485+05:30  INFO 23768 --- [REPORT-SERVICE] [  restartedMain] .s.c.n.e.s.EurekaAutoServiceRegistration : Updating port to 2003
+2026-04-24T17:52:02.633+05:30  INFO 23768 --- [REPORT-SERVICE] [  restartedMain] c.e.demo.TariffService1Application       : Started TariffService1Application in 4.38 seconds (process running for 88.811)
+2026-04-24T17:52:02.639+05:30  INFO 23768 --- [REPORT-SERVICE] [  restartedMain] .ConditionEvaluationDeltaLoggingListener : Condition evaluation unchanged
+2026-04-24T17:53:38.874+05:30  INFO 23768 --- [REPORT-SERVICE] [nio-2003-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2026-04-24T17:53:38.874+05:30  INFO 23768 --- [REPORT-SERVICE] [nio-2003-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2026-04-24T17:53:38.875+05:30  INFO 23768 --- [REPORT-SERVICE] [nio-2003-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
+Hibernate: select r1_0.reportid,r1_0.generated_at,r1_0.generated_by,r1_0.metricsjson,r1_0.parametersjson,r1_0.scope from report r1_0
+2026-04-24T17:55:46.537+05:30  WARN 23768 --- [REPORT-SERVICE] [nio-2003-exec-5] o.s.c.l.core.RoundRobinLoadBalancer      : No servers available for service: MANIFEST-SERVICE
+Hibernate: insert into report (generated_at,generated_by,metricsjson,parametersjson,scope) values (?,?,?,?,?)
+2026-04-24T17:55:57.120+05:30  WARN 23768 --- [REPORT-SERVICE] [nio-2003-exec-2] o.s.c.l.core.RoundRobinLoadBalancer      : No servers available for service: MANIFEST-SERVICE
+Hibernate: insert into report (generated_at,generated_by,metricsjson,parametersjson,scope) values (?,?,?,?,?)
+Hibernate: select r1_0.reportid,r1_0.generated_at,r1_0.generated_by,r1_0.metricsjson,r1_0.parametersjson,r1_0.scope from report r1_0 where r1_0.scope=? and r1_0.generated_at between ? and ?
+Hibernate: select k1_0.kpiid,k1_0.current_value,k1_0.definition,k1_0.name,k1_0.reporting_period,k1_0.target from kpi k1_0 where k1_0.name=?
+2026-04-24T17:57:02.267+05:30  INFO 23768 --- [REPORT-SERVICE] [rap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-04-24T18:02:02.269+05:30  INFO 23768 --- [REPORT-SERVICE] [rap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-04-24T18:07:02.275+05:30  INFO 23768 --- [REPORT-SERVICE] [rap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-04-24T18:12:02.286+05:30  INFO 23768 --- [REPORT-SERVICE] [rap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-04-24T18:17:02.300+05:30  INFO 23768 --- [REPORT-SERVICE] [rap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-04-24T18:22:02.302+05:30  INFO 23768 --- [REPORT-SERVICE] [rap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-04-24T18:27:02.315+05:30  INFO 23768 --- [REPORT-SERVICE] [rap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-04-24T18:32:02.329+05:30  INFO 23768 --- [REPORT-SERVICE] [rap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-04-24T20:58:14.217+05:30  WARN 23768 --- [REPORT-SERVICE] [l-3 housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-3 - Thread starvation or clock leap detected (housekeeper delta=2h22m43s305ms460µs900ns).
+2026-04-24T20:59:16.916+05:30  INFO 23768 --- [REPORT-SERVICE] [rap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-04-24T21:04:16.930+05:30  INFO 23768 --- [REPORT-SERVICE] [rap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-04-24T21:09:16.944+05:30  INFO 23768 --- [REPORT-SERVICE] [rap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-04-24T21:14:16.947+05:30  INFO 23768 --- [REPORT-SERVICE] [rap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-04-24T21:19:16.953+05:30  INFO 23768 --- [REPORT-SERVICE] [rap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-04-24T21:24:16.964+05:30  INFO 23768 --- [REPORT-SERVICE] [rap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-04-24T21:29:16.973+05:30  INFO 23768 --- [REPORT-SERVICE] [rap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-04-24T21:34:16.974+05:30  INFO 23768 --- [REPORT-SERVICE] [rap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-04-24T21:39:16.998+05:30  INFO 23768 --- [REPORT-SERVICE] [rap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-04-24T21:44:17.002+05:30  INFO 23768 --- [REPORT-SERVICE] [rap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-04-24T21:49:17.011+05:30  INFO 23768 --- [REPORT-SERVICE] [rap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-04-24T21:54:17.014+05:30  INFO 23768 --- [REPORT-SERVICE] [rap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-04-24T21:58:26.275+05:30  INFO 23768 --- [REPORT-SERVICE] [   File Watcher] rtingClassPathChangeChangedEventListener : Restarting due to 1 class path change (0 additions, 0 deletions, 1 modification)
+2026-04-24T21:58:26.286+05:30  INFO 23768 --- [REPORT-SERVICE] [      Thread-15] o.s.c.n.e.s.EurekaServiceRegistry        : Unregistering application REPORT-SERVICE with eureka with status DOWN
+2026-04-24T21:58:26.287+05:30  INFO 23768 --- [REPORT-SERVICE] [      Thread-15] com.netflix.discovery.DiscoveryClient    : Saw local status change event StatusChangeEvent [timestamp=1777048106287, current=DOWN, previous=UP]
+2026-04-24T21:58:26.288+05:30  INFO 23768 --- [REPORT-SERVICE] [foReplicator-%d] com.netflix.discovery.DiscoveryClient    : DiscoveryClient_REPORT-SERVICE/LTIN647338.cts.com:REPORT-SERVICE:2003: registering service...
+2026-04-24T21:58:26.336+05:30  INFO 23768 --- [REPORT-SERVICE] [foReplicator-%d] com.netflix.discovery.DiscoveryClient    : DiscoveryClient_REPORT-SERVICE/LTIN647338.cts.com:REPORT-SERVICE:2003 - registration status: 204
+2026-04-24T21:58:26.339+05:30  INFO 23768 --- [REPORT-SERVICE] [      Thread-15] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2026-04-24T21:58:26.351+05:30  INFO 23768 --- [REPORT-SERVICE] [      Thread-15] com.zaxxer.hikari.HikariDataSource       : HikariPool-3 - Shutdown initiated...
+2026-04-24T21:58:26.358+05:30  INFO 23768 --- [REPORT-SERVICE] [      Thread-15] com.zaxxer.hikari.HikariDataSource       : HikariPool-3 - Shutdown completed.
+2026-04-24T21:58:26.359+05:30  INFO 23768 --- [REPORT-SERVICE] [      Thread-15] com.netflix.discovery.DiscoveryClient    : Shutting down DiscoveryClient ...
+2026-04-24T21:58:29.362+05:30  INFO 23768 --- [REPORT-SERVICE] [      Thread-15] com.netflix.discovery.DiscoveryClient    : Unregistering ...
+2026-04-24T21:58:29.367+05:30  INFO 23768 --- [REPORT-SERVICE] [      Thread-15] com.netflix.discovery.DiscoveryClient    : DiscoveryClient_REPORT-SERVICE/LTIN647338.cts.com:REPORT-SERVICE:2003 - deregister  status: 200
+2026-04-24T21:58:29.368+05:30  INFO 23768 --- [REPORT-SERVICE] [      Thread-15] com.netflix.discovery.DiscoveryClient    : Completed shut down of DiscoveryClient
+
+  .   ____          _            __ _ _
+ /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+ \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+  '  |____| .__|_| |_|_| |_\__, | / / / /
+ =========|_|==============|___/=/_/_/_/
+ :: Spring Boot ::                (v3.2.4)
+
+2026-04-24T21:58:29.676+05:30  INFO 23768 --- [REPORT-SERVICE] [  restartedMain] c.e.demo.TariffService1Application       : Starting TariffService1Application using Java 25.0.1 with PID 23768 (C:\New folder\KpiReportService\target\classes started by 2471986 in C:\New folder\KpiReportService)
+2026-04-24T21:58:29.676+05:30  INFO 23768 --- [REPORT-SERVICE] [  restartedMain] c.e.demo.TariffService1Application       : No active profile set, falling back to 1 default profile: "default"
+2026-04-24T21:58:30.062+05:30  INFO 23768 --- [REPORT-SERVICE] [  restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2026-04-24T21:58:30.091+05:30  INFO 23768 --- [REPORT-SERVICE] [  restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 27 ms. Found 2 JPA repository interfaces.
+2026-04-24T21:58:30.188+05:30  INFO 23768 --- [REPORT-SERVICE] [  restartedMain] o.s.cloud.context.scope.GenericScope     : BeanFactory id=901ec211-d789-3806-9d82-e50cc570fb87
+2026-04-24T21:58:30.328+05:30  INFO 23768 --- [REPORT-SERVICE] [  restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 2003 (http)
+2026-04-24T21:58:30.332+05:30  INFO 23768 --- [REPORT-SERVICE] [  restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2026-04-24T21:58:30.344+05:30  INFO 23768 --- [REPORT-SERVICE] [  restartedMain] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.19]
+2026-04-24T21:58:30.494+05:30  INFO 23768 --- [REPORT-SERVICE] [  restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2026-04-24T21:58:30.494+05:30  INFO 23768 --- [REPORT-SERVICE] [  restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 814 ms
+2026-04-24T21:58:30.548+05:30  INFO 23768 --- [REPORT-SERVICE] [  restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2026-04-24T21:58:30.552+05:30  INFO 23768 --- [REPORT-SERVICE] [  restartedMain] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2026-04-24T21:58:30.559+05:30  INFO 23768 --- [REPORT-SERVICE] [  restartedMain] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2026-04-24T21:58:30.561+05:30  INFO 23768 --- [REPORT-SERVICE] [  restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-4 - Starting...
+2026-04-24T21:58:30.583+05:30  INFO 23768 --- [REPORT-SERVICE] [  restartedMain] com.zaxxer.hikari.pool.HikariPool        : HikariPool-4 - Added connection com.mysql.cj.jdbc.ConnectionImpl@7630b1ad
+2026-04-24T21:58:30.584+05:30  INFO 23768 --- [REPORT-SERVICE] [  restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-4 - Start completed.
+2026-04-24T21:58:30.590+05:30  WARN 23768 --- [REPORT-SERVICE] [  restartedMain] org.hibernate.orm.deprecation            : HHH90000025: MySQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2026-04-24T21:58:30.688+05:30  INFO 23768 --- [REPORT-SERVICE] [  restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2026-04-24T21:58:30.789+05:30  INFO 23768 --- [REPORT-SERVICE] [  restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2026-04-24T21:58:30.994+05:30  WARN 23768 --- [REPORT-SERVICE] [  restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2026-04-24T21:58:31.206+05:30  INFO 23768 --- [REPORT-SERVICE] [  restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2026-04-24T21:58:31.314+05:30  INFO 23768 --- [REPORT-SERVICE] [  restartedMain] DiscoveryClientOptionalArgsConfiguration : Eureka HTTP Client uses RestTemplate.
+2026-04-24T21:58:31.351+05:30  WARN 23768 --- [REPORT-SERVICE] [  restartedMain] iguration$LoadBalancerCaffeineWarnLogger : Spring Cloud LoadBalancer is currently working with the default cache. While this cache implementation is useful for development and tests, it's recommended to use Caffeine cache in production.You can switch to using Caffeine cache, by adding it and org.springframework.cache.caffeine.CaffeineCacheManager to the classpath.
+2026-04-24T21:58:31.372+05:30  INFO 23768 --- [REPORT-SERVICE] [  restartedMain] o.s.c.n.eureka.InstanceInfoFactory       : Setting initial instance status as: STARTING
+2026-04-24T21:58:31.383+05:30  INFO 23768 --- [REPORT-SERVICE] [  restartedMain] com.netflix.discovery.DiscoveryClient    : Initializing Eureka in region us-east-1
+2026-04-24T21:58:31.383+05:30  INFO 23768 --- [REPORT-SERVICE] [  restartedMain] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-04-24T21:58:31.383+05:30  INFO 23768 --- [REPORT-SERVICE] [  restartedMain] com.netflix.discovery.DiscoveryClient    : Disable delta property : false
+2026-04-24T21:58:31.383+05:30  INFO 23768 --- [REPORT-SERVICE] [  restartedMain] com.netflix.discovery.DiscoveryClient    : Single vip registry refresh property : null
+2026-04-24T21:58:31.384+05:30  INFO 23768 --- [REPORT-SERVICE] [  restartedMain] com.netflix.discovery.DiscoveryClient    : Force full registry fetch : false
+2026-04-24T21:58:31.384+05:30  INFO 23768 --- [REPORT-SERVICE] [  restartedMain] com.netflix.discovery.DiscoveryClient    : Application is null : false
+2026-04-24T21:58:31.384+05:30  INFO 23768 --- [REPORT-SERVICE] [  restartedMain] com.netflix.discovery.DiscoveryClient    : Registered Applications size is zero : true
+2026-04-24T21:58:31.384+05:30  INFO 23768 --- [REPORT-SERVICE] [  restartedMain] com.netflix.discovery.DiscoveryClient    : Application version is -1: true
+2026-04-24T21:58:31.384+05:30  INFO 23768 --- [REPORT-SERVICE] [  restartedMain] com.netflix.discovery.DiscoveryClient    : Getting all instance registry info from the eureka server
+2026-04-24T21:58:31.449+05:30  INFO 23768 --- [REPORT-SERVICE] [  restartedMain] com.netflix.discovery.DiscoveryClient    : The response status is 200
+2026-04-24T21:58:31.450+05:30  INFO 23768 --- [REPORT-SERVICE] [  restartedMain] com.netflix.discovery.DiscoveryClient    : Starting heartbeat executor: renew interval is: 30
+2026-04-24T21:58:31.450+05:30  INFO 23768 --- [REPORT-SERVICE] [  restartedMain] c.n.discovery.InstanceInfoReplicator     : InstanceInfoReplicator onDemand update allowed rate per min is 4
+2026-04-24T21:58:31.450+05:30  INFO 23768 --- [REPORT-SERVICE] [  restartedMain] com.netflix.discovery.DiscoveryClient    : Discovery Client initialized at timestamp 1777048111450 with initial instances count: 6
+2026-04-24T21:58:31.454+05:30  INFO 23768 --- [REPORT-SERVICE] [  restartedMain] o.s.c.n.e.s.EurekaServiceRegistry        : Registering application REPORT-SERVICE with eureka with status UP
+2026-04-24T21:58:31.454+05:30  INFO 23768 --- [REPORT-SERVICE] [  restartedMain] com.netflix.discovery.DiscoveryClient    : Saw local status change event StatusChangeEvent [timestamp=1777048111454, current=UP, previous=STARTING]
+2026-04-24T21:58:31.454+05:30  INFO 23768 --- [REPORT-SERVICE] [foReplicator-%d] com.netflix.discovery.DiscoveryClient    : DiscoveryClient_REPORT-SERVICE/LTIN647338.cts.com:REPORT-SERVICE:2003: registering service...
+2026-04-24T21:58:31.461+05:30  INFO 23768 --- [REPORT-SERVICE] [  restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 2003 (http) with context path ''
+2026-04-24T21:58:31.461+05:30  INFO 23768 --- [REPORT-SERVICE] [  restartedMain] .s.c.n.e.s.EurekaAutoServiceRegistration : Updating port to 2003
+2026-04-24T21:58:31.470+05:30  INFO 23768 --- [REPORT-SERVICE] [foReplicator-%d] com.netflix.discovery.DiscoveryClient    : DiscoveryClient_REPORT-SERVICE/LTIN647338.cts.com:REPORT-SERVICE:2003 - registration status: 204
+2026-04-24T21:58:31.478+05:30  INFO 23768 --- [REPORT-SERVICE] [  restartedMain] c.e.demo.TariffService1Application       : Started TariffService1Application in 1.872 seconds (process running for 14876.379)
+2026-04-24T21:58:31.480+05:30  INFO 23768 --- [REPORT-SERVICE] [  restartedMain] .ConditionEvaluationDeltaLoggingListener : Condition evaluation unchanged
+2026-04-24T22:03:31.385+05:30  INFO 23768 --- [REPORT-SERVICE] [rap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-04-24T22:08:31.396+05:30  INFO 23768 --- [REPORT-SERVICE] [rap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-04-24T22:13:31.411+05:30  INFO 23768 --- [REPORT-SERVICE] [rap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-04-24T22:18:31.417+05:30  INFO 23768 --- [REPORT-SERVICE] [rap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-04-24T22:23:31.427+05:30  INFO 23768 --- [REPORT-SERVICE] [rap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-04-24T22:28:31.433+05:30  INFO 23768 --- [REPORT-SERVICE] [rap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-04-24T22:33:31.434+05:30  INFO 23768 --- [REPORT-SERVICE] [rap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-04-24T22:38:31.444+05:30  INFO 23768 --- [REPORT-SERVICE] [rap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-04-24T22:43:31.450+05:30  INFO 23768 --- [REPORT-SERVICE] [rap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-04-24T22:48:31.453+05:30  INFO 23768 --- [REPORT-SERVICE] [rap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-04-24T22:53:31.459+05:30  INFO 23768 --- [REPORT-SERVICE] [rap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-04-24T22:58:31.466+05:30  INFO 23768 --- [REPORT-SERVICE] [rap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-04-24T23:03:31.481+05:30  INFO 23768 --- [REPORT-SERVICE] [rap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-04-24T23:08:31.485+05:30  INFO 23768 --- [REPORT-SERVICE] [rap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-04-24T23:13:31.487+05:30  INFO 23768 --- [REPORT-SERVICE] [rap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-04-24T23:18:31.502+05:30  INFO 23768 --- [REPORT-SERVICE] [rap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-04-24T23:23:31.512+05:30  INFO 23768 --- [REPORT-SERVICE] [rap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-04-24T23:28:31.518+05:30  INFO 23768 --- [REPORT-SERVICE] [rap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-04-24T23:33:31.521+05:30  INFO 23768 --- [REPORT-SERVICE] [rap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-04-24T23:38:31.535+05:30  INFO 23768 --- [REPORT-SERVICE] [rap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-04-24T23:43:31.537+05:30  INFO 23768 --- [REPORT-SERVICE] [rap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-04-24T23:48:31.539+05:30  INFO 23768 --- [REPORT-SERVICE] [rap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-04-24T23:53:31.542+05:30  INFO 23768 --- [REPORT-SERVICE] [rap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-04-24T23:58:31.550+05:30  INFO 23768 --- [REPORT-SERVICE] [rap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-04-25T00:03:31.554+05:30  INFO 23768 --- [REPORT-SERVICE] [rap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-04-25T00:08:31.555+05:30  INFO 23768 --- [REPORT-SERVICE] [rap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-04-25T00:13:31.565+05:30  INFO 23768 --- [REPORT-SERVICE] [rap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-04-25T00:18:31.574+05:30  INFO 23768 --- [REPORT-SERVICE] [rap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-04-25T00:23:31.575+05:30  INFO 23768 --- [REPORT-SERVICE] [rap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-04-25T00:28:31.591+05:30  INFO 23768 --- [REPORT-SERVICE] [rap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-04-25T00:33:31.600+05:30  INFO 23768 --- [REPORT-SERVICE] [rap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-04-25T00:38:31.600+05:30  INFO 23768 --- [REPORT-SERVICE] [rap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-04-25T00:43:31.615+05:30  INFO 23768 --- [REPORT-SERVICE] [rap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-04-25T00:48:31.629+05:30  INFO 23768 --- [REPORT-SERVICE] [rap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-04-25T00:53:31.644+05:30  INFO 23768 --- [REPORT-SERVICE] [rap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-04-25T00:58:31.650+05:30  INFO 23768 --- [REPORT-SERVICE] [rap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-04-25T08:39:04.298+05:30  WARN 23768 --- [REPORT-SERVICE] [l-4 housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-4 - Thread starvation or clock leap detected (housekeeper delta=7h37m1s43ms825µs800ns).
+2026-04-25T10:14:57.691+05:30  WARN 23768 --- [REPORT-SERVICE] [l-4 housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-4 - Thread starvation or clock leap detected (housekeeper delta=1h36m700ms680µs900ns).
+2026-04-25T10:15:26.071+05:30  INFO 23768 --- [REPORT-SERVICE] [rap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-04-25T10:20:26.077+05:30  INFO 23768 --- [REPORT-SERVICE] [rap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-04-25T10:25:26.089+05:30  INFO 23768 --- [REPORT-SERVICE] [rap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-04-25T10:30:26.105+05:30  INFO 23768 --- [REPORT-SERVICE] [rap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-04-25T10:35:26.112+05:30  INFO 23768 --- [REPORT-SERVICE] [rap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-04-25T10:40:26.121+05:30  INFO 23768 --- [REPORT-SERVICE] [rap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-04-25T10:45:26.124+05:30  INFO 23768 --- [REPORT-SERVICE] [rap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-04-25T10:50:26.126+05:30  INFO 23768 --- [REPORT-SERVICE] [rap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-04-25T10:55:26.132+05:30  INFO 23768 --- [REPORT-SERVICE] [rap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-04-25T11:00:26.137+05:30  INFO 23768 --- [REPORT-SERVICE] [rap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-04-25T11:05:26.146+05:30  INFO 23768 --- [REPORT-SERVICE] [rap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-04-25T11:10:26.158+05:30  INFO 23768 --- [REPORT-SERVICE] [rap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-04-25T11:15:26.165+05:30  INFO 23768 --- [REPORT-SERVICE] [rap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-04-25T11:20:26.166+05:30  INFO 23768 --- [REPORT-SERVICE] [rap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-04-25T11:25:26.173+05:30  INFO 23768 --- [REPORT-SERVICE] [rap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-04-25T11:30:26.178+05:30  INFO 23768 --- [REPORT-SERVICE] [rap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-04-25T11:35:26.194+05:30  INFO 23768 --- [REPORT-SERVICE] [rap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-04-25T11:40:26.199+05:30  INFO 23768 --- [REPORT-SERVICE] [rap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-04-25T11:45:26.203+05:30  INFO 23768 --- [REPORT-SERVICE] [rap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-04-25T11:50:26.212+05:30  INFO 23768 --- [REPORT-SERVICE] [rap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-04-25T11:55:26.217+05:30  INFO 23768 --- [REPORT-SERVICE] [rap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-04-25T12:00:26.222+05:30  INFO 23768 --- [REPORT-SERVICE] [rap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-04-25T12:05:26.238+05:30  INFO 23768 --- [REPORT-SERVICE] [rap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-04-25T12:10:26.254+05:30  INFO 23768 --- [REPORT-SERVICE] [rap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-04-25T12:15:26.263+05:30  INFO 23768 --- [REPORT-SERVICE] [rap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-04-25T13:49:26.713+05:30  WARN 23768 --- [REPORT-SERVICE] [l-4 housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-4 - Thread starvation or clock leap detected (housekeeper delta=1h33m57s179ms479µs900ns).
+2026-04-25T13:52:00.718+05:30  INFO 23768 --- [REPORT-SERVICE] [nio-2003-exec-4] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2026-04-25T13:52:00.720+05:30  INFO 23768 --- [REPORT-SERVICE] [nio-2003-exec-4] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2026-04-25T13:52:00.770+05:30  INFO 23768 --- [REPORT-SERVICE] [nio-2003-exec-4] o.s.web.servlet.DispatcherServlet        : Completed initialization in 49 ms
+Hibernate: select k1_0.kpiid,k1_0.current_value,k1_0.definition,k1_0.name,k1_0.reporting_period,k1_0.target from kpi k1_0
+Hibernate: select k1_0.kpiid,k1_0.current_value,k1_0.definition,k1_0.name,k1_0.reporting_period,k1_0.target from kpi k1_0
+2026-04-25T13:53:53.445+05:30  INFO 23768 --- [REPORT-SERVICE] [rap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-04-25T13:58:53.447+05:30  INFO 23768 --- [REPORT-SERVICE] [rap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-04-25T13:59:14.579+05:30  INFO 23768 --- [REPORT-SERVICE] [   File Watcher] rtingClassPathChangeChangedEventListener : Restarting due to 2 class path changes (0 additions, 0 deletions, 2 modifications)
+2026-04-25T13:59:14.602+05:30  INFO 23768 --- [REPORT-SERVICE] [      Thread-21] o.s.c.n.e.s.EurekaServiceRegistry        : Unregistering application REPORT-SERVICE with eureka with status DOWN
+2026-04-25T13:59:14.606+05:30  INFO 23768 --- [REPORT-SERVICE] [      Thread-21] com.netflix.discovery.DiscoveryClient    : Saw local status change event StatusChangeEvent [timestamp=1777105754603, current=DOWN, previous=UP]
+2026-04-25T13:59:14.609+05:30  INFO 23768 --- [REPORT-SERVICE] [foReplicator-%d] com.netflix.discovery.DiscoveryClient    : DiscoveryClient_REPORT-SERVICE/LTIN647338.cts.com:REPORT-SERVICE:2003: registering service...
+2026-04-25T13:59:14.681+05:30  INFO 23768 --- [REPORT-SERVICE] [      Thread-21] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2026-04-25T13:59:14.699+05:30  INFO 23768 --- [REPORT-SERVICE] [      Thread-21] com.zaxxer.hikari.HikariDataSource       : HikariPool-4 - Shutdown initiated...
+2026-04-25T13:59:14.721+05:30  INFO 23768 --- [REPORT-SERVICE] [      Thread-21] com.zaxxer.hikari.HikariDataSource       : HikariPool-4 - Shutdown completed.
+2026-04-25T13:59:14.726+05:30  INFO 23768 --- [REPORT-SERVICE] [      Thread-21] com.netflix.discovery.DiscoveryClient    : Shutting down DiscoveryClient ...
+2026-04-25T13:59:14.735+05:30  INFO 23768 --- [REPORT-SERVICE] [foReplicator-%d] com.netflix.discovery.DiscoveryClient    : DiscoveryClient_REPORT-SERVICE/LTIN647338.cts.com:REPORT-SERVICE:2003 - registration status: 204
+2026-04-25T13:59:14.738+05:30  INFO 23768 --- [REPORT-SERVICE] [      Thread-21] com.netflix.discovery.DiscoveryClient    : Unregistering ...
+2026-04-25T13:59:14.749+05:30  INFO 23768 --- [REPORT-SERVICE] [      Thread-21] com.netflix.discovery.DiscoveryClient    : DiscoveryClient_REPORT-SERVICE/LTIN647338.cts.com:REPORT-SERVICE:2003 - deregister  status: 200
+2026-04-25T13:59:14.751+05:30  INFO 23768 --- [REPORT-SERVICE] [      Thread-21] com.netflix.discovery.DiscoveryClient    : Completed shut down of DiscoveryClient
+
+  .   ____          _            __ _ _
+ /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+ \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+  '  |____| .__|_| |_|_| |_\__, | / / / /
+ =========|_|==============|___/=/_/_/_/
+ :: Spring Boot ::                (v3.2.4)
+
+2026-04-25T13:59:15.286+05:30  INFO 23768 --- [REPORT-SERVICE] [  restartedMain] c.e.demo.TariffService1Application       : Starting TariffService1Application using Java 25.0.1 with PID 23768 (C:\New folder\KpiReportService\target\classes started by 2471986 in C:\New folder\KpiReportService)
+2026-04-25T13:59:15.286+05:30  INFO 23768 --- [REPORT-SERVICE] [  restartedMain] c.e.demo.TariffService1Application       : No active profile set, falling back to 1 default profile: "default"
+2026-04-25T13:59:16.106+05:30  INFO 23768 --- [REPORT-SERVICE] [  restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2026-04-25T13:59:16.158+05:30  INFO 23768 --- [REPORT-SERVICE] [  restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 53 ms. Found 2 JPA repository interfaces.
+2026-04-25T13:59:16.414+05:30  INFO 23768 --- [REPORT-SERVICE] [  restartedMain] o.s.cloud.context.scope.GenericScope     : BeanFactory id=901ec211-d789-3806-9d82-e50cc570fb87
+2026-04-25T13:59:16.698+05:30  INFO 23768 --- [REPORT-SERVICE] [  restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 2003 (http)
+2026-04-25T13:59:16.702+05:30  INFO 23768 --- [REPORT-SERVICE] [  restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2026-04-25T13:59:16.702+05:30  INFO 23768 --- [REPORT-SERVICE] [  restartedMain] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.19]
+2026-04-25T13:59:16.832+05:30  INFO 23768 --- [REPORT-SERVICE] [  restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2026-04-25T13:59:16.833+05:30  INFO 23768 --- [REPORT-SERVICE] [  restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1538 ms
+2026-04-25T13:59:16.955+05:30  INFO 23768 --- [REPORT-SERVICE] [  restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2026-04-25T13:59:16.963+05:30  INFO 23768 --- [REPORT-SERVICE] [  restartedMain] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2026-04-25T13:59:16.974+05:30  INFO 23768 --- [REPORT-SERVICE] [  restartedMain] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2026-04-25T13:59:16.979+05:30  INFO 23768 --- [REPORT-SERVICE] [  restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-5 - Starting...
+2026-04-25T13:59:17.057+05:30  INFO 23768 --- [REPORT-SERVICE] [  restartedMain] com.zaxxer.hikari.pool.HikariPool        : HikariPool-5 - Added connection com.mysql.cj.jdbc.ConnectionImpl@728846ef
+2026-04-25T13:59:17.059+05:30  INFO 23768 --- [REPORT-SERVICE] [  restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-5 - Start completed.
+2026-04-25T13:59:17.063+05:30  WARN 23768 --- [REPORT-SERVICE] [  restartedMain] org.hibernate.orm.deprecation            : HHH90000025: MySQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2026-04-25T13:59:17.224+05:30  INFO 23768 --- [REPORT-SERVICE] [  restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2026-04-25T13:59:17.291+05:30  INFO 23768 --- [REPORT-SERVICE] [  restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2026-04-25T13:59:17.630+05:30  WARN 23768 --- [REPORT-SERVICE] [  restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2026-04-25T13:59:17.933+05:30  INFO 23768 --- [REPORT-SERVICE] [  restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2026-04-25T13:59:18.029+05:30  INFO 23768 --- [REPORT-SERVICE] [  restartedMain] DiscoveryClientOptionalArgsConfiguration : Eureka HTTP Client uses RestTemplate.
+2026-04-25T13:59:18.075+05:30  WARN 23768 --- [REPORT-SERVICE] [  restartedMain] iguration$LoadBalancerCaffeineWarnLogger : Spring Cloud LoadBalancer is currently working with the default cache. While this cache implementation is useful for development and tests, it's recommended to use Caffeine cache in production.You can switch to using Caffeine cache, by adding it and org.springframework.cache.caffeine.CaffeineCacheManager to the classpath.
+2026-04-25T13:59:18.098+05:30  INFO 23768 --- [REPORT-SERVICE] [  restartedMain] o.s.c.n.eureka.InstanceInfoFactory       : Setting initial instance status as: STARTING
+2026-04-25T13:59:18.104+05:30  INFO 23768 --- [REPORT-SERVICE] [  restartedMain] com.netflix.discovery.DiscoveryClient    : Initializing Eureka in region us-east-1
+2026-04-25T13:59:18.104+05:30  INFO 23768 --- [REPORT-SERVICE] [  restartedMain] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-04-25T13:59:18.109+05:30  INFO 23768 --- [REPORT-SERVICE] [  restartedMain] com.netflix.discovery.DiscoveryClient    : Disable delta property : false
+2026-04-25T13:59:18.109+05:30  INFO 23768 --- [REPORT-SERVICE] [  restartedMain] com.netflix.discovery.DiscoveryClient    : Single vip registry refresh property : null
+2026-04-25T13:59:18.109+05:30  INFO 23768 --- [REPORT-SERVICE] [  restartedMain] com.netflix.discovery.DiscoveryClient    : Force full registry fetch : false
+2026-04-25T13:59:18.109+05:30  INFO 23768 --- [REPORT-SERVICE] [  restartedMain] com.netflix.discovery.DiscoveryClient    : Application is null : false
+2026-04-25T13:59:18.109+05:30  INFO 23768 --- [REPORT-SERVICE] [  restartedMain] com.netflix.discovery.DiscoveryClient    : Registered Applications size is zero : true
+2026-04-25T13:59:18.109+05:30  INFO 23768 --- [REPORT-SERVICE] [  restartedMain] com.netflix.discovery.DiscoveryClient    : Application version is -1: true
+2026-04-25T13:59:18.109+05:30  INFO 23768 --- [REPORT-SERVICE] [  restartedMain] com.netflix.discovery.DiscoveryClient    : Getting all instance registry info from the eureka server
+2026-04-25T13:59:18.205+05:30  INFO 23768 --- [REPORT-SERVICE] [  restartedMain] com.netflix.discovery.DiscoveryClient    : The response status is 200
+2026-04-25T13:59:18.205+05:30  INFO 23768 --- [REPORT-SERVICE] [  restartedMain] com.netflix.discovery.DiscoveryClient    : Starting heartbeat executor: renew interval is: 30
+2026-04-25T13:59:18.205+05:30  INFO 23768 --- [REPORT-SERVICE] [  restartedMain] c.n.discovery.InstanceInfoReplicator     : InstanceInfoReplicator onDemand update allowed rate per min is 4
+2026-04-25T13:59:18.205+05:30  INFO 23768 --- [REPORT-SERVICE] [  restartedMain] com.netflix.discovery.DiscoveryClient    : Discovery Client initialized at timestamp 1777105758205 with initial instances count: 6
+2026-04-25T13:59:18.210+05:30  INFO 23768 --- [REPORT-SERVICE] [  restartedMain] o.s.c.n.e.s.EurekaServiceRegistry        : Registering application REPORT-SERVICE with eureka with status UP
+2026-04-25T13:59:18.211+05:30  INFO 23768 --- [REPORT-SERVICE] [  restartedMain] com.netflix.discovery.DiscoveryClient    : Saw local status change event StatusChangeEvent [timestamp=1777105758211, current=UP, previous=STARTING]
+2026-04-25T13:59:18.211+05:30  INFO 23768 --- [REPORT-SERVICE] [foReplicator-%d] com.netflix.discovery.DiscoveryClient    : DiscoveryClient_REPORT-SERVICE/LTIN647338.cts.com:REPORT-SERVICE:2003: registering service...
+2026-04-25T13:59:18.222+05:30  INFO 23768 --- [REPORT-SERVICE] [  restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 2003 (http) with context path ''
+2026-04-25T13:59:18.222+05:30  INFO 23768 --- [REPORT-SERVICE] [  restartedMain] .s.c.n.e.s.EurekaAutoServiceRegistration : Updating port to 2003
+2026-04-25T13:59:18.231+05:30  INFO 23768 --- [REPORT-SERVICE] [foReplicator-%d] com.netflix.discovery.DiscoveryClient    : DiscoveryClient_REPORT-SERVICE/LTIN647338.cts.com:REPORT-SERVICE:2003 - registration status: 204
+2026-04-25T13:59:18.243+05:30  INFO 23768 --- [REPORT-SERVICE] [  restartedMain] c.e.demo.TariffService1Application       : Started TariffService1Application in 3.122 seconds (process running for 72530.45)
+2026-04-25T13:59:18.247+05:30  INFO 23768 --- [REPORT-SERVICE] [  restartedMain] .ConditionEvaluationDeltaLoggingListener : Condition evaluation unchanged
+2026-04-25T13:59:26.546+05:30  INFO 23768 --- [REPORT-SERVICE] [   File Watcher] rtingClassPathChangeChangedEventListener : Restarting due to 1 class path change (0 additions, 0 deletions, 1 modification)
+2026-04-25T13:59:26.547+05:30  INFO 23768 --- [REPORT-SERVICE] [      Thread-27] o.s.c.n.e.s.EurekaServiceRegistry        : Unregistering application REPORT-SERVICE with eureka with status DOWN
+2026-04-25T13:59:26.547+05:30  INFO 23768 --- [REPORT-SERVICE] [      Thread-27] com.netflix.discovery.DiscoveryClient    : Saw local status change event StatusChangeEvent [timestamp=1777105766547, current=DOWN, previous=UP]
+2026-04-25T13:59:26.547+05:30  INFO 23768 --- [REPORT-SERVICE] [foReplicator-%d] com.netflix.discovery.DiscoveryClient    : DiscoveryClient_REPORT-SERVICE/LTIN647338.cts.com:REPORT-SERVICE:2003: registering service...
+2026-04-25T13:59:26.575+05:30  INFO 23768 --- [REPORT-SERVICE] [foReplicator-%d] com.netflix.discovery.DiscoveryClient    : DiscoveryClient_REPORT-SERVICE/LTIN647338.cts.com:REPORT-SERVICE:2003 - registration status: 204
+2026-04-25T13:59:26.576+05:30  INFO 23768 --- [REPORT-SERVICE] [      Thread-27] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2026-04-25T13:59:26.577+05:30  INFO 23768 --- [REPORT-SERVICE] [      Thread-27] com.zaxxer.hikari.HikariDataSource       : HikariPool-5 - Shutdown initiated...
+2026-04-25T13:59:26.583+05:30  INFO 23768 --- [REPORT-SERVICE] [      Thread-27] com.zaxxer.hikari.HikariDataSource       : HikariPool-5 - Shutdown completed.
+2026-04-25T13:59:26.583+05:30  INFO 23768 --- [REPORT-SERVICE] [      Thread-27] com.netflix.discovery.DiscoveryClient    : Shutting down DiscoveryClient ...
+2026-04-25T13:59:29.584+05:30  INFO 23768 --- [REPORT-SERVICE] [      Thread-27] com.netflix.discovery.DiscoveryClient    : Unregistering ...
+2026-04-25T13:59:29.589+05:30  INFO 23768 --- [REPORT-SERVICE] [      Thread-27] com.netflix.discovery.DiscoveryClient    : DiscoveryClient_REPORT-SERVICE/LTIN647338.cts.com:REPORT-SERVICE:2003 - deregister  status: 200
+2026-04-25T13:59:29.589+05:30  INFO 23768 --- [REPORT-SERVICE] [      Thread-27] com.netflix.discovery.DiscoveryClient    : Completed shut down of DiscoveryClient
+
+  .   ____          _            __ _ _
+ /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+ \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+  '  |____| .__|_| |_|_| |_\__, | / / / /
+ =========|_|==============|___/=/_/_/_/
+ :: Spring Boot ::                (v3.2.4)
+
+2026-04-25T13:59:29.724+05:30  INFO 23768 --- [REPORT-SERVICE] [  restartedMain] c.e.demo.TariffService1Application       : Starting TariffService1Application using Java 25.0.1 with PID 23768 (C:\New folder\KpiReportService\target\classes started by 2471986 in C:\New folder\KpiReportService)
+2026-04-25T13:59:29.724+05:30  INFO 23768 --- [REPORT-SERVICE] [  restartedMain] c.e.demo.TariffService1Application       : No active profile set, falling back to 1 default profile: "default"
+2026-04-25T13:59:30.325+05:30  INFO 23768 --- [REPORT-SERVICE] [  restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2026-04-25T13:59:30.371+05:30  INFO 23768 --- [REPORT-SERVICE] [  restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 44 ms. Found 2 JPA repository interfaces.
+2026-04-25T13:59:30.589+05:30  INFO 23768 --- [REPORT-SERVICE] [  restartedMain] o.s.cloud.context.scope.GenericScope     : BeanFactory id=901ec211-d789-3806-9d82-e50cc570fb87
+2026-04-25T13:59:30.719+05:30  INFO 23768 --- [REPORT-SERVICE] [  restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 2003 (http)
+2026-04-25T13:59:30.719+05:30  INFO 23768 --- [REPORT-SERVICE] [  restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2026-04-25T13:59:30.719+05:30  INFO 23768 --- [REPORT-SERVICE] [  restartedMain] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.19]
+2026-04-25T13:59:30.799+05:30  INFO 23768 --- [REPORT-SERVICE] [  restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2026-04-25T13:59:30.800+05:30  INFO 23768 --- [REPORT-SERVICE] [  restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1073 ms
+2026-04-25T13:59:30.924+05:30  INFO 23768 --- [REPORT-SERVICE] [  restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2026-04-25T13:59:30.932+05:30  INFO 23768 --- [REPORT-SERVICE] [  restartedMain] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2026-04-25T13:59:30.943+05:30  INFO 23768 --- [REPORT-SERVICE] [  restartedMain] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2026-04-25T13:59:30.945+05:30  INFO 23768 --- [REPORT-SERVICE] [  restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-6 - Starting...
+2026-04-25T13:59:30.970+05:30  INFO 23768 --- [REPORT-SERVICE] [  restartedMain] com.zaxxer.hikari.pool.HikariPool        : HikariPool-6 - Added connection com.mysql.cj.jdbc.ConnectionImpl@783839b7
+2026-04-25T13:59:30.970+05:30  INFO 23768 --- [REPORT-SERVICE] [  restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-6 - Start completed.
+2026-04-25T13:59:30.972+05:30  WARN 23768 --- [REPORT-SERVICE] [  restartedMain] org.hibernate.orm.deprecation            : HHH90000025: MySQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2026-04-25T13:59:31.068+05:30  INFO 23768 --- [REPORT-SERVICE] [  restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2026-04-25T13:59:31.088+05:30  INFO 23768 --- [REPORT-SERVICE] [  restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2026-04-25T13:59:31.359+05:30  WARN 23768 --- [REPORT-SERVICE] [  restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2026-04-25T13:59:31.602+05:30  INFO 23768 --- [REPORT-SERVICE] [  restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2026-04-25T13:59:31.696+05:30  INFO 23768 --- [REPORT-SERVICE] [  restartedMain] DiscoveryClientOptionalArgsConfiguration : Eureka HTTP Client uses RestTemplate.
+2026-04-25T13:59:31.726+05:30  WARN 23768 --- [REPORT-SERVICE] [  restartedMain] iguration$LoadBalancerCaffeineWarnLogger : Spring Cloud LoadBalancer is currently working with the default cache. While this cache implementation is useful for development and tests, it's recommended to use Caffeine cache in production.You can switch to using Caffeine cache, by adding it and org.springframework.cache.caffeine.CaffeineCacheManager to the classpath.
+2026-04-25T13:59:31.743+05:30  INFO 23768 --- [REPORT-SERVICE] [  restartedMain] o.s.c.n.eureka.InstanceInfoFactory       : Setting initial instance status as: STARTING
+2026-04-25T13:59:31.747+05:30  INFO 23768 --- [REPORT-SERVICE] [  restartedMain] com.netflix.discovery.DiscoveryClient    : Initializing Eureka in region us-east-1
+2026-04-25T13:59:31.747+05:30  INFO 23768 --- [REPORT-SERVICE] [  restartedMain] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-04-25T13:59:31.748+05:30  INFO 23768 --- [REPORT-SERVICE] [  restartedMain] com.netflix.discovery.DiscoveryClient    : Disable delta property : false
+2026-04-25T13:59:31.748+05:30  INFO 23768 --- [REPORT-SERVICE] [  restartedMain] com.netflix.discovery.DiscoveryClient    : Single vip registry refresh property : null
+2026-04-25T13:59:31.748+05:30  INFO 23768 --- [REPORT-SERVICE] [  restartedMain] com.netflix.discovery.DiscoveryClient    : Force full registry fetch : false
+2026-04-25T13:59:31.748+05:30  INFO 23768 --- [REPORT-SERVICE] [  restartedMain] com.netflix.discovery.DiscoveryClient    : Application is null : false
+2026-04-25T13:59:31.748+05:30  INFO 23768 --- [REPORT-SERVICE] [  restartedMain] com.netflix.discovery.DiscoveryClient    : Registered Applications size is zero : true
+2026-04-25T13:59:31.748+05:30  INFO 23768 --- [REPORT-SERVICE] [  restartedMain] com.netflix.discovery.DiscoveryClient    : Application version is -1: true
+2026-04-25T13:59:31.748+05:30  INFO 23768 --- [REPORT-SERVICE] [  restartedMain] com.netflix.discovery.DiscoveryClient    : Getting all instance registry info from the eureka server
+2026-04-25T13:59:31.787+05:30  INFO 23768 --- [REPORT-SERVICE] [  restartedMain] com.netflix.discovery.DiscoveryClient    : The response status is 200
+2026-04-25T13:59:31.787+05:30  INFO 23768 --- [REPORT-SERVICE] [  restartedMain] com.netflix.discovery.DiscoveryClient    : Starting heartbeat executor: renew interval is: 30
+2026-04-25T13:59:31.788+05:30  INFO 23768 --- [REPORT-SERVICE] [  restartedMain] c.n.discovery.InstanceInfoReplicator     : InstanceInfoReplicator onDemand update allowed rate per min is 4
+2026-04-25T13:59:31.788+05:30  INFO 23768 --- [REPORT-SERVICE] [  restartedMain] com.netflix.discovery.DiscoveryClient    : Discovery Client initialized at timestamp 1777105771788 with initial instances count: 6
+2026-04-25T13:59:31.790+05:30  INFO 23768 --- [REPORT-SERVICE] [  restartedMain] o.s.c.n.e.s.EurekaServiceRegistry        : Registering application REPORT-SERVICE with eureka with status UP
+2026-04-25T13:59:31.791+05:30  INFO 23768 --- [REPORT-SERVICE] [  restartedMain] com.netflix.discovery.DiscoveryClient    : Saw local status change event StatusChangeEvent [timestamp=1777105771791, current=UP, previous=STARTING]
+2026-04-25T13:59:31.791+05:30  INFO 23768 --- [REPORT-SERVICE] [foReplicator-%d] com.netflix.discovery.DiscoveryClient    : DiscoveryClient_REPORT-SERVICE/LTIN647338.cts.com:REPORT-SERVICE:2003: registering service...
+2026-04-25T13:59:31.797+05:30  INFO 23768 --- [REPORT-SERVICE] [  restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 2003 (http) with context path ''
+2026-04-25T13:59:31.798+05:30  INFO 23768 --- [REPORT-SERVICE] [  restartedMain] .s.c.n.e.s.EurekaAutoServiceRegistration : Updating port to 2003
+2026-04-25T13:59:31.807+05:30  INFO 23768 --- [REPORT-SERVICE] [foReplicator-%d] com.netflix.discovery.DiscoveryClient    : DiscoveryClient_REPORT-SERVICE/LTIN647338.cts.com:REPORT-SERVICE:2003 - registration status: 204
+2026-04-25T13:59:31.811+05:30  INFO 23768 --- [REPORT-SERVICE] [  restartedMain] c.e.demo.TariffService1Application       : Started TariffService1Application in 2.138 seconds (process running for 72544.018)
+2026-04-25T13:59:31.814+05:30  INFO 23768 --- [REPORT-SERVICE] [  restartedMain] .ConditionEvaluationDeltaLoggingListener : Condition evaluation unchanged
+2026-04-25T13:59:35.097+05:30  INFO 23768 --- [REPORT-SERVICE] [   File Watcher] rtingClassPathChangeChangedEventListener : Restarting due to 1 class path change (0 additions, 0 deletions, 1 modification)
+2026-04-25T13:59:35.099+05:30  INFO 23768 --- [REPORT-SERVICE] [      Thread-33] o.s.c.n.e.s.EurekaServiceRegistry        : Unregistering application REPORT-SERVICE with eureka with status DOWN
+2026-04-25T13:59:35.099+05:30  INFO 23768 --- [REPORT-SERVICE] [      Thread-33] com.netflix.discovery.DiscoveryClient    : Saw local status change event StatusChangeEvent [timestamp=1777105775099, current=DOWN, previous=UP]
+2026-04-25T13:59:35.100+05:30  INFO 23768 --- [REPORT-SERVICE] [foReplicator-%d] com.netflix.discovery.DiscoveryClient    : DiscoveryClient_REPORT-SERVICE/LTIN647338.cts.com:REPORT-SERVICE:2003: registering service...
+2026-04-25T13:59:35.105+05:30  INFO 23768 --- [REPORT-SERVICE] [foReplicator-%d] com.netflix.discovery.DiscoveryClient    : DiscoveryClient_REPORT-SERVICE/LTIN647338.cts.com:REPORT-SERVICE:2003 - registration status: 204
+2026-04-25T13:59:35.106+05:30  INFO 23768 --- [REPORT-SERVICE] [      Thread-33] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2026-04-25T13:59:35.107+05:30  INFO 23768 --- [REPORT-SERVICE] [      Thread-33] com.zaxxer.hikari.HikariDataSource       : HikariPool-6 - Shutdown initiated...
+2026-04-25T13:59:35.113+05:30  INFO 23768 --- [REPORT-SERVICE] [      Thread-33] com.zaxxer.hikari.HikariDataSource       : HikariPool-6 - Shutdown completed.
+2026-04-25T13:59:35.113+05:30  INFO 23768 --- [REPORT-SERVICE] [      Thread-33] com.netflix.discovery.DiscoveryClient    : Shutting down DiscoveryClient ...
+2026-04-25T13:59:38.115+05:30  INFO 23768 --- [REPORT-SERVICE] [      Thread-33] com.netflix.discovery.DiscoveryClient    : Unregistering ...
+2026-04-25T13:59:38.120+05:30  INFO 23768 --- [REPORT-SERVICE] [      Thread-33] com.netflix.discovery.DiscoveryClient    : DiscoveryClient_REPORT-SERVICE/LTIN647338.cts.com:REPORT-SERVICE:2003 - deregister  status: 200
+2026-04-25T13:59:38.120+05:30  INFO 23768 --- [REPORT-SERVICE] [      Thread-33] com.netflix.discovery.DiscoveryClient    : Completed shut down of DiscoveryClient
+
+  .   ____          _            __ _ _
+ /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+ \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+  '  |____| .__|_| |_|_| |_\__, | / / / /
+ =========|_|==============|___/=/_/_/_/
+ :: Spring Boot ::                (v3.2.4)
+
+2026-04-25T13:59:38.235+05:30  INFO 23768 --- [REPORT-SERVICE] [  restartedMain] c.e.demo.TariffService1Application       : Starting TariffService1Application using Java 25.0.1 with PID 23768 (C:\New folder\KpiReportService\target\classes started by 2471986 in C:\New folder\KpiReportService)
+2026-04-25T13:59:38.235+05:30  INFO 23768 --- [REPORT-SERVICE] [  restartedMain] c.e.demo.TariffService1Application       : No active profile set, falling back to 1 default profile: "default"
+2026-04-25T13:59:38.749+05:30  INFO 23768 --- [REPORT-SERVICE] [  restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2026-04-25T13:59:38.788+05:30  INFO 23768 --- [REPORT-SERVICE] [  restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 38 ms. Found 2 JPA repository interfaces.
+2026-04-25T13:59:38.952+05:30  INFO 23768 --- [REPORT-SERVICE] [  restartedMain] o.s.cloud.context.scope.GenericScope     : BeanFactory id=901ec211-d789-3806-9d82-e50cc570fb87
+2026-04-25T13:59:39.086+05:30  INFO 23768 --- [REPORT-SERVICE] [  restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 2003 (http)
+2026-04-25T13:59:39.087+05:30  INFO 23768 --- [REPORT-SERVICE] [  restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2026-04-25T13:59:39.087+05:30  INFO 23768 --- [REPORT-SERVICE] [  restartedMain] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.19]
+2026-04-25T13:59:39.146+05:30  INFO 23768 --- [REPORT-SERVICE] [  restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2026-04-25T13:59:39.146+05:30  INFO 23768 --- [REPORT-SERVICE] [  restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 908 ms
+2026-04-25T13:59:39.236+05:30  INFO 23768 --- [REPORT-SERVICE] [  restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2026-04-25T13:59:39.244+05:30  INFO 23768 --- [REPORT-SERVICE] [  restartedMain] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2026-04-25T13:59:39.253+05:30  INFO 23768 --- [REPORT-SERVICE] [  restartedMain] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2026-04-25T13:59:39.255+05:30  INFO 23768 --- [REPORT-SERVICE] [  restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-7 - Starting...
+2026-04-25T13:59:39.277+05:30  INFO 23768 --- [REPORT-SERVICE] [  restartedMain] com.zaxxer.hikari.pool.HikariPool        : HikariPool-7 - Added connection com.mysql.cj.jdbc.ConnectionImpl@1e3817a2
+2026-04-25T13:59:39.277+05:30  INFO 23768 --- [REPORT-SERVICE] [  restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-7 - Start completed.
+2026-04-25T13:59:39.280+05:30  WARN 23768 --- [REPORT-SERVICE] [  restartedMain] org.hibernate.orm.deprecation            : HHH90000025: MySQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2026-04-25T13:59:39.351+05:30  INFO 23768 --- [REPORT-SERVICE] [  restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2026-04-25T13:59:39.371+05:30  INFO 23768 --- [REPORT-SERVICE] [  restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2026-04-25T13:59:39.577+05:30  WARN 23768 --- [REPORT-SERVICE] [  restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2026-04-25T13:59:39.729+05:30  INFO 23768 --- [REPORT-SERVICE] [  restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2026-04-25T13:59:39.775+05:30  INFO 23768 --- [REPORT-SERVICE] [  restartedMain] DiscoveryClientOptionalArgsConfiguration : Eureka HTTP Client uses RestTemplate.
+2026-04-25T13:59:39.789+05:30  WARN 23768 --- [REPORT-SERVICE] [  restartedMain] iguration$LoadBalancerCaffeineWarnLogger : Spring Cloud LoadBalancer is currently working with the default cache. While this cache implementation is useful for development and tests, it's recommended to use Caffeine cache in production.You can switch to using Caffeine cache, by adding it and org.springframework.cache.caffeine.CaffeineCacheManager to the classpath.
+2026-04-25T13:59:39.799+05:30  INFO 23768 --- [REPORT-SERVICE] [  restartedMain] o.s.c.n.eureka.InstanceInfoFactory       : Setting initial instance status as: STARTING
+2026-04-25T13:59:39.801+05:30  INFO 23768 --- [REPORT-SERVICE] [  restartedMain] com.netflix.discovery.DiscoveryClient    : Initializing Eureka in region us-east-1
+2026-04-25T13:59:39.801+05:30  INFO 23768 --- [REPORT-SERVICE] [  restartedMain] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-04-25T13:59:39.801+05:30  INFO 23768 --- [REPORT-SERVICE] [  restartedMain] com.netflix.discovery.DiscoveryClient    : Disable delta property : false
+2026-04-25T13:59:39.801+05:30  INFO 23768 --- [REPORT-SERVICE] [  restartedMain] com.netflix.discovery.DiscoveryClient    : Single vip registry refresh property : null
+2026-04-25T13:59:39.801+05:30  INFO 23768 --- [REPORT-SERVICE] [  restartedMain] com.netflix.discovery.DiscoveryClient    : Force full registry fetch : false
+2026-04-25T13:59:39.802+05:30  INFO 23768 --- [REPORT-SERVICE] [  restartedMain] com.netflix.discovery.DiscoveryClient    : Application is null : false
+2026-04-25T13:59:39.802+05:30  INFO 23768 --- [REPORT-SERVICE] [  restartedMain] com.netflix.discovery.DiscoveryClient    : Registered Applications size is zero : true
+2026-04-25T13:59:39.802+05:30  INFO 23768 --- [REPORT-SERVICE] [  restartedMain] com.netflix.discovery.DiscoveryClient    : Application version is -1: true
+2026-04-25T13:59:39.802+05:30  INFO 23768 --- [REPORT-SERVICE] [  restartedMain] com.netflix.discovery.DiscoveryClient    : Getting all instance registry info from the eureka server
+2026-04-25T13:59:39.824+05:30  INFO 23768 --- [REPORT-SERVICE] [  restartedMain] com.netflix.discovery.DiscoveryClient    : The response status is 200
+2026-04-25T13:59:39.824+05:30  INFO 23768 --- [REPORT-SERVICE] [  restartedMain] com.netflix.discovery.DiscoveryClient    : Starting heartbeat executor: renew interval is: 30
+2026-04-25T13:59:39.824+05:30  INFO 23768 --- [REPORT-SERVICE] [  restartedMain] c.n.discovery.InstanceInfoReplicator     : InstanceInfoReplicator onDemand update allowed rate per min is 4
+2026-04-25T13:59:39.825+05:30  INFO 23768 --- [REPORT-SERVICE] [  restartedMain] com.netflix.discovery.DiscoveryClient    : Discovery Client initialized at timestamp 1777105779825 with initial instances count: 6
+2026-04-25T13:59:39.826+05:30  INFO 23768 --- [REPORT-SERVICE] [  restartedMain] o.s.c.n.e.s.EurekaServiceRegistry        : Registering application REPORT-SERVICE with eureka with status UP
+2026-04-25T13:59:39.826+05:30  INFO 23768 --- [REPORT-SERVICE] [  restartedMain] com.netflix.discovery.DiscoveryClient    : Saw local status change event StatusChangeEvent [timestamp=1777105779826, current=UP, previous=STARTING]
+2026-04-25T13:59:39.826+05:30  INFO 23768 --- [REPORT-SERVICE] [foReplicator-%d] com.netflix.discovery.DiscoveryClient    : DiscoveryClient_REPORT-SERVICE/LTIN647338.cts.com:REPORT-SERVICE:2003: registering service...
+2026-04-25T13:59:39.831+05:30  INFO 23768 --- [REPORT-SERVICE] [  restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 2003 (http) with context path ''
+2026-04-25T13:59:39.831+05:30  INFO 23768 --- [REPORT-SERVICE] [  restartedMain] .s.c.n.e.s.EurekaAutoServiceRegistration : Updating port to 2003
+2026-04-25T13:59:39.835+05:30  INFO 23768 --- [REPORT-SERVICE] [foReplicator-%d] com.netflix.discovery.DiscoveryClient    : DiscoveryClient_REPORT-SERVICE/LTIN647338.cts.com:REPORT-SERVICE:2003 - registration status: 204
+2026-04-25T13:59:39.840+05:30  INFO 23768 --- [REPORT-SERVICE] [  restartedMain] c.e.demo.TariffService1Application       : Started TariffService1Application in 1.649 seconds (process running for 72552.047)
+2026-04-25T13:59:39.841+05:30  INFO 23768 --- [REPORT-SERVICE] [  restartedMain] .ConditionEvaluationDeltaLoggingListener : Condition evaluation unchanged
+2026-04-25T13:59:47.452+05:30  INFO 23768 --- [REPORT-SERVICE] [nio-2003-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2026-04-25T13:59:47.453+05:30  INFO 23768 --- [REPORT-SERVICE] [nio-2003-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2026-04-25T13:59:47.454+05:30  INFO 23768 --- [REPORT-SERVICE] [nio-2003-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 0 ms
+Hibernate: select k1_0.kpiid,k1_0.current_value,k1_0.definition,k1_0.name,k1_0.reporting_period,k1_0.target from kpi k1_0
+Hibernate: select k1_0.kpiid,k1_0.current_value,k1_0.definition,k1_0.name,k1_0.reporting_period,k1_0.target from kpi k1_0
+2026-04-25T14:04:39.803+05:30  INFO 23768 --- [REPORT-SERVICE] [rap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+Hibernate: select k1_0.kpiid,k1_0.current_value,k1_0.definition,k1_0.name,k1_0.reporting_period,k1_0.target from kpi k1_0
+Hibernate: select k1_0.kpiid,k1_0.current_value,k1_0.definition,k1_0.name,k1_0.reporting_period,k1_0.target from kpi k1_0
+2026-04-25T14:09:39.805+05:30  INFO 23768 --- [REPORT-SERVICE] [rap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-04-25T14:14:39.825+05:30  INFO 23768 --- [REPORT-SERVICE] [rap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-04-25T14:19:39.826+05:30  INFO 23768 --- [REPORT-SERVICE] [rap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+Hibernate: select k1_0.kpiid,k1_0.current_value,k1_0.definition,k1_0.name,k1_0.reporting_period,k1_0.target from kpi k1_0
+Hibernate: select k1_0.kpiid,k1_0.current_value,k1_0.definition,k1_0.name,k1_0.reporting_period,k1_0.target from kpi k1_0
+2026-04-25T14:24:39.841+05:30  INFO 23768 --- [REPORT-SERVICE] [rap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-04-25T14:29:39.850+05:30  INFO 23768 --- [REPORT-SERVICE] [rap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-04-25T14:34:39.852+05:30  INFO 23768 --- [REPORT-SERVICE] [rap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-04-25T14:39:39.853+05:30  INFO 23768 --- [REPORT-SERVICE] [rap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+Hibernate: select k1_0.kpiid,k1_0.current_value,k1_0.definition,k1_0.name,k1_0.reporting_period,k1_0.target from kpi k1_0
+2026-04-25T14:44:39.855+05:30  INFO 23768 --- [REPORT-SERVICE] [rap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+Hibernate: select k1_0.kpiid,k1_0.current_value,k1_0.definition,k1_0.name,k1_0.reporting_period,k1_0.target from kpi k1_0
+Hibernate: select k1_0.kpiid,k1_0.current_value,k1_0.definition,k1_0.name,k1_0.reporting_period,k1_0.target from kpi k1_0
+Hibernate: select r1_0.reportid,r1_0.generated_at,r1_0.generated_by,r1_0.metricsjson,r1_0.parametersjson,r1_0.scope from report r1_0 where r1_0.scope=? and r1_0.generated_at between ? and ?
+Hibernate: select k1_0.kpiid,k1_0.current_value,k1_0.definition,k1_0.name,k1_0.reporting_period,k1_0.target from kpi k1_0 where k1_0.name=?
+Hibernate: update kpi set current_value=?,definition=?,name=?,reporting_period=?,target=? where kpiid=?
+Hibernate: select k1_0.kpiid,k1_0.current_value,k1_0.definition,k1_0.name,k1_0.reporting_period,k1_0.target from kpi k1_0
+Hibernate: select r1_0.reportid,r1_0.generated_at,r1_0.generated_by,r1_0.metricsjson,r1_0.parametersjson,r1_0.scope from report r1_0 where r1_0.scope=? and r1_0.generated_at between ? and ?
+Hibernate: select k1_0.kpiid,k1_0.current_value,k1_0.definition,k1_0.name,k1_0.reporting_period,k1_0.target from kpi k1_0 where k1_0.name=?
+Hibernate: select k1_0.kpiid,k1_0.current_value,k1_0.definition,k1_0.name,k1_0.reporting_period,k1_0.target from kpi k1_0
+Hibernate: select r1_0.reportid,r1_0.generated_at,r1_0.generated_by,r1_0.metricsjson,r1_0.parametersjson,r1_0.scope from report r1_0 where r1_0.scope=? and r1_0.generated_at between ? and ?
+Hibernate: select k1_0.kpiid,k1_0.current_value,k1_0.definition,k1_0.name,k1_0.reporting_period,k1_0.target from kpi k1_0 where k1_0.name=?
+Hibernate: select k1_0.kpiid,k1_0.current_value,k1_0.definition,k1_0.name,k1_0.reporting_period,k1_0.target from kpi k1_0
+Hibernate: select r1_0.reportid,r1_0.generated_at,r1_0.generated_by,r1_0.metricsjson,r1_0.parametersjson,r1_0.scope from report r1_0 where r1_0.scope=? and r1_0.generated_at between ? and ?
+Hibernate: select k1_0.kpiid,k1_0.current_value,k1_0.definition,k1_0.name,k1_0.reporting_period,k1_0.target from kpi k1_0 where k1_0.name=?
+Hibernate: select k1_0.kpiid,k1_0.current_value,k1_0.definition,k1_0.name,k1_0.reporting_period,k1_0.target from kpi k1_0
+Hibernate: select r1_0.reportid,r1_0.generated_at,r1_0.generated_by,r1_0.metricsjson,r1_0.parametersjson,r1_0.scope from report r1_0 where r1_0.scope=? and r1_0.generated_at between ? and ?
+Hibernate: select k1_0.kpiid,k1_0.current_value,k1_0.definition,k1_0.name,k1_0.reporting_period,k1_0.target from kpi k1_0 where k1_0.name=?
+Hibernate: select k1_0.kpiid,k1_0.current_value,k1_0.definition,k1_0.name,k1_0.reporting_period,k1_0.target from kpi k1_0
+Hibernate: select r1_0.reportid,r1_0.generated_at,r1_0.generated_by,r1_0.metricsjson,r1_0.parametersjson,r1_0.scope from report r1_0 where r1_0.scope=? and r1_0.generated_at between ? and ?
+Hibernate: select k1_0.kpiid,k1_0.current_value,k1_0.definition,k1_0.name,k1_0.reporting_period,k1_0.target from kpi k1_0 where k1_0.name=?
+Hibernate: select k1_0.kpiid,k1_0.current_value,k1_0.definition,k1_0.name,k1_0.reporting_period,k1_0.target from kpi k1_0
+2026-04-25T14:49:39.857+05:30  INFO 23768 --- [REPORT-SERVICE] [rap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+Hibernate: select k1_0.kpiid,k1_0.current_value,k1_0.definition,k1_0.name,k1_0.reporting_period,k1_0.target from kpi k1_0
+Hibernate: select k1_0.kpiid,k1_0.current_value,k1_0.definition,k1_0.name,k1_0.reporting_period,k1_0.target from kpi k1_0
+Hibernate: select k1_0.kpiid,k1_0.current_value,k1_0.definition,k1_0.name,k1_0.reporting_period,k1_0.target from kpi k1_0
+Hibernate: select k1_0.kpiid,k1_0.current_value,k1_0.definition,k1_0.name,k1_0.reporting_period,k1_0.target from kpi k1_0
+Hibernate: select k1_0.kpiid,k1_0.current_value,k1_0.definition,k1_0.name,k1_0.reporting_period,k1_0.target from kpi k1_0
+Hibernate: select r1_0.reportid,r1_0.generated_at,r1_0.generated_by,r1_0.metricsjson,r1_0.parametersjson,r1_0.scope from report r1_0 where r1_0.scope=? and r1_0.generated_at between ? and ?
+Hibernate: select k1_0.kpiid,k1_0.current_value,k1_0.definition,k1_0.name,k1_0.reporting_period,k1_0.target from kpi k1_0 where k1_0.name=?
+Hibernate: update kpi set current_value=?,definition=?,name=?,reporting_period=?,target=? where kpiid=?
+Hibernate: select k1_0.kpiid,k1_0.current_value,k1_0.definition,k1_0.name,k1_0.reporting_period,k1_0.target from kpi k1_0
+Hibernate: select r1_0.reportid,r1_0.generated_at,r1_0.generated_by,r1_0.metricsjson,r1_0.parametersjson,r1_0.scope from report r1_0 where r1_0.scope=? and r1_0.generated_at between ? and ?
+Hibernate: select k1_0.kpiid,k1_0.current_value,k1_0.definition,k1_0.name,k1_0.reporting_period,k1_0.target from kpi k1_0 where k1_0.name=?
+Hibernate: select k1_0.kpiid,k1_0.current_value,k1_0.definition,k1_0.name,k1_0.reporting_period,k1_0.target from kpi k1_0
+Hibernate: select r1_0.reportid,r1_0.generated_at,r1_0.generated_by,r1_0.metricsjson,r1_0.parametersjson,r1_0.scope from report r1_0 where r1_0.scope=? and r1_0.generated_at between ? and ?
+Hibernate: select k1_0.kpiid,k1_0.current_value,k1_0.definition,k1_0.name,k1_0.reporting_period,k1_0.target from kpi k1_0 where k1_0.name=?
+Hibernate: update kpi set current_value=?,definition=?,name=?,reporting_period=?,target=? where kpiid=?
+Hibernate: select k1_0.kpiid,k1_0.current_value,k1_0.definition,k1_0.name,k1_0.reporting_period,k1_0.target from kpi k1_0
+2026-04-25T14:54:39.859+05:30  INFO 23768 --- [REPORT-SERVICE] [rap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+Hibernate: select k1_0.kpiid,k1_0.current_value,k1_0.definition,k1_0.name,k1_0.reporting_period,k1_0.target from kpi k1_0
+Hibernate: select k1_0.kpiid,k1_0.current_value,k1_0.definition,k1_0.name,k1_0.reporting_period,k1_0.target from kpi k1_0
+Hibernate: select k1_0.kpiid,k1_0.current_value,k1_0.definition,k1_0.name,k1_0.reporting_period,k1_0.target from kpi k1_0
+Hibernate: select k1_0.kpiid,k1_0.current_value,k1_0.definition,k1_0.name,k1_0.reporting_period,k1_0.target from kpi k1_0
+2026-04-25T14:57:51.363+05:30  INFO 23768 --- [REPORT-SERVICE] [   File Watcher] rtingClassPathChangeChangedEventListener : Restarting due to 1 class path change (0 additions, 0 deletions, 1 modification)
+2026-04-25T14:57:51.366+05:30  INFO 23768 --- [REPORT-SERVICE] [      Thread-39] o.s.c.n.e.s.EurekaServiceRegistry        : Unregistering application REPORT-SERVICE with eureka with status DOWN
+2026-04-25T14:57:51.366+05:30  INFO 23768 --- [REPORT-SERVICE] [      Thread-39] com.netflix.discovery.DiscoveryClient    : Saw local status change event StatusChangeEvent [timestamp=1777109271366, current=DOWN, previous=UP]
+2026-04-25T14:57:51.367+05:30  INFO 23768 --- [REPORT-SERVICE] [foReplicator-%d] com.netflix.discovery.DiscoveryClient    : DiscoveryClient_REPORT-SERVICE/LTIN647338.cts.com:REPORT-SERVICE:2003: registering service...
+2026-04-25T14:57:51.385+05:30  INFO 23768 --- [REPORT-SERVICE] [      Thread-39] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2026-04-25T14:57:51.387+05:30  INFO 23768 --- [REPORT-SERVICE] [      Thread-39] com.zaxxer.hikari.HikariDataSource       : HikariPool-7 - Shutdown initiated...
+2026-04-25T14:57:51.409+05:30  INFO 23768 --- [REPORT-SERVICE] [      Thread-39] com.zaxxer.hikari.HikariDataSource       : HikariPool-7 - Shutdown completed.
+2026-04-25T14:57:51.411+05:30  INFO 23768 --- [REPORT-SERVICE] [      Thread-39] com.netflix.discovery.DiscoveryClient    : Shutting down DiscoveryClient ...
+2026-04-25T14:57:51.427+05:30  INFO 23768 --- [REPORT-SERVICE] [foReplicator-%d] com.netflix.discovery.DiscoveryClient    : DiscoveryClient_REPORT-SERVICE/LTIN647338.cts.com:REPORT-SERVICE:2003 - registration status: 204
+2026-04-25T14:57:51.429+05:30  INFO 23768 --- [REPORT-SERVICE] [      Thread-39] com.netflix.discovery.DiscoveryClient    : Unregistering ...
+2026-04-25T14:57:51.436+05:30  INFO 23768 --- [REPORT-SERVICE] [      Thread-39] com.netflix.discovery.DiscoveryClient    : DiscoveryClient_REPORT-SERVICE/LTIN647338.cts.com:REPORT-SERVICE:2003 - deregister  status: 200
+2026-04-25T14:57:51.436+05:30  INFO 23768 --- [REPORT-SERVICE] [      Thread-39] com.netflix.discovery.DiscoveryClient    : Completed shut down of DiscoveryClient
+
+  .   ____          _            __ _ _
+ /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+ \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+  '  |____| .__|_| |_|_| |_\__, | / / / /
+ =========|_|==============|___/=/_/_/_/
+ :: Spring Boot ::                (v3.2.4)
+
+2026-04-25T14:57:51.697+05:30  INFO 23768 --- [REPORT-SERVICE] [  restartedMain] c.e.demo.TariffService1Application       : Starting TariffService1Application using Java 25.0.1 with PID 23768 (C:\New folder\KpiReportService\target\classes started by 2471986 in C:\New folder\KpiReportService)
+2026-04-25T14:57:51.697+05:30  INFO 23768 --- [REPORT-SERVICE] [  restartedMain] c.e.demo.TariffService1Application       : No active profile set, falling back to 1 default profile: "default"
+2026-04-25T14:57:52.581+05:30  INFO 23768 --- [REPORT-SERVICE] [  restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2026-04-25T14:57:52.625+05:30  INFO 23768 --- [REPORT-SERVICE] [  restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 43 ms. Found 2 JPA repository interfaces.
+2026-04-25T14:57:52.820+05:30  INFO 23768 --- [REPORT-SERVICE] [  restartedMain] o.s.cloud.context.scope.GenericScope     : BeanFactory id=901ec211-d789-3806-9d82-e50cc570fb87
+2026-04-25T14:57:53.003+05:30  INFO 23768 --- [REPORT-SERVICE] [  restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 2003 (http)
+2026-04-25T14:57:53.008+05:30  INFO 23768 --- [REPORT-SERVICE] [  restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2026-04-25T14:57:53.008+05:30  INFO 23768 --- [REPORT-SERVICE] [  restartedMain] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.19]
+2026-04-25T14:57:53.082+05:30  INFO 23768 --- [REPORT-SERVICE] [  restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2026-04-25T14:57:53.082+05:30  INFO 23768 --- [REPORT-SERVICE] [  restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1378 ms
+2026-04-25T14:57:53.188+05:30  INFO 23768 --- [REPORT-SERVICE] [  restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2026-04-25T14:57:53.192+05:30  INFO 23768 --- [REPORT-SERVICE] [  restartedMain] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2026-04-25T14:57:53.204+05:30  INFO 23768 --- [REPORT-SERVICE] [  restartedMain] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2026-04-25T14:57:53.205+05:30  INFO 23768 --- [REPORT-SERVICE] [  restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-8 - Starting...
+2026-04-25T14:57:53.234+05:30  INFO 23768 --- [REPORT-SERVICE] [  restartedMain] com.zaxxer.hikari.pool.HikariPool        : HikariPool-8 - Added connection com.mysql.cj.jdbc.ConnectionImpl@5eb5c040
+2026-04-25T14:57:53.234+05:30  INFO 23768 --- [REPORT-SERVICE] [  restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-8 - Start completed.
+2026-04-25T14:57:53.238+05:30  WARN 23768 --- [REPORT-SERVICE] [  restartedMain] org.hibernate.orm.deprecation            : HHH90000025: MySQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2026-04-25T14:57:53.321+05:30  INFO 23768 --- [REPORT-SERVICE] [  restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2026-04-25T14:57:53.413+05:30  INFO 23768 --- [REPORT-SERVICE] [  restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2026-04-25T14:57:53.628+05:30  WARN 23768 --- [REPORT-SERVICE] [  restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2026-04-25T14:57:53.798+05:30  INFO 23768 --- [REPORT-SERVICE] [  restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2026-04-25T14:57:53.850+05:30  INFO 23768 --- [REPORT-SERVICE] [  restartedMain] DiscoveryClientOptionalArgsConfiguration : Eureka HTTP Client uses RestTemplate.
+2026-04-25T14:57:53.873+05:30  WARN 23768 --- [REPORT-SERVICE] [  restartedMain] iguration$LoadBalancerCaffeineWarnLogger : Spring Cloud LoadBalancer is currently working with the default cache. While this cache implementation is useful for development and tests, it's recommended to use Caffeine cache in production.You can switch to using Caffeine cache, by adding it and org.springframework.cache.caffeine.CaffeineCacheManager to the classpath.
+2026-04-25T14:57:53.892+05:30  INFO 23768 --- [REPORT-SERVICE] [  restartedMain] o.s.c.n.eureka.InstanceInfoFactory       : Setting initial instance status as: STARTING
+2026-04-25T14:57:53.897+05:30  INFO 23768 --- [REPORT-SERVICE] [  restartedMain] com.netflix.discovery.DiscoveryClient    : Initializing Eureka in region us-east-1
+2026-04-25T14:57:53.897+05:30  INFO 23768 --- [REPORT-SERVICE] [  restartedMain] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-04-25T14:57:53.898+05:30  INFO 23768 --- [REPORT-SERVICE] [  restartedMain] com.netflix.discovery.DiscoveryClient    : Disable delta property : false
+2026-04-25T14:57:53.898+05:30  INFO 23768 --- [REPORT-SERVICE] [  restartedMain] com.netflix.discovery.DiscoveryClient    : Single vip registry refresh property : null
+2026-04-25T14:57:53.898+05:30  INFO 23768 --- [REPORT-SERVICE] [  restartedMain] com.netflix.discovery.DiscoveryClient    : Force full registry fetch : false
+2026-04-25T14:57:53.898+05:30  INFO 23768 --- [REPORT-SERVICE] [  restartedMain] com.netflix.discovery.DiscoveryClient    : Application is null : false
+2026-04-25T14:57:53.898+05:30  INFO 23768 --- [REPORT-SERVICE] [  restartedMain] com.netflix.discovery.DiscoveryClient    : Registered Applications size is zero : true
+2026-04-25T14:57:53.898+05:30  INFO 23768 --- [REPORT-SERVICE] [  restartedMain] com.netflix.discovery.DiscoveryClient    : Application version is -1: true
+2026-04-25T14:57:53.898+05:30  INFO 23768 --- [REPORT-SERVICE] [  restartedMain] com.netflix.discovery.DiscoveryClient    : Getting all instance registry info from the eureka server
+2026-04-25T14:57:53.970+05:30  INFO 23768 --- [REPORT-SERVICE] [  restartedMain] com.netflix.discovery.DiscoveryClient    : The response status is 200
+2026-04-25T14:57:53.970+05:30  INFO 23768 --- [REPORT-SERVICE] [  restartedMain] com.netflix.discovery.DiscoveryClient    : Starting heartbeat executor: renew interval is: 30
+2026-04-25T14:57:53.971+05:30  INFO 23768 --- [REPORT-SERVICE] [  restartedMain] c.n.discovery.InstanceInfoReplicator     : InstanceInfoReplicator onDemand update allowed rate per min is 4
+2026-04-25T14:57:53.971+05:30  INFO 23768 --- [REPORT-SERVICE] [  restartedMain] com.netflix.discovery.DiscoveryClient    : Discovery Client initialized at timestamp 1777109273971 with initial instances count: 6
+2026-04-25T14:57:53.974+05:30  INFO 23768 --- [REPORT-SERVICE] [  restartedMain] o.s.c.n.e.s.EurekaServiceRegistry        : Registering application REPORT-SERVICE with eureka with status UP
+2026-04-25T14:57:53.974+05:30  INFO 23768 --- [REPORT-SERVICE] [  restartedMain] com.netflix.discovery.DiscoveryClient    : Saw local status change event StatusChangeEvent [timestamp=1777109273974, current=UP, previous=STARTING]
+2026-04-25T14:57:53.975+05:30  INFO 23768 --- [REPORT-SERVICE] [foReplicator-%d] com.netflix.discovery.DiscoveryClient    : DiscoveryClient_REPORT-SERVICE/LTIN647338.cts.com:REPORT-SERVICE:2003: registering service...
+2026-04-25T14:57:53.984+05:30  INFO 23768 --- [REPORT-SERVICE] [  restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 2003 (http) with context path ''
+2026-04-25T14:57:53.985+05:30  INFO 23768 --- [REPORT-SERVICE] [  restartedMain] .s.c.n.e.s.EurekaAutoServiceRegistration : Updating port to 2003
+2026-04-25T14:57:53.991+05:30  INFO 23768 --- [REPORT-SERVICE] [foReplicator-%d] com.netflix.discovery.DiscoveryClient    : DiscoveryClient_REPORT-SERVICE/LTIN647338.cts.com:REPORT-SERVICE:2003 - registration status: 204
+2026-04-25T14:57:54.001+05:30  INFO 23768 --- [REPORT-SERVICE] [  restartedMain] c.e.demo.TariffService1Application       : Started TariffService1Application in 2.409 seconds (process running for 76046.207)
+2026-04-25T14:57:54.003+05:30  INFO 23768 --- [REPORT-SERVICE] [  restartedMain] .ConditionEvaluationDeltaLoggingListener : Condition evaluation unchanged
+2026-04-25T14:59:02.601+05:30  INFO 23768 --- [REPORT-SERVICE] [   File Watcher] rtingClassPathChangeChangedEventListener : Restarting due to 52 class path changes (0 additions, 51 deletions, 1 modification)
+2026-04-25T14:59:02.615+05:30  INFO 23768 --- [REPORT-SERVICE] [      Thread-45] o.s.c.n.e.s.EurekaServiceRegistry        : Unregistering application REPORT-SERVICE with eureka with status DOWN
+2026-04-25T14:59:02.617+05:30  INFO 23768 --- [REPORT-SERVICE] [      Thread-45] com.netflix.discovery.DiscoveryClient    : Saw local status change event StatusChangeEvent [timestamp=1777109342617, current=DOWN, previous=UP]
+2026-04-25T14:59:02.617+05:30  INFO 23768 --- [REPORT-SERVICE] [foReplicator-%d] com.netflix.discovery.DiscoveryClient    : DiscoveryClient_REPORT-SERVICE/LTIN647338.cts.com:REPORT-SERVICE:2003: registering service...
+2026-04-25T14:59:02.629+05:30  INFO 23768 --- [REPORT-SERVICE] [foReplicator-%d] com.netflix.discovery.DiscoveryClient    : DiscoveryClient_REPORT-SERVICE/LTIN647338.cts.com:REPORT-SERVICE:2003 - registration status: 204
+2026-04-25T14:59:02.722+05:30  INFO 23768 --- [REPORT-SERVICE] [      Thread-45] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2026-04-25T14:59:02.723+05:30  INFO 23768 --- [REPORT-SERVICE] [      Thread-45] com.zaxxer.hikari.HikariDataSource       : HikariPool-8 - Shutdown initiated...
+2026-04-25T14:59:02.733+05:30  INFO 23768 --- [REPORT-SERVICE] [      Thread-45] com.zaxxer.hikari.HikariDataSource       : HikariPool-8 - Shutdown completed.
+2026-04-25T14:59:02.734+05:30  INFO 23768 --- [REPORT-SERVICE] [      Thread-45] com.netflix.discovery.DiscoveryClient    : Shutting down DiscoveryClient ...
+2026-04-25T14:59:05.736+05:30  INFO 23768 --- [REPORT-SERVICE] [      Thread-45] com.netflix.discovery.DiscoveryClient    : Unregistering ...
+2026-04-25T14:59:05.742+05:30  INFO 23768 --- [REPORT-SERVICE] [      Thread-45] com.netflix.discovery.DiscoveryClient    : DiscoveryClient_REPORT-SERVICE/LTIN647338.cts.com:REPORT-SERVICE:2003 - deregister  status: 200
+2026-04-25T14:59:05.743+05:30  INFO 23768 --- [REPORT-SERVICE] [      Thread-45] com.netflix.discovery.DiscoveryClient    : Completed shut down of DiscoveryClient
+
+  .   ____          _            __ _ _
+ /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+ \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+  '  |____| .__|_| |_|_| |_\__, | / / / /
+ =========|_|==============|___/=/_/_/_/
+ :: Spring Boot ::                (v3.2.4)
+
+2026-04-25T14:59:05.973+05:30  INFO 23768 --- [REPORT-SERVICE] [  restartedMain] c.e.demo.TariffService1Application       : Starting TariffService1Application using Java 25.0.1 with PID 23768 (C:\New folder\KpiReportService\target\classes started by 2471986 in C:\New folder\KpiReportService)
+2026-04-25T14:59:05.974+05:30  INFO 23768 --- [REPORT-SERVICE] [  restartedMain] c.e.demo.TariffService1Application       : No active profile set, falling back to 1 default profile: "default"
+2026-04-25T14:59:06.518+05:30  INFO 23768 --- [REPORT-SERVICE] [  restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2026-04-25T14:59:06.805+05:30  INFO 23768 --- [REPORT-SERVICE] [  restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 287 ms. Found 2 JPA repository interfaces.
+2026-04-25T14:59:07.036+05:30  INFO 23768 --- [REPORT-SERVICE] [  restartedMain] o.s.cloud.context.scope.GenericScope     : BeanFactory id=078556c5-ab91-3c73-b927-264e026dd755
+2026-04-25T14:59:07.313+05:30  INFO 23768 --- [REPORT-SERVICE] [  restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 2003 (http)
+2026-04-25T14:59:07.314+05:30  INFO 23768 --- [REPORT-SERVICE] [  restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2026-04-25T14:59:07.315+05:30  INFO 23768 --- [REPORT-SERVICE] [  restartedMain] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.19]
+2026-04-25T14:59:07.443+05:30  INFO 23768 --- [REPORT-SERVICE] [  restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2026-04-25T14:59:07.443+05:30  INFO 23768 --- [REPORT-SERVICE] [  restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1465 ms
+2026-04-25T14:59:07.601+05:30  INFO 23768 --- [REPORT-SERVICE] [  restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2026-04-25T14:59:07.607+05:30  INFO 23768 --- [REPORT-SERVICE] [  restartedMain] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2026-04-25T14:59:07.619+05:30  INFO 23768 --- [REPORT-SERVICE] [  restartedMain] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2026-04-25T14:59:07.620+05:30  INFO 23768 --- [REPORT-SERVICE] [  restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-9 - Starting...
+2026-04-25T14:59:07.650+05:30  INFO 23768 --- [REPORT-SERVICE] [  restartedMain] com.zaxxer.hikari.pool.HikariPool        : HikariPool-9 - Added connection com.mysql.cj.jdbc.ConnectionImpl@622129cb
+2026-04-25T14:59:07.650+05:30  INFO 23768 --- [REPORT-SERVICE] [  restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-9 - Start completed.
+2026-04-25T14:59:07.652+05:30  WARN 23768 --- [REPORT-SERVICE] [  restartedMain] org.hibernate.orm.deprecation            : HHH90000025: MySQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2026-04-25T14:59:08.154+05:30  INFO 23768 --- [REPORT-SERVICE] [  restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2026-04-25T14:59:08.176+05:30  INFO 23768 --- [REPORT-SERVICE] [  restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2026-04-25T14:59:08.233+05:30  WARN 23768 --- [REPORT-SERVICE] [  restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2026-04-25T14:59:08.646+05:30  INFO 23768 --- [REPORT-SERVICE] [  restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2026-04-25T14:59:08.953+05:30  INFO 23768 --- [REPORT-SERVICE] [  restartedMain] DiscoveryClientOptionalArgsConfiguration : Eureka HTTP Client uses RestTemplate.
+2026-04-25T14:59:08.987+05:30  WARN 23768 --- [REPORT-SERVICE] [  restartedMain] iguration$LoadBalancerCaffeineWarnLogger : Spring Cloud LoadBalancer is currently working with the default cache. While this cache implementation is useful for development and tests, it's recommended to use Caffeine cache in production.You can switch to using Caffeine cache, by adding it and org.springframework.cache.caffeine.CaffeineCacheManager to the classpath.
+2026-04-25T14:59:09.009+05:30  INFO 23768 --- [REPORT-SERVICE] [  restartedMain] o.s.c.n.eureka.InstanceInfoFactory       : Setting initial instance status as: STARTING
+2026-04-25T14:59:09.012+05:30  INFO 23768 --- [REPORT-SERVICE] [  restartedMain] com.netflix.discovery.DiscoveryClient    : Initializing Eureka in region us-east-1
+2026-04-25T14:59:09.012+05:30  INFO 23768 --- [REPORT-SERVICE] [  restartedMain] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-04-25T14:59:09.014+05:30  INFO 23768 --- [REPORT-SERVICE] [  restartedMain] com.netflix.discovery.DiscoveryClient    : Disable delta property : false
+2026-04-25T14:59:09.014+05:30  INFO 23768 --- [REPORT-SERVICE] [  restartedMain] com.netflix.discovery.DiscoveryClient    : Single vip registry refresh property : null
+2026-04-25T14:59:09.014+05:30  INFO 23768 --- [REPORT-SERVICE] [  restartedMain] com.netflix.discovery.DiscoveryClient    : Force full registry fetch : false
+2026-04-25T14:59:09.014+05:30  INFO 23768 --- [REPORT-SERVICE] [  restartedMain] com.netflix.discovery.DiscoveryClient    : Application is null : false
+2026-04-25T14:59:09.014+05:30  INFO 23768 --- [REPORT-SERVICE] [  restartedMain] com.netflix.discovery.DiscoveryClient    : Registered Applications size is zero : true
+2026-04-25T14:59:09.014+05:30  INFO 23768 --- [REPORT-SERVICE] [  restartedMain] com.netflix.discovery.DiscoveryClient    : Application version is -1: true
+2026-04-25T14:59:09.014+05:30  INFO 23768 --- [REPORT-SERVICE] [  restartedMain] com.netflix.discovery.DiscoveryClient    : Getting all instance registry info from the eureka server
+2026-04-25T14:59:09.092+05:30  INFO 23768 --- [REPORT-SERVICE] [  restartedMain] com.netflix.discovery.DiscoveryClient    : The response status is 200
+2026-04-25T14:59:09.093+05:30  INFO 23768 --- [REPORT-SERVICE] [  restartedMain] com.netflix.discovery.DiscoveryClient    : Starting heartbeat executor: renew interval is: 30
+2026-04-25T14:59:09.094+05:30  INFO 23768 --- [REPORT-SERVICE] [  restartedMain] c.n.discovery.InstanceInfoReplicator     : InstanceInfoReplicator onDemand update allowed rate per min is 4
+2026-04-25T14:59:09.094+05:30  INFO 23768 --- [REPORT-SERVICE] [  restartedMain] com.netflix.discovery.DiscoveryClient    : Discovery Client initialized at timestamp 1777109349094 with initial instances count: 6
+2026-04-25T14:59:09.097+05:30  INFO 23768 --- [REPORT-SERVICE] [  restartedMain] o.s.c.n.e.s.EurekaServiceRegistry        : Registering application REPORT-SERVICE with eureka with status UP
+2026-04-25T14:59:09.097+05:30  INFO 23768 --- [REPORT-SERVICE] [  restartedMain] com.netflix.discovery.DiscoveryClient    : Saw local status change event StatusChangeEvent [timestamp=1777109349097, current=UP, previous=STARTING]
+2026-04-25T14:59:09.104+05:30  INFO 23768 --- [REPORT-SERVICE] [foReplicator-%d] com.netflix.discovery.DiscoveryClient    : DiscoveryClient_REPORT-SERVICE/LTIN647338.cts.com:REPORT-SERVICE:2003: registering service...
+2026-04-25T14:59:09.105+05:30  INFO 23768 --- [REPORT-SERVICE] [  restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 2003 (http) with context path ''
+2026-04-25T14:59:09.106+05:30  INFO 23768 --- [REPORT-SERVICE] [  restartedMain] .s.c.n.e.s.EurekaAutoServiceRegistration : Updating port to 2003
+2026-04-25T14:59:09.134+05:30  INFO 23768 --- [REPORT-SERVICE] [foReplicator-%d] com.netflix.discovery.DiscoveryClient    : DiscoveryClient_REPORT-SERVICE/LTIN647338.cts.com:REPORT-SERVICE:2003 - registration status: 204
+2026-04-25T14:59:09.456+05:30  INFO 23768 --- [REPORT-SERVICE] [  restartedMain] c.e.demo.TariffService1Application       : Started TariffService1Application in 3.59 seconds (process running for 76121.662)
+2026-04-25T14:59:09.458+05:30  INFO 23768 --- [REPORT-SERVICE] [  restartedMain] .ConditionEvaluationDeltaLoggingListener : Condition evaluation unchanged
+2026-04-25T14:59:10.209+05:30  INFO 23768 --- [REPORT-SERVICE] [   File Watcher] rtingClassPathChangeChangedEventListener : Restarting due to 51 class path changes (51 additions, 0 deletions, 0 modifications)
+2026-04-25T14:59:10.238+05:30  INFO 23768 --- [REPORT-SERVICE] [      Thread-51] o.s.c.n.e.s.EurekaServiceRegistry        : Unregistering application REPORT-SERVICE with eureka with status DOWN
+2026-04-25T14:59:10.238+05:30  INFO 23768 --- [REPORT-SERVICE] [      Thread-51] com.netflix.discovery.DiscoveryClient    : Saw local status change event StatusChangeEvent [timestamp=1777109350238, current=DOWN, previous=UP]
+2026-04-25T14:59:10.239+05:30  INFO 23768 --- [REPORT-SERVICE] [foReplicator-%d] com.netflix.discovery.DiscoveryClient    : DiscoveryClient_REPORT-SERVICE/LTIN647338.cts.com:REPORT-SERVICE:2003: registering service...
+2026-04-25T14:59:10.248+05:30  INFO 23768 --- [REPORT-SERVICE] [foReplicator-%d] com.netflix.discovery.DiscoveryClient    : DiscoveryClient_REPORT-SERVICE/LTIN647338.cts.com:REPORT-SERVICE:2003 - registration status: 204
+2026-04-25T14:59:10.733+05:30  INFO 23768 --- [REPORT-SERVICE] [      Thread-51] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2026-04-25T14:59:10.735+05:30  INFO 23768 --- [REPORT-SERVICE] [      Thread-51] com.zaxxer.hikari.HikariDataSource       : HikariPool-9 - Shutdown initiated...
+2026-04-25T14:59:10.763+05:30  INFO 23768 --- [REPORT-SERVICE] [      Thread-51] com.zaxxer.hikari.HikariDataSource       : HikariPool-9 - Shutdown completed.
+2026-04-25T14:59:10.764+05:30  INFO 23768 --- [REPORT-SERVICE] [      Thread-51] com.netflix.discovery.DiscoveryClient    : Shutting down DiscoveryClient ...
+2026-04-25T14:59:13.768+05:30  INFO 23768 --- [REPORT-SERVICE] [      Thread-51] com.netflix.discovery.DiscoveryClient    : Unregistering ...
+2026-04-25T14:59:13.774+05:30  INFO 23768 --- [REPORT-SERVICE] [      Thread-51] com.netflix.discovery.DiscoveryClient    : DiscoveryClient_REPORT-SERVICE/LTIN647338.cts.com:REPORT-SERVICE:2003 - deregister  status: 200
+2026-04-25T14:59:13.774+05:30  INFO 23768 --- [REPORT-SERVICE] [      Thread-51] com.netflix.discovery.DiscoveryClient    : Completed shut down of DiscoveryClient
+
+  .   ____          _            __ _ _
+ /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+ \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+  '  |____| .__|_| |_|_| |_\__, | / / / /
+ =========|_|==============|___/=/_/_/_/
+ :: Spring Boot ::                (v3.2.4)
+
+2026-04-25T14:59:14.245+05:30  INFO 23768 --- [REPORT-SERVICE] [  restartedMain] c.e.demo.TariffService1Application       : Starting TariffService1Application using Java 25.0.1 with PID 23768 (C:\New folder\KpiReportService\target\classes started by 2471986 in C:\New folder\KpiReportService)
+2026-04-25T14:59:14.246+05:30  INFO 23768 --- [REPORT-SERVICE] [  restartedMain] c.e.demo.TariffService1Application       : No active profile set, falling back to 1 default profile: "default"
+2026-04-25T14:59:15.136+05:30  INFO 23768 --- [REPORT-SERVICE] [  restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2026-04-25T14:59:15.247+05:30  INFO 23768 --- [REPORT-SERVICE] [  restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 111 ms. Found 2 JPA repository interfaces.
+2026-04-25T14:59:15.507+05:30  INFO 23768 --- [REPORT-SERVICE] [  restartedMain] o.s.cloud.context.scope.GenericScope     : BeanFactory id=901ec211-d789-3806-9d82-e50cc570fb87
+2026-04-25T14:59:15.669+05:30  INFO 23768 --- [REPORT-SERVICE] [  restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 2003 (http)
+2026-04-25T14:59:15.670+05:30  INFO 23768 --- [REPORT-SERVICE] [  restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2026-04-25T14:59:15.671+05:30  INFO 23768 --- [REPORT-SERVICE] [  restartedMain] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.19]
+2026-04-25T14:59:15.758+05:30  INFO 23768 --- [REPORT-SERVICE] [  restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2026-04-25T14:59:15.758+05:30  INFO 23768 --- [REPORT-SERVICE] [  restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1508 ms
+2026-04-25T14:59:15.874+05:30  INFO 23768 --- [REPORT-SERVICE] [  restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2026-04-25T14:59:15.884+05:30  INFO 23768 --- [REPORT-SERVICE] [  restartedMain] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2026-04-25T14:59:15.900+05:30  INFO 23768 --- [REPORT-SERVICE] [  restartedMain] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2026-04-25T14:59:15.902+05:30  INFO 23768 --- [REPORT-SERVICE] [  restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-10 - Starting...
+2026-04-25T14:59:15.931+05:30  INFO 23768 --- [REPORT-SERVICE] [  restartedMain] com.zaxxer.hikari.pool.HikariPool        : HikariPool-10 - Added connection com.mysql.cj.jdbc.ConnectionImpl@53b8ead7
+2026-04-25T14:59:15.931+05:30  INFO 23768 --- [REPORT-SERVICE] [  restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-10 - Start completed.
+2026-04-25T14:59:15.933+05:30  WARN 23768 --- [REPORT-SERVICE] [  restartedMain] org.hibernate.orm.deprecation            : HHH90000025: MySQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2026-04-25T14:59:16.029+05:30  INFO 23768 --- [REPORT-SERVICE] [  restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2026-04-25T14:59:16.056+05:30  INFO 23768 --- [REPORT-SERVICE] [  restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2026-04-25T14:59:16.385+05:30  WARN 23768 --- [REPORT-SERVICE] [  restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2026-04-25T14:59:16.762+05:30  INFO 23768 --- [REPORT-SERVICE] [  restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2026-04-25T14:59:17.191+05:30  INFO 23768 --- [REPORT-SERVICE] [  restartedMain] DiscoveryClientOptionalArgsConfiguration : Eureka HTTP Client uses RestTemplate.
+2026-04-25T14:59:17.235+05:30  WARN 23768 --- [REPORT-SERVICE] [  restartedMain] iguration$LoadBalancerCaffeineWarnLogger : Spring Cloud LoadBalancer is currently working with the default cache. While this cache implementation is useful for development and tests, it's recommended to use Caffeine cache in production.You can switch to using Caffeine cache, by adding it and org.springframework.cache.caffeine.CaffeineCacheManager to the classpath.
+2026-04-25T14:59:17.256+05:30  INFO 23768 --- [REPORT-SERVICE] [  restartedMain] o.s.c.n.eureka.InstanceInfoFactory       : Setting initial instance status as: STARTING
+2026-04-25T14:59:17.260+05:30  INFO 23768 --- [REPORT-SERVICE] [  restartedMain] com.netflix.discovery.DiscoveryClient    : Initializing Eureka in region us-east-1
+2026-04-25T14:59:17.260+05:30  INFO 23768 --- [REPORT-SERVICE] [  restartedMain] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-04-25T14:59:17.260+05:30  INFO 23768 --- [REPORT-SERVICE] [  restartedMain] com.netflix.discovery.DiscoveryClient    : Disable delta property : false
+2026-04-25T14:59:17.260+05:30  INFO 23768 --- [REPORT-SERVICE] [  restartedMain] com.netflix.discovery.DiscoveryClient    : Single vip registry refresh property : null
+2026-04-25T14:59:17.260+05:30  INFO 23768 --- [REPORT-SERVICE] [  restartedMain] com.netflix.discovery.DiscoveryClient    : Force full registry fetch : false
+2026-04-25T14:59:17.260+05:30  INFO 23768 --- [REPORT-SERVICE] [  restartedMain] com.netflix.discovery.DiscoveryClient    : Application is null : false
+2026-04-25T14:59:17.260+05:30  INFO 23768 --- [REPORT-SERVICE] [  restartedMain] com.netflix.discovery.DiscoveryClient    : Registered Applications size is zero : true
+2026-04-25T14:59:17.260+05:30  INFO 23768 --- [REPORT-SERVICE] [  restartedMain] com.netflix.discovery.DiscoveryClient    : Application version is -1: true
+2026-04-25T14:59:17.260+05:30  INFO 23768 --- [REPORT-SERVICE] [  restartedMain] com.netflix.discovery.DiscoveryClient    : Getting all instance registry info from the eureka server
+2026-04-25T14:59:17.302+05:30  INFO 23768 --- [REPORT-SERVICE] [  restartedMain] com.netflix.discovery.DiscoveryClient    : The response status is 200
+2026-04-25T14:59:17.303+05:30  INFO 23768 --- [REPORT-SERVICE] [  restartedMain] com.netflix.discovery.DiscoveryClient    : Starting heartbeat executor: renew interval is: 30
+2026-04-25T14:59:17.303+05:30  INFO 23768 --- [REPORT-SERVICE] [  restartedMain] c.n.discovery.InstanceInfoReplicator     : InstanceInfoReplicator onDemand update allowed rate per min is 4
+2026-04-25T14:59:17.303+05:30  INFO 23768 --- [REPORT-SERVICE] [  restartedMain] com.netflix.discovery.DiscoveryClient    : Discovery Client initialized at timestamp 1777109357303 with initial instances count: 6
+2026-04-25T14:59:17.307+05:30  INFO 23768 --- [REPORT-SERVICE] [  restartedMain] o.s.c.n.e.s.EurekaServiceRegistry        : Registering application REPORT-SERVICE with eureka with status UP
+2026-04-25T14:59:17.307+05:30  INFO 23768 --- [REPORT-SERVICE] [  restartedMain] com.netflix.discovery.DiscoveryClient    : Saw local status change event StatusChangeEvent [timestamp=1777109357307, current=UP, previous=STARTING]
+2026-04-25T14:59:17.308+05:30  INFO 23768 --- [REPORT-SERVICE] [foReplicator-%d] com.netflix.discovery.DiscoveryClient    : DiscoveryClient_REPORT-SERVICE/LTIN647338.cts.com:REPORT-SERVICE:2003: registering service...
+2026-04-25T14:59:17.314+05:30  INFO 23768 --- [REPORT-SERVICE] [  restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 2003 (http) with context path ''
+2026-04-25T14:59:17.315+05:30  INFO 23768 --- [REPORT-SERVICE] [  restartedMain] .s.c.n.e.s.EurekaAutoServiceRegistration : Updating port to 2003
+2026-04-25T14:59:17.323+05:30  INFO 23768 --- [REPORT-SERVICE] [foReplicator-%d] com.netflix.discovery.DiscoveryClient    : DiscoveryClient_REPORT-SERVICE/LTIN647338.cts.com:REPORT-SERVICE:2003 - registration status: 204
+2026-04-25T14:59:17.403+05:30  INFO 23768 --- [REPORT-SERVICE] [  restartedMain] c.e.demo.TariffService1Application       : Started TariffService1Application in 3.493 seconds (process running for 76129.609)
+2026-04-25T14:59:17.405+05:30  INFO 23768 --- [REPORT-SERVICE] [  restartedMain] .ConditionEvaluationDeltaLoggingListener : Condition evaluation unchanged
+2026-04-25T15:00:08.305+05:30  INFO 23768 --- [REPORT-SERVICE] [nio-2003-exec-2] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2026-04-25T15:00:08.305+05:30  INFO 23768 --- [REPORT-SERVICE] [nio-2003-exec-2] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2026-04-25T15:00:08.310+05:30  INFO 23768 --- [REPORT-SERVICE] [nio-2003-exec-2] o.s.web.servlet.DispatcherServlet        : Completed initialization in 5 ms
+Hibernate: select r1_0.reportid,r1_0.generated_at,r1_0.generated_by,r1_0.metricsjson,r1_0.parametersjson,r1_0.scope from report r1_0 where r1_0.scope=? and r1_0.generated_at between ? and ?
+Hibernate: select k1_0.kpiid,k1_0.current_value,k1_0.definition,k1_0.name,k1_0.reporting_period,k1_0.target from kpi k1_0 where k1_0.name=?
+Hibernate: select k1_0.kpiid,k1_0.current_value,k1_0.definition,k1_0.name,k1_0.reporting_period,k1_0.target from kpi k1_0
+2026-04-25T15:00:17.569+05:30  INFO 23768 --- [REPORT-SERVICE] [beatExecutor-%d] com.netflix.discovery.DiscoveryClient    : DiscoveryClient_REPORT-SERVICE/LTIN647338.cts.com:REPORT-SERVICE:2003 - Re-registering apps/REPORT-SERVICE
+2026-04-25T15:00:17.569+05:30  INFO 23768 --- [REPORT-SERVICE] [beatExecutor-%d] com.netflix.discovery.DiscoveryClient    : DiscoveryClient_REPORT-SERVICE/LTIN647338.cts.com:REPORT-SERVICE:2003: registering service...
+2026-04-25T15:00:17.573+05:30  INFO 23768 --- [REPORT-SERVICE] [beatExecutor-%d] com.netflix.discovery.DiscoveryClient    : DiscoveryClient_REPORT-SERVICE/LTIN647338.cts.com:REPORT-SERVICE:2003 - registration status: 204
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD FAILURE
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  21:10 h
+[INFO] Finished at: 2026-04-25T15:00:46+05:30
+[INFO] ------------------------------------------------------------------------
+[ERROR] Failed to execute goal org.springframework.boot:spring-boot-maven-plugin:3.2.4:run (default-cli) on project REPORT-SERVICE: Process terminated with exit code: -1 -> [Help 1]
+[ERROR] 
+[ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.
+[ERROR] Re-run Maven using the -X switch to enable full debug logging.
+[ERROR] 
+[ERROR] For more information about the errors and possible solutions, please read the following articles:
+[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/MojoExecutionException

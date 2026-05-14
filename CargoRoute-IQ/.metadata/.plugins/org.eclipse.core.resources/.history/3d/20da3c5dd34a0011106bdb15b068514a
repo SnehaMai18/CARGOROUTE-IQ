@@ -1,0 +1,197 @@
+package com.example.demo.entities;
+
+import jakarta.persistence.*; 
+
+import java.time.LocalDateTime;
+ 
+import org.hibernate.annotations.CreationTimestamp;
+ 
+import com.example.demo.entities.enums.PodType;
+
+import com.example.demo.entities.enums.ProofOfDeliveryStatus;
+ 
+@Entity 
+
+public class ProofOfDelivery {
+ 
+   @Id 		// Primary key
+
+   @GeneratedValue(strategy = GenerationType.IDENTITY) 		// Auto-increment ID
+
+   private Long podID; 	// Unique identifier for the proof of record record
+
+   private Long bookingID;
+
+   private Long driverID; // Driver ID who submitted this POD
+ 
+   @CreationTimestamp
+
+   private LocalDateTime deliveredAt;
+ 
+   private String receivedBy;
+ 
+   private String podURI;
+ 
+   @Enumerated(EnumType.STRING)
+
+   private PodType podType;
+ 
+   @Enumerated(EnumType.STRING)
+
+   private ProofOfDeliveryStatus status;
+ 
+   public ProofOfDelivery(){} 	// Default constructor
+
+
+   // Parameterized constructor to initialize all fields
+
+   public ProofOfDelivery(Long podID, Long bookingID, LocalDateTime deliveredAt, String receivedBy, String podURI,
+
+		PodType podType, ProofOfDeliveryStatus status) {
+
+	super();
+
+	this.podID = podID;
+
+	this.bookingID = bookingID;
+
+	this.deliveredAt = deliveredAt;
+
+	this.receivedBy = receivedBy;
+
+	this.podURI = podURI;
+
+	this.podType = podType;
+
+	this.status = status;
+
+   }
+
+   // Parameterized constructor with driverId
+
+   public ProofOfDelivery(Long podID, Long bookingID, Long driverId, LocalDateTime deliveredAt, String receivedBy, String podURI,
+
+		PodType podType, ProofOfDeliveryStatus status) {
+
+	super();
+
+	this.podID = podID;
+
+	this.bookingID = bookingID;
+
+	this.driverId = driverId;
+
+	this.deliveredAt = deliveredAt;
+
+	this.receivedBy = receivedBy;
+
+	this.podURI = podURI;
+
+	this.podType = podType;
+
+	this.status = status;
+
+}
+ 
+ 
+   //Getters and setters
+
+   public Long getPodID() { 
+
+       return podID; 
+
+   }
+ 
+   public void setPodID(Long podID) { 
+
+       this.podID = podID; 
+
+   }
+ 
+   public Long getBookingID() { 
+
+       return bookingID; 
+
+   }
+ 
+   public void setBookingID(Long bookingID) { 
+
+       this.bookingID = bookingID; 
+
+   }
+ 
+   public LocalDateTime getDeliveredAt() { 
+
+       return deliveredAt; 
+
+   }
+ 
+   public void setDeliveredAt(LocalDateTime deliveredAt) { 
+
+       this.deliveredAt = deliveredAt; 
+
+   }
+ 
+   public String getReceivedBy() { 
+
+       return receivedBy; 
+
+   }
+ 
+   public void setReceivedBy(String receivedBy) { 
+
+       this.receivedBy = receivedBy; 
+
+   }
+ 
+   public String getPodURI() { 
+
+       return podURI; 
+
+   }
+ 
+   public void setPodURI(String podURI) { 
+
+       this.podURI = podURI; 
+
+   }
+ 
+   public PodType getPodType() { 
+
+       return podType; 
+
+   }
+ 
+   public void setPodType(PodType podType) { 
+
+       this.podType = podType; 
+
+   }
+ 
+   public ProofOfDeliveryStatus getStatus() { 
+
+       return status; 
+
+   }
+ 
+   public void setStatus(ProofOfDeliveryStatus status) { 
+
+       this.status = status; 
+
+   }
+
+   public Long getDriverID() {
+
+       return driverID;
+
+   }
+
+   public void setDriverID(Long driverID) {
+
+       this.driverID = driverID;
+
+   } 
+
+}
+ 
+ 

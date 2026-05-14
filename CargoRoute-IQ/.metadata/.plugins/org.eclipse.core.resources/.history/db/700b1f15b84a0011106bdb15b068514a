@@ -1,0 +1,67 @@
+package com.example.demo.controller;
+import java.util.List;
+import java.util.Map;
+ 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
+import org.springframework.web.bind.annotation.*;
+ 
+import com.example.demo.dto.DriverDTO;
+import com.example.demo.entities.enums.DriverStatus;
+import com.example.demo.service.DriverService;
+ 
+@RestController
+@RequestMapping("/cargoRoute/drivers")
+public class DriverController {
+ 
+    @Autowired
+    private DriverService driverService;
+ 
+    //CREATE DRIVER
+    @PostMapping("/createDriver")
+//    @PreAuthorize("hasAnyRole('Admin')")
+    public ResponseEntity<Map<String, String>> create(@RequestBody DriverDTO dto) {
+        driverService.insert(dto);
+        return new ResponseEntity<>(Map.of("message", "Driver created successfully."),
+                HttpStatus.CREATED);
+    }
+ 
+    //GET DRIVER BY ID
+    @GetMapping("/getDriverByDriverId/{driverID}")
+//    @PreAuthorize("hasAnyRole('Dispatcher', 'Driver', 'Admin','FleetManager','BillingClerk','WareHouseManager','Analyst')")
+    public ResponseEntity<DriverDTO> getById(@PathVariable Long driverID) {
+        return ResponseEntity.ok(driverService.fetchByID(driverID));
+    }
+ 
+    //GET DRIVERS BY STATUS
+    @GetMapping("/getDriverByStatus/{status}")
+//    @PreAuthorize("hasAnyRole('Dispatcher', 'Driver', 'Admin','FleetManager','BillingClerk','WareHouseManager','Analyst')")
+    public ResponseEntity<List<DriverDTO>> getByStatus(@PathVariable String status) {
+        return ResponseEntity.ok(driverService.fetchByStatus(DriverStatus.valueOf(status.toUpperCase())));
+    }
+ 
+    //GET ALL DRIVERS
+    @GetMapping("/getAllDrivers")
+//    @PreAuthorize("hasAnyRole('Dispatcher', 'Driver', 'Admin','FleetManager','BillingClerk','WareHouseManager','Analyst')")
+    public ResponseEntity<List<DriverDTO>> getAll() {
+        return ResponseEntity.ok(driverService.fetchAll());
+    }
+ 
+    //UPDATE DRIVER
+    @PutMapping("/updateDriver/{driverID}")
+    @PreAuthorize("hasAnyRole('ADMIN')")
+    public ResponseEntity<Map<String, String>> update(@PathVariable Long driverID, @RequestBody DriverDTO dto) {
+        driverService.updateDriver(driverID, dto);
+        return ResponseEntity.ok(Map.of("message", "Driver updated successfully."));
+    }
+ 
+    //DELETE DRIVER
+    @DeleteMapping("/deleteById/{driverID}")
+//    @PreAuthorize("hasAnyRole('Admin')")
+    public ResponseEntity<Map<String, String>> delete(@PathVariable Long driverID) {
+        driverService.delete(driverID);
+        return ResponseEntity.ok(Map.of("message", "Driver deleted successfully."));
+    }
+}

@@ -1,0 +1,134 @@
+/* PodDetail.js - Component Styles */
+ 
+.pod-detail-empty-state {
+  padding: 60px 0;
+}
+ 
+.pod-detail-error-message {
+  margin-top: 24px;
+}
+ 
+.pod-detail-info-box {
+  margin-top: 16px;
+  padding: 16px;
+  background: #f0f9ff;
+  border: 1px solid #0ea5e9;
+  border-radius: 6px;
+}
+ 
+.pod-detail-info-text {
+  margin: 0 0 12px 0;
+  color: #0c4a6e;
+  font-size: 14px;
+}
+ 
+.pod-detail-back-button {
+  font-size: 13px;
+  padding: 8px 16px;
+}
+ 
+.pod-detail-message {
+  margin-bottom: 16px;
+}
+ 
+.pod-detail-card-title {
+  margin-bottom: 20px;
+}
+ 
+.pod-detail-row {
+  margin-bottom: 14px;
+}
+ 
+.pod-detail-flex-col {
+  flex: 1;
+}
+ 
+.pod-detail-value-large {
+  font-weight: 700;
+  font-size: 16px;
+}
+ 
+.pod-detail-image {
+  max-width: 240px;
+  max-height: 180px;
+  border-radius: 6px;
+  border: 1px solid #e5e7eb;
+  display: block;
+  margin-bottom: 6px;
+}
+ 
+.pod-detail-no-image {
+  color: #9ca3af;
+  font-style: italic;
+}
+ 
+.pod-detail-image-link {
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+ 
+.pod-edit-image-label {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: #3b82f6;
+  color: #fff;
+  padding: 7px 14px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 13px;
+  font-weight: 500;
+  transition: opacity 0.2s ease;
+}
+ 
+.pod-edit-image-label:disabled {
+  cursor: not-allowed;
+  opacity: 0.7;
+}
+ 
+.pod-edit-image-label.uploading {
+  opacity: 0.7;
+}
+ 
+.pod-edit-file-input {
+  display: none;
+}
+ 
+.pod-edit-file-name {
+  font-size: 12px;
+  color: #64748b;
+  max-width: 200px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+ 
+.pod-edit-preview-image {
+  height: 56px;
+  border-radius: 4px;
+  border: 1px solid #e5e7eb;
+}
+ 
+.pod-edit-info-text {
+  margin: 6px 0 0;
+  font-size: 12px;
+  color: #6b7280;
+}
+ 
+.pod-edit-actions {
+  margin-top: 20px;
+}
+ 
+.pod-edit-message {
+  margin-bottom: 8px;
+}
+ 
+.pod-booking-unavailable {
+  color: #9ca3af;
+  font-style: italic;
+  margin-top: 12px;
+}
+ 
+ 

@@ -1,0 +1,111 @@
+/* ─────────────────────────────────────────────────────────────────────────────
+   Acknowledgement Detail Styles
+   ───────────────────────────────────────────────────────────────────────────── */
+ 
+/* Back Button Margin Utility */
+.ack-detail-back-btn-margin {
+  margin-left: 12px;
+}
+ 
+/* Textarea for notes editing */
+.ack-notes-textarea {
+  width: 100%;
+  min-height: 120px;
+  padding: 8px;
+  border-radius: 4px;
+  border: 1px solid #d1d5db;
+  font-family: inherit;
+  font-size: 14px;
+  line-height: 1.5;
+}
+ 
+/* Character count display */
+.ack-char-counter {
+  font-size: 12px;
+  color: #6b7280;
+  margin-top: 4px;
+}
+ 
+/* Button group for edit/save/cancel */
+.ack-button-group {
+  display: flex;
+  gap: 8px;
+  margin-top: 12px;
+}
+ 
+/* Notes text display */
+.ack-notes-text {
+  margin: 0 0 12px 0;
+  font-size: 14px;
+  line-height: 1.6;
+  color: #1f2937;
+}
+ 
+.ack-notes-text.empty {
+  color: #9ca3af;
+}
+ 
+/* Edit Notes button styling */
+.ack-edit-notes-btn {
+  font-size: 13px;
+  padding: 6px 12px;
+}
+ 
+/* Messages margin */
+.ack-message-margin {
+  margin-top: 12px;
+}
+ 
+/* Acknowledgement details section */
+.ack-ack-section {
+  /* Handled by detail-card class */
+}
+ 
+/* Driver information section */
+.ack-driver-section {
+  /* Handled by detail-card class */
+}
+ 
+/* Dispatch information section */
+.ack-dispatch-section {
+  /* Handled by detail-card class */
+}
+ 
+/* Load information section */
+.ack-load-section {
+  /* Handled by detail-card class */
+}
+ 
+/* Vehicle information section */
+.ack-vehicle-section {
+  /* Handled by detail-card class */
+}
+ 
+/* Notes section */
+.ack-notes-section {
+  /* Handled by detail-card class */
+}
+ 
+/* Field layout grid for detail view */
+.ack-fields-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 16px;
+}
+ 
+/* Detail label styling */
+.ack-detail-label {
+  font-size: 12px;
+  color: #64748b;
+  display: block;
+  margin-bottom: 4px;
+}
+ 
+/* Detail value styling */
+.ack-detail-value {
+  font-size: 14px;
+  font-weight: 500;
+  color: #1e293b;
+}
+ 
+ 

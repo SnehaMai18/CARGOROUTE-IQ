@@ -1,0 +1,142 @@
+/* ─────────────────────────────────────────────────────────────────────────────
+   Driver Acknowledgement List Styles
+   ───────────────────────────────────────────────────────────────────────────── */
+ 
+/* Table Row - Clickable */
+.ack-table-row {
+  cursor: pointer;
+}
+ 
+/* Back Button Margin Utility */
+.ack-back-button-margin {
+  margin-left: 12px;
+}
+ 
+/* Detail Panel - Slide-in Modal */
+.ack-detail-panel {
+  max-height: 90vh;
+  overflow-y: auto;
+}
+ 
+/* Character Counter - Dynamic Color */
+.ack-char-count {
+  color: #94a3b8;
+}
+ 
+.ack-char-count.warning {
+  color: #ef4444;
+}
+ 
+/* Detail Section Container */
+.ack-detail-section {
+  margin-bottom: 24px;
+}
+ 
+/* Detail Section Title */
+.ack-section-title {
+  margin-bottom: 12px;
+  font-size: 14px;
+  font-weight: 600;
+  color: #475569;
+}
+ 
+/* Detail Field Grid */
+.ack-field-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+ 
+/* Detail Field Container */
+.ack-field-item {
+  /* Flex container for label and value */
+}
+ 
+/* Detail Labels */
+.ack-field-label {
+  font-size: 12px;
+  color: #64748b;
+  display: block;
+  margin-bottom: 4px;
+}
+ 
+/* Detail Values */
+.ack-field-value {
+  font-size: 14px;
+  font-weight: 500;
+  color: #1e293b;
+}
+ 
+/* Notes Box styling */
+.ack-notes-box {
+  padding: 12px;
+  background-color: #f1f5f9;
+  border-radius: 6px;
+  font-size: 14px;
+  line-height: 1.5;
+  color: #1e293b;
+  word-break: break-word;
+}
+
+/* Table Column Alignment */
+.ack-table-row td {
+  text-align: left;
+}
+
+/* Right-align actions column */
+.ack-table-row td.actions-cell {
+  text-align: center;
+  padding-right: 20px;
+}
+
+/* Center align action menu buttons */
+.ack-table-row td.actions-cell .action-menu {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Left-align all header text by default */
+.ack-table thead th {
+  text-align: left;
+}
+
+/* Center-align last column (Actions) heading */
+.ack-table thead th:last-child {
+  text-align: center;
+  padding-right: 20px;
+}
+ 
+ 
+/* =====================================================
+   DRIVER ACK ACTION MENU — EXACT BOOKINGS LOOK
+   ===================================================== */
+
+.kebab-dropdown-card.portal-menu {
+  display: flex !important;
+  flex-direction: column !important;
+  width: fit-content !important;
+  min-width: unset !important;
+  padding: 0px 16px;              
+}
+
+/* Menu items */
+.kebab-dropdown-card.portal-menu button {
+  width: auto !important;
+  margin: 0 !important;         
+  padding: 6px 16px;            
+  font-size: 13px;
+  line-height: 1.4;
+  text-align: left;
+  white-space: nowrap;
+}
+
+/* Delete in red */
+.kebab-dropdown-card.portal-menu button.delete-item {
+  color: #dc2626 !important;
+}
+
+/* Hover effect */
+.kebab-dropdown-card.portal-menu button:hover {
+  background-color: #f9fafb;
+}

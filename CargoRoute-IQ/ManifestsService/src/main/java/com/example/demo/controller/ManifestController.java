@@ -1,0 +1,76 @@
+package com.example.demo.controller;
+import java.util.List;
+import java.util.Map;
+import org.springframework.beans.factory.annotation.Autowired;
+ 
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
+import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
+import com.example.demo.dto.ManifestDTO;
+import com.example.demo.dto.ManifestRequiredResponseDTO;
+import com.example.demo.service.ManifestService;
+ 
+@RestController
+@RequestMapping("/cargoRoute/manifests")
+public class ManifestController {
+ 
+    @Autowired
+    private ManifestService manifestService;
+ 
+    @PostMapping(value = "/createManifest", consumes = "multipart/form-data")
+    @PreAuthorize("hasAnyRole('WAREHOUSEMANAGER', 'ADMIN')")
+    public ResponseEntity<?> createManifest(
+            @RequestPart("manifest") ManifestDTO manifestDTO,
+            @RequestPart("file") MultipartFile file) {
+        manifestService.create(manifestDTO, file);
+        return ResponseEntity.status(HttpStatus.CREATED)
+                .body(Map.of("message", "Manifest created successfully."));
+ 
+    }
+    
+    
+    // ================= FETCHING METHODS =================
+ 
+    @GetMapping("/getByManifestId/{id}")
+    public ResponseEntity<ManifestRequiredResponseDTO> getManifestById(@PathVariable Long id) {
+        return ResponseEntity.ok(manifestService.getById(id));
+    }
+ 
+    @GetMapping("/getAllManifest")
+    public ResponseEntity<List<ManifestRequiredResponseDTO>> getAllManifests() {
+        return ResponseEntity.ok(manifestService.getAll());
+    }
+ 
+    @GetMapping("/getByLoadId/{loadID}")
+    public ResponseEntity<ManifestRequiredResponseDTO> getByLoadID(@PathVariable Long loadID) {
+        return ResponseEntity.ok(manifestService.getByLoadID(loadID));
+    }
+ 
+    @GetMapping("/getByWarehouseId/{warehouseID}")
+    public ResponseEntity<List<ManifestRequiredResponseDTO>> getByWarehouseID(@PathVariable Long warehouseID) {
+        return ResponseEntity.ok(manifestService.getByWarehouseID(warehouseID));
+    }
+ 
+    // ================= UPDATE & DELETE =================
+    @PutMapping("/updateManifest/{id}")
+    @PreAuthorize("hasAnyRole('WAREHOUSEMANAGER', 'ADMIN')")
+    public ResponseEntity<Map<String, String>> updateManifest(
+            @PathVariable Long id, @RequestBody ManifestDTO manifestDTO) {
+        manifestService.update(id, manifestDTO);
+        return ResponseEntity.ok(Map.of("message", "Manifest updated successfully."));
+    }
+ 
+    @DeleteMapping("/deleteByManifestId/{id}")
+    @PreAuthorize("hasAnyRole('WAREHOUSEMANAGER', 'ADMIN')")
+    public ResponseEntity<Map<String, String>> deleteManifest(@PathVariable Long id) {
+        manifestService.delete(id);
+        return ResponseEntity.ok(Map.of("message", "Manifest deleted successfully."));
+ 
+    }
+ 
+ 
+}
+ 
+ 

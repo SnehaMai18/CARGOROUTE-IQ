@@ -1,0 +1,404 @@
+/* ════════════════════════════════════════════════════════════════════
+   Driver Dashboard Styles
+   Modern, Professional, Data-Rich UI
+   ════════════════════════════════════════════════════════════════════ */
+
+/* Root Variables */
+:root {
+  --primary-color: #6d28d9;
+  --primary-dark: #5a1fa7;
+  --success-color: #10b981;
+  --warning-color: #f59e0b;
+  --danger-color: #ef4444;
+  --info-color: #3b82f6;
+  --card-bg: #ffffff;
+  --text-dark: #1e293b;
+  --text-muted: #64748b;
+  --border-color: #e2e8f0;
+  --bg-light: #f8fafc;
+  --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.05);
+  --shadow-md: 0 4px 6px rgba(0, 0, 0, 0.1);
+  --shadow-lg: 0 10px 15px rgba(109, 40, 217, 0.08);
+  --transition: all 0.3s ease-in-out;
+}
+
+/* ────────────────────────────────────────────────────────── */
+/* KPI Grid */
+/* ────────────────────────────────────────────────────────── */
+
+.driver-kpi-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1.25rem;
+  margin-bottom: 2rem;
+}
+
+.driver-kpi-card {
+  background: var(--card-bg);
+  padding: 1.5rem;
+  border-radius: 10px;
+  border: 1px solid var(--border-color);
+  border-left: 4px solid var(--primary-color);
+  box-shadow: var(--shadow-sm);
+  transition: var(--transition);
+  position: relative;
+  overflow: hidden;
+}
+
+.driver-kpi-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-lg);
+}
+
+.driver-kpi-card.alert {
+  border-left-color: var(--danger-color);
+  background: rgba(239, 68, 68, 0.02);
+}
+
+.driver-kpi-card.alert:hover {
+  box-shadow: 0 10px 15px rgba(239, 68, 68, 0.1);
+}
+
+.driver-kpi-icon {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  font-size: 2rem;
+  opacity: 0.3;
+}
+
+.driver-stat-label {
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: var(--text-muted);
+  margin-bottom: 0.5rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.driver-stat-value {
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--text-dark);
+}
+
+/* ────────────────────────────────────────────────────────── */
+/* Loads Table Section */
+/* ────────────────────────────────────────────────────────── */
+
+.driver-loads-section {
+  margin-top: 2rem;
+}
+
+.driver-section-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1.5rem;
+}
+
+.driver-section-title {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--text-dark);
+  margin: 0;
+}
+
+.driver-view-all-btn {
+  background: var(--primary-color);
+  color: white;
+  border: none;
+  padding: 0.5rem 1.25rem;
+  border-radius: 6px;
+  font-weight: 600;
+  font-size: 0.875rem;
+  cursor: pointer;
+  transition: var(--transition);
+}
+
+.driver-view-all-btn:hover {
+  background: var(--primary-dark);
+  transform: translateY(-2px);
+}
+
+.driver-loads-table {
+  width: 100%;
+  border-collapse: collapse;
+  background: var(--card-bg);
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: var(--shadow-sm);
+  border: 1px solid var(--border-color);
+}
+
+.driver-loads-table thead {
+  background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%);
+  border-bottom: 2px solid var(--border-color);
+}
+
+.driver-loads-table thead th {
+  padding: 1rem;
+  text-align: left;
+  font-weight: 600;
+  font-size: 0.875rem;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.driver-loads-table tbody tr {
+  border-bottom: 1px solid var(--border-color);
+  transition: var(--transition);
+  cursor: pointer;
+}
+
+.driver-loads-table tbody tr:hover {
+  background-color: var(--bg-light);
+  transform: scale(1.01);
+  box-shadow: inset 0 0 8px rgba(109, 40, 217, 0.05);
+}
+
+.driver-loads-table tbody td {
+  padding: 1rem;
+  font-size: 0.95rem;
+  color: var(--text-dark);
+}
+
+.driver-load-id {
+  font-weight: 600;
+  color: var(--primary-color);
+}
+
+.driver-load-route {
+  color: var(--text-muted);
+  font-size: 0.9rem;
+}
+
+/* Status Badge */
+.driver-status-badge {
+  display: inline-block;
+  padding: 0.375rem 0.75rem;
+  border-radius: 6px;
+  font-weight: 600;
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  width: fit-content;
+}
+
+.driver-status-badge.assigned {
+  background-color: rgba(59, 130, 246, 0.1);
+  color: var(--info-color);
+}
+
+.driver-status-badge.in_progress {
+  background-color: rgba(245, 158, 11, 0.1);
+  color: var(--warning-color);
+}
+
+.driver-status-badge.completed {
+  background-color: rgba(16, 185, 129, 0.1);
+  color: var(--success-color);
+}
+
+.driver-status-badge.delivered {
+  background-color: rgba(16, 185, 129, 0.1);
+  color: var(--success-color);
+}
+
+.driver-status-badge.pending {
+  background-color: rgba(239, 68, 68, 0.1);
+  color: var(--danger-color);
+}
+
+.driver-load-date {
+  color: var(--text-muted);
+  font-size: 0.9rem;
+}
+
+/* ────────────────────────────────────────────────────────── */
+/* Empty State */
+/* ────────────────────────────────────────────────────────── */
+
+.driver-empty-state {
+  text-align: center;
+  padding: 3rem 2rem;
+  background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%);
+  border-radius: 10px;
+  border: 1px solid var(--border-color);
+}
+
+.driver-empty-state-icon {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+}
+
+.driver-empty-state-title {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: var(--text-dark);
+  margin: 0 0 0.5rem 0;
+}
+
+.driver-empty-state-text {
+  font-size: 0.9rem;
+  color: var(--text-muted);
+  margin: 0;
+}
+
+/* ────────────────────────────────────────────────────────── */
+/* Quick Actions */
+/* ────────────────────────────────────────────────────────── */
+
+.driver-quick-actions {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1.25rem;
+  margin-top: 2rem;
+}
+
+.driver-quick-action {
+  background: var(--card-bg);
+  padding: 1.75rem;
+  border-radius: 10px;
+  border: 1px solid var(--border-color);
+  text-align: center;
+  cursor: pointer;
+  transition: var(--transition);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.driver-quick-action:hover {
+  transform: translateY(-6px);
+  box-shadow: var(--shadow-lg);
+  border-color: var(--primary-color);
+  background: linear-gradient(135deg, rgba(109, 40, 217, 0.02) 0%, rgba(109, 40, 217, 0.01) 100%);
+}
+
+.driver-quick-action-icon {
+  font-size: 2.5rem;
+  margin-bottom: 0.75rem;
+}
+
+.driver-quick-action-title {
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--text-dark);
+  margin: 0 0 0.5rem 0;
+}
+
+.driver-quick-action-subtitle {
+  font-size: 0.875rem;
+  color: var(--text-muted);
+  margin: 0;
+  line-height: 1.4;
+}
+
+/* ────────────────────────────────────────────────────────── */
+/* Loading State */
+/* ────────────────────────────────────────────────────────── */
+
+.driver-loading-spinner {
+  display: inline-block;
+  width: 1rem;
+  height: 1rem;
+  border: 2px solid var(--border-color);
+  border-top-color: var(--primary-color);
+  border-radius: 50%;
+  animation: spin 0.6s linear infinite;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.driver-loading-container {
+  text-align: center;
+  padding: 2rem;
+  color: var(--text-muted);
+}
+
+/* ────────────────────────────────────────────────────────── */
+/* Responsive Design */
+/* ────────────────────────────────────────────────────────── */
+
+@media (max-width: 1024px) {
+  .driver-kpi-grid {
+    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+    gap: 1rem;
+  }
+
+  .driver-quick-actions {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .driver-kpi-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .driver-loads-table thead th,
+  .driver-loads-table tbody td {
+    padding: 0.75rem;
+    font-size: 0.85rem;
+  }
+
+  .driver-quick-actions {
+    grid-template-columns: 1fr;
+  }
+
+  .driver-section-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1rem;
+  }
+
+  .driver-view-all-btn {
+    align-self: flex-start;
+  }
+}
+
+@media (max-width: 480px) {
+  .driver-stat-value {
+    font-size: 1.5rem;
+  }
+
+  .driver-section-title {
+    font-size: 1.1rem;
+  }
+
+  .driver-loads-table tbody tr {
+    display: block;
+    border-bottom: 2px solid var(--border-color);
+    margin-bottom: 1rem;
+  }
+
+  .driver-loads-table thead {
+    display: none;
+  }
+
+  .driver-loads-table tbody td {
+    display: block;
+    padding: 0.5rem;
+    border: none;
+    text-align: right;
+    position: relative;
+    padding-left: 50%;
+  }
+
+  .driver-loads-table tbody td:before {
+    content: attr(data-label);
+    position: absolute;
+    left: 0;
+    width: 50%;
+    text-align: left;
+    font-weight: 600;
+    color: var(--text-muted);
+  }
+}

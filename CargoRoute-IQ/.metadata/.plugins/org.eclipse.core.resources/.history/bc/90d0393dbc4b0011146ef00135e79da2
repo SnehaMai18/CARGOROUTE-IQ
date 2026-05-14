@@ -1,0 +1,202 @@
+package com.example.demo.service;
+import static org.junit.jupiter.api.Assertions.*;
+import static org.mockito.ArgumentMatchers.*;
+import static org.mockito.Mockito.*;
+
+import java.util.Arrays;
+import java.util.Collections;
+import java.util.List;
+import java.util.Optional;
+
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.extension.ExtendWith;
+import org.mockito.InjectMocks;
+import org.mockito.Mock;
+import org.mockito.junit.jupiter.MockitoExtension;
+import org.springframework.web.client.RestTemplate;
+
+import com.example.demo.dto.HandoverDTO;
+import com.example.demo.dto.HandoverResponseDTO;
+import com.example.demo.dto.ManifestRequiredResponseDTO;
+import com.example.demo.entities.Handover;
+import com.example.demo.entities.Manifest;
+import com.example.demo.exception.ResourceNotFoundException;
+import com.example.demo.repository.HandoverRepository;
+import com.example.demo.serviceimpl.HandoverServiceImpl;
+
+@ExtendWith(MockitoExtension.class)
+class HandoverServiceImplTest {
+
+    @Mock
+    private HandoverRepository handoverRepository;
+
+    @Mock
+    private RestTemplate restTemplate;
+
+    @InjectMocks
+    private HandoverServiceImpl handoverService;
+
+    private Handover handover;
+    private HandoverDTO handoverDTO;
+    private ManifestRequiredResponseDTO manifestDetails;
+
+    @BeforeEach
+    void setUp() {
+        // Setup Manifest
+        Manifest manifest = new Manifest();
+        manifest.setManifestID(101L);
+
+        // Setup Handover Entity
+        handover = new Handover();
+        handover.setHandoverID(1L);
+        handover.setManifest(manifest);
+        handover.setHandedBy("John Doe");
+        handover.setReceivedBy("Jane Smith");
+
+        // Setup Handover DTO
+        handoverDTO = new HandoverDTO();
+        handoverDTO.setManifestID(101L);
+        handoverDTO.setHandedBy("John Doe");
+
+        // Setup External Service Response
+        manifestDetails = new ManifestRequiredResponseDTO();
+    }
+
+    // ================= CREATE TESTS =================
+
+    @Test
+    void testCreate_Success() {
+        when(handoverRepository.save(any(Handover.class))).thenReturn(handover);
+
+        HandoverDTO result = handoverService.create(handoverDTO);
+
+        assertNotNull(result);
+        assertEquals(handover.getHandoverID(), result.getHandoverID());
+        verify(handoverRepository, times(1)).save(any(Handover.class));
+    }
+
+    // ================= GET BY ID TESTS =================
+
+    @Test
+    void testGetById_Success() {
+        when(handoverRepository.findById(1L)).thenReturn(Optional.of(handover));
+        when(restTemplate.getForObject(anyString(), eq(ManifestRequiredResponseDTO.class)))
+            .thenReturn(manifestDetails);
+
+        HandoverResponseDTO result = handoverService.getById(1L);
+
+        assertNotNull(result);
+        assertEquals(1L, result.getHandover().getHandoverID());
+        assertNotNull(result.getManifestDetails());
+        verify(handoverRepository).findById(1L);
+    }
+
+    @Test
+    void testGetById_WithExternalServiceFailure() {
+        when(handoverRepository.findById(1L)).thenReturn(Optional.of(handover));
+        // Simulate external API crash
+        when(restTemplate.getForObject(anyString(), eq(ManifestRequiredResponseDTO.class)))
+            .thenThrow(new RuntimeException("Service Down"));
+
+        HandoverResponseDTO result = handoverService.getById(1L);
+
+        assertNotNull(result);
+        assertNull(result.getManifestDetails()); // Defensive logic check
+        assertEquals(1L, result.getHandover().getHandoverID());
+    }
+
+    @Test
+    void testGetById_NotFound() {
+        when(handoverRepository.findById(1L)).thenReturn(Optional.empty());
+
+        assertThrows(ResourceNotFoundException.class, () -> handoverService.getById(1L));
+    }
+
+    // ================= GET ALL TESTS =================
+
+    @Test
+    void testGetAll_Success() {
+        when(handoverRepository.findAll()).thenReturn(Arrays.asList(handover));
+        when(restTemplate.getForObject(anyString(), eq(ManifestRequiredResponseDTO.class)))
+            .thenReturn(manifestDetails);
+
+        List<HandoverResponseDTO> results = handoverService.getAll();
+
+        assertFalse(results.isEmpty());
+        assertEquals(1, results.size());
+        verify(handoverRepository).findAll();
+    }
+
+    // ================= GET BY MANIFEST ID TESTS =================
+
+    @Test
+    void testGetByManifestID_Success() {
+        when(handoverRepository.findByManifest_ManifestID(101L)).thenReturn(Arrays.asList(handover));
+        when(restTemplate.getForObject(anyString(), eq(ManifestRequiredResponseDTO.class)))
+            .thenReturn(manifestDetails);
+
+        List<HandoverResponseDTO> results = handoverService.getByManifestID(101L);
+
+        assertFalse(results.isEmpty());
+        assertEquals(1, results.size());
+        verify(handoverRepository).findByManifest_ManifestID(101L);
+    }
+
+    @Test
+    void testGetByManifestID_NotFound() {
+        when(handoverRepository.findByManifest_ManifestID(999L)).thenReturn(Collections.emptyList());
+
+        assertThrows(ResourceNotFoundException.class, () -> handoverService.getByManifestID(999L));
+    }
+
+    // ================= GET BY HANDED BY TESTS =================
+
+    @Test
+    void testGetByHandedBy_Success() {
+        when(handoverRepository.findByHandedBy("John Doe")).thenReturn(Arrays.asList(handover));
+        when(restTemplate.getForObject(anyString(), eq(ManifestRequiredResponseDTO.class)))
+            .thenReturn(manifestDetails);
+
+        List<HandoverResponseDTO> results = handoverService.getByHandedBy("John Doe");
+
+        assertFalse(results.isEmpty());
+        assertEquals("John Doe", results.get(0).getHandover().getHandedBy());
+        verify(handoverRepository).findByHandedBy("John Doe");
+    }
+
+    @Test
+    void testGetByHandedBy_NotFound() {
+        when(handoverRepository.findByHandedBy("Unknown")).thenReturn(Collections.emptyList());
+
+        assertThrows(ResourceNotFoundException.class, () -> handoverService.getByHandedBy("Unknown"));
+    }
+
+    // ================= UPDATE TESTS =================
+
+    @Test
+    void testUpdate_Success() {
+        when(handoverRepository.findById(1L)).thenReturn(Optional.of(handover));
+        when(handoverRepository.save(any(Handover.class))).thenReturn(handover);
+
+        HandoverDTO updatedInfo = new HandoverDTO();
+        updatedInfo.setHandedBy("New Sender");
+
+        HandoverDTO result = handoverService.update(1L, updatedInfo);
+
+        assertNotNull(result);
+        verify(handoverRepository).save(handover);
+    }
+
+    // ================= DELETE TESTS =================
+
+    @Test
+    void testDelete_Success() {
+        when(handoverRepository.findById(1L)).thenReturn(Optional.of(handover));
+        doNothing().when(handoverRepository).delete(handover);
+
+        handoverService.delete(1L);
+
+        verify(handoverRepository, times(1)).delete(handover);
+    }
+}

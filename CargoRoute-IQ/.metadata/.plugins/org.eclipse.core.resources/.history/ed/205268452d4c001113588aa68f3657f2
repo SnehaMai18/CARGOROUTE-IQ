@@ -1,0 +1,320 @@
+package com.example.demo.serviceimpl;
+
+
+import java.util.ArrayList; 
+import java.util.List;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+import org.springframework.web.client.RestTemplate;
+import com.example.demo.clients.DriverUserResolver;
+import com.example.demo.clients.NotificationClient;
+import com.example.demo.clients.RoleResolverClient;
+import com.example.demo.clients.TaskClient;
+import com.example.demo.dto.DispatchDTO;
+import com.example.demo.dto.DispatchResponseDTO;
+import com.example.demo.dto.LoadDTO;
+import com.example.demo.dto.LoadResponseDTO;
+import com.example.demo.dto.VehicleDTO;
+import com.example.demo.entities.Dispatch;
+import com.example.demo.entities.enums.DispatchStatus;
+import com.example.demo.exception.ResourceNotFoundException;
+import com.example.demo.repository.DispatchRepository;
+import com.example.demo.service.DispatchService;
+import io.github.resilience4j.circuitbreaker.annotation.CircuitBreaker;
+
+@Service
+public class DispatchServiceImpl implements DispatchService {
+
+    private static final String DISPATCH_CB = "dispatchService";
+
+    @Autowired
+    private DispatchRepository dispatchRepository;
+    @Autowired
+    private NotificationClient notificationClient;
+
+    @Autowired
+    private TaskClient taskClient;
+    
+    @Autowired
+    private DriverUserResolver driverUserResolver;
+    
+
+    @Autowired
+    private RestTemplate restTemplate;
+    
+    @Autowired
+    private RoleResolverClient roleResolverClient;
+
+
+    private static final String LOAD_SERVICE_URL =
+            "http://ROUTING-SERVICE/cargoRoute/loads/getLoad/";
+
+    private static final String FLEET_SERVICE_URL =
+            "http://FLEET-SERVICE/cargoRoute/vehicles/getVehicle/";
+
+    // ================= CREATE =================
+ 
+    @Override
+    public DispatchDTO insert(DispatchDTO dto) {
+    	if (dto.getLoadID() == null) {
+        throw new IllegalArgumentException(
+            "Dispatch must be created for an existing Load. loadID is required.");
+    }
+        Dispatch dispatch = convertToEntity(dto);
+        Dispatch saved = dispatchRepository.save(dispatch);
+        
+        Long driverId = roleResolverClient.getUserByRole("Driver");
+        Long adminId = roleResolverClient.getUserByRole("Admin");
+
+     // ✅ TASK → DRIVER
+        taskClient.createTask(
+        		driverId,
+            saved.getDispatchID(),
+            "Accept assigned load for dispatch " + saved.getDispatchID(),
+            null);
+
+        // ✅ NOTIFICATION → DRIVER
+        notificationClient.notifyUser(
+        		driverId,
+            saved.getDispatchID(),
+            "You have been assigned a load. Please accept the dispatch.",
+            "Pickup");
+        // ✅ NOTIFICATION → ADMIN
+        notificationClient.notifyUser(
+        		adminId,
+            saved.getDispatchID(),
+            "Dispatch " + saved.getDispatchID() + " assigned to driver",
+            "Pickup");
+        
+        return convertToDto(saved);
+    }
+
+
+    // ================= FETCH BY ID =================
+ 
+    @Override
+    @CircuitBreaker(name = DISPATCH_CB, fallbackMethod = "fetchByIDFallback")
+    public DispatchResponseDTO fetchByID(Long dispatchID) {
+
+        Dispatch dispatch = findDispatch(dispatchID); 
+        return buildResponse(dispatch);
+ 
+    }
+
+    public DispatchResponseDTO fetchByIDFallback(Long dispatchID, Throwable t) {
+        Dispatch dispatch = findDispatch(dispatchID);
+        DispatchResponseDTO response = new DispatchResponseDTO();
+        response.setDispatch(convertToDto(dispatch));
+        response.setLoad(null);
+        response.setVehicle(null);
+        return response;
+    }
+
+    
+    // ================= FETCH BY LOAD ID =================
+ 
+    @Override
+    @CircuitBreaker(name = DISPATCH_CB, fallbackMethod = "findByLoadIDFallback")
+    public DispatchResponseDTO findByLoadID(Long loadID) {
+        Dispatch dispatch = dispatchRepository.findByLoadID(loadID);
+        if (dispatch == null) {
+            throw new ResourceNotFoundException("Dispatch not found for LoadID: " + loadID);
+        }
+        return buildResponse(dispatch);
+ 
+    }
+    public DispatchResponseDTO findByLoadIDFallback(Long loadID, Throwable t) {
+        Dispatch dispatch = dispatchRepository.findByLoadID(loadID);
+        if (dispatch == null) {
+            throw new ResourceNotFoundException("Dispatch not found for LoadID: " + loadID);
+        }
+        DispatchResponseDTO response = new DispatchResponseDTO();
+        response.setDispatch(convertToDto(dispatch));
+        response.setLoad(null);
+        response.setVehicle(null);
+        return response;
+    }
+
+    // ================= FETCH BY ASSIGNED BY (NO CIRCUIT BREAKER ✅) =================
+ 
+    @Override
+    public List<DispatchResponseDTO> fetchByAssignedBy(String assignedBy) {
+        List<Dispatch> dispatches = dispatchRepository.findByAssignedBy(assignedBy);
+        if (dispatches.isEmpty()) {
+            throw new ResourceNotFoundException(
+                    "Dispatch not found for assignedBy: " + assignedBy);
+        }
+        List<DispatchResponseDTO> responses = new ArrayList<>();
+        for (Dispatch dispatch : dispatches) {
+            responses.add(buildResponse(dispatch));
+        }
+        return responses;
+    }
+    // ================= FETCH BY STATUS (NO CIRCUIT BREAKER ✅) =================
+ 
+    @Override
+    public List<DispatchResponseDTO> fetchByStatus(DispatchStatus status) {
+        List<Dispatch> dispatches = dispatchRepository.findByStatus(status);
+        if (dispatches.isEmpty()) {
+            throw new ResourceNotFoundException(
+                    "Dispatch not found for status: " + status);
+        }
+        List<DispatchResponseDTO> responses = new ArrayList<>();
+        for (Dispatch dispatch : dispatches) {
+            responses.add(buildResponse(dispatch));
+        }
+        return responses;
+    }
+
+    // ================= FETCH ALL =================
+ 
+    @Override
+    public List<DispatchResponseDTO> fetchAll() {
+        List<DispatchResponseDTO> responses = new ArrayList<>();
+        for (Dispatch dispatch : dispatchRepository.findAll()) {
+            responses.add(buildResponse(dispatch));
+        }
+        return responses;
+    }
+
+    // ================= UPDATE =================
+ 
+    @Override
+    public DispatchDTO updateDispatch(Long dispatchID, DispatchDTO dto) {
+        Dispatch dispatch = findDispatch(dispatchID);
+        Long oldDriverId = dispatch.getAssignedDriverID();
+
+        if (dto.getAssignedDriverID() != null) {
+            dispatch.setAssignedDriverID(dto.getAssignedDriverID());
+        }
+        if (dto.getAssignedBy() != null) {
+            dispatch.setAssignedBy(dto.getAssignedBy());
+        }
+        if (dto.getStatus() != null) {
+            dispatch.setStatus(dto.getStatus());
+        }
+        Dispatch updated = dispatchRepository.save(dispatch);
+
+        Long oldDriverID = dispatch.getAssignedDriverID();
+
+        if (dto.getAssignedDriverID() != null &&
+            !dto.getAssignedDriverID().equals(oldDriverId)) {
+
+            // Notify old driver
+            if (oldDriverID != null) {
+                notificationClient.notifyUser(
+                    oldDriverId,
+                    dispatch.getDispatchID(),
+                    "Dispatch has been reassigned",
+                    "Exception");
+            }
+
+            // ✅ Task + notification for NEW DRIVER
+            taskClient.createTask(
+                dto.getAssignedDriverID(),
+                dispatch.getDispatchID(),
+                "Accept reassigned dispatch " + dispatch.getDispatchID(),
+                null);
+
+            notificationClient.notifyUser(
+                dto.getAssignedDriverID(),
+                dispatch.getDispatchID(),
+                "You have been reassigned a dispatch",
+                "Pickup");
+        }
+        return convertToDto(updated);
+    }
+
+    // ================= DELETE =================
+ 
+    @Override
+    public void delete(Long dispatchID) {
+        dispatchRepository.delete(findDispatch(dispatchID));
+    }
+
+    // ================= REMOTE CALLS (CIRCUIT BREAKER ✅) =================
+ 
+    @CircuitBreaker(name = "loadService", fallbackMethod = "loadFallback")
+    public LoadResponseDTO callLoadService(Long loadId) {
+    	System.out.println("RestTemplate class = " + restTemplate.getClass());
+        return restTemplate.getForObject(
+                LOAD_SERVICE_URL + loadId,
+                LoadResponseDTO.class
+                );
+ 
+    }
+
+    public LoadResponseDTO loadFallback(Long loadId, Throwable ex) {
+        LoadResponseDTO fallback = new LoadResponseDTO();
+        fallback.setLoad(null);
+        return fallback;
+    }
+
+    @CircuitBreaker(name = "fleetService", fallbackMethod = "fleetFallback")
+    public VehicleDTO callFleetService(Long vehicleId) {
+        return restTemplate.getForObject(
+                FLEET_SERVICE_URL + vehicleId,
+                VehicleDTO.class);
+ 
+    }
+
+    public VehicleDTO fleetFallback(Long vehicleId, Throwable ex) {
+        return null;
+    }
+
+    // ================= RESPONSE BUILDER (DEFENSIVE ✅) =================
+ 
+    private DispatchResponseDTO buildResponse(Dispatch dispatch) {
+        DispatchResponseDTO response = new DispatchResponseDTO();
+        response.setDispatch(convertToDto(dispatch));
+
+        //No load assigned yet
+        if (dispatch.getLoadID() == null) {
+            return response;
+        }
+        try {
+            LoadResponseDTO loadResponse = callLoadService(dispatch.getLoadID());
+
+            if (loadResponse != null) {
+                response.setLoad(loadResponse.getLoad());       
+                response.setVehicle(loadResponse.getVehicle());
+            }
+
+        } catch (Exception ex) {
+            ex.printStackTrace(); 
+        }
+        return response;
+    }
+
+    // ================= UTILITIES =================
+ 
+    private Dispatch findDispatch(Long id) {
+        return dispatchRepository.findById(id)
+                .orElseThrow(() -> new ResourceNotFoundException(
+                                "Dispatch not found with ID: " + id));
+ 
+    }
+    private DispatchDTO convertToDto(Dispatch dispatch) {
+        DispatchDTO dto = new DispatchDTO();
+        dto.setDispatchID(dispatch.getDispatchID());
+        dto.setLoadID(dispatch.getLoadID());
+        dto.setAssignedDriverID(dispatch.getAssignedDriverID());
+        dto.setAssignedBy(dispatch.getAssignedBy());
+        dto.setAssignedAt(dispatch.getAssignedAt());
+        dto.setStatus(dispatch.getStatus());
+        return dto;
+    }
+
+    private Dispatch convertToEntity(DispatchDTO dto) {
+        Dispatch dispatch = new Dispatch();
+        dispatch.setDispatchID(dto.getDispatchID());
+        dispatch.setLoadID(dto.getLoadID());
+        dispatch.setAssignedDriverID(dto.getAssignedDriverID());
+        dispatch.setAssignedBy(dto.getAssignedBy());
+        dispatch.setStatus(dto.getStatus());
+        return dispatch;
+    }
+ 
+}
+ 
+ 

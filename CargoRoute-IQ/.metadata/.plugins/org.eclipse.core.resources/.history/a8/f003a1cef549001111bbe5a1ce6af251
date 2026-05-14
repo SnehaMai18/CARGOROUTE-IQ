@@ -1,0 +1,342 @@
+package com.example.demo.serviceimpl;
+
+import java.util.ArrayList;
+
+import java.util.List;
+ 
+import org.springframework.beans.factory.annotation.Autowired;
+
+import org.springframework.stereotype.Service;
+
+import com.example.demo.clients.NotificationClient;
+import com.example.demo.clients.RoleResolverClient;
+import com.example.demo.clients.TaskClient;
+import com.example.demo.dto.DispatchResponseDTO;
+
+import com.example.demo.dto.DriverAckDTO;
+
+import com.example.demo.dto.DriverAckResponseDTO;
+
+import com.example.demo.dto.DriverDTO;
+
+import com.example.demo.entities.Dispatch;
+
+import com.example.demo.entities.Driver;
+
+import com.example.demo.entities.DriverAck;
+
+import com.example.demo.exception.ResourceNotFoundException;
+
+import com.example.demo.repository.DriverAckRepository;
+
+import com.example.demo.service.DispatchService;
+
+import com.example.demo.service.DriverAckService;
+
+import com.example.demo.service.DriverService;
+ 
+@Service
+
+public class DriverAckServiceImpl implements DriverAckService {
+ 
+    @Autowired
+
+    private DriverAckRepository driverAckRepository;
+ 
+    @Autowired
+
+    private DispatchService dispatchService;
+    
+    @Autowired
+    private NotificationClient notificationClient;
+    
+    
+
+    @Autowired
+    private TaskClient taskClient;
+ 
+    @Autowired
+
+    private DriverService driverService;
+    
+    @Autowired
+    private RoleResolverClient roleResolverClient;
+  
+    /* ================= CREATE ================= */
+ 
+    @Override
+
+    public DriverAckDTO insert(DriverAckDTO dto) {
+ 
+        if (dto.getDispatchID() == null || dto.getDriverID() == null) {
+
+            throw new IllegalArgumentException(
+
+                    "dispatchID and driverID are mandatory");
+
+        }
+ 
+        DriverAck ack = new DriverAck();
+ 
+        Dispatch dispatch = new Dispatch();
+
+        dispatch.setDispatchID(dto.getDispatchID());
+
+        ack.setDispatch(dispatch);
+ 
+        Driver driver = new Driver();
+
+        driver.setDriverID(dto.getDriverID());
+
+        ack.setDriver(driver);
+ 
+        ack.setAckAt(dto.getAckAt());
+
+        ack.setNotes(dto.getNotes());
+ 
+        DriverAck saved = driverAckRepository.save(ack);
+        
+
+
+//     // ✅ Notify Dispatcher that driver acknowledged
+//     DispatchResponseDTO dispatchResponse =
+//             dispatchService.fetchByID(dto.getDispatchID());
+//
+//     String dispatcher = dispatchResponse.getDispatch().getAssignedBy();
+//
+//     if (dispatcher != null) {
+//         notificationClient.notifyUser(
+//             Long.valueOf(dispatcher), // if stored as String ID, adjust mapping
+//             saved.getAckID(),
+//             "Driver acknowledged dispatch " + dto.getDispatchID(),
+//             "Delivery"
+//         );
+//     }
+//     
+//
+//     Long adminId= roleResolverClient.getUserByRole("Admin");
+//
+//  //  NOTIFICATION → ADMIN
+//  notificationClient.notifyUser(
+//      adminId,
+//      saved.getAckID(),
+//      "Driver acknowledged dispatch " + dto.getDispatchID(),
+//      "Delivery"
+//  );
+//
+//
+//
+//     return convertToDTO(saved);
+// 
+//
+    }
+ 
+    /* ================= FETCH ================= */
+ 
+    @Override
+
+    public DriverAckResponseDTO fetchByID(Long ackID) {
+
+        return buildResponse(findAck(ackID));
+
+    }
+ 
+    @Override
+
+    public List<DriverAckResponseDTO> fetchByDispatchID(Long dispatchID) {
+
+        if (dispatchID == null) {
+
+            throw new IllegalArgumentException("dispatchID is required");
+
+        }
+
+        List<DriverAck> acks =
+
+                driverAckRepository.findByDispatch_DispatchID(dispatchID);
+ 
+        if (acks.isEmpty()) {
+
+            throw new ResourceNotFoundException("No DriverAck found for dispatchID: " + dispatchID);
+
+        }
+
+        List<DriverAckResponseDTO> responses = new ArrayList<>();
+ 
+        for (DriverAck ack : acks) {
+
+            responses.add(buildResponse(ack));
+
+        }
+
+        return responses;
+
+    }
+
+ 
+    @Override
+
+    public List<DriverAckResponseDTO> fetchByDriverID(Long driverID) {
+ 
+        if (driverID == null) {
+
+            throw new IllegalArgumentException("driverID is required");
+
+        }
+ 
+        List<DriverAck> acks =
+
+                driverAckRepository.findByDriver_DriverID(driverID);
+ 
+        if (acks.isEmpty()) {
+
+            throw new ResourceNotFoundException("No DriverAck found for driverID: " + driverID);
+
+        }
+
+        List<DriverAckResponseDTO> responses = new ArrayList<>();
+
+        for (DriverAck ack : acks) {
+
+            responses.add(buildResponse(ack));
+
+        }
+
+        return responses;
+
+    }
+ 
+    @Override
+
+    public List<DriverAckResponseDTO> fetchAll() {
+ 
+        List<DriverAckResponseDTO> responses = new ArrayList<>();
+ 
+        for (DriverAck ack : driverAckRepository.findAll()) {
+
+            responses.add(buildResponse(ack));
+
+        }
+
+        return responses;
+
+    }
+ 
+//    @Override
+
+//    public List<DriverAckResponseDTO> fetchAllWithDetails() {
+//
+//        return fetchAll();
+//
+//    }
+ 
+    /* ================= UPDATE ================= */
+ 
+    @Override
+
+    public DriverAckDTO updateDriverAck(Long ackID, DriverAckDTO dto) {
+ 
+        DriverAck ack = findAck(ackID);
+ 
+        if (dto.getDispatchID() != null) {
+
+            Dispatch dispatch = new Dispatch();
+
+            dispatch.setDispatchID(dto.getDispatchID());
+
+            ack.setDispatch(dispatch);
+
+        }
+ 
+        if (dto.getDriverID() != null) {
+
+            Driver driver = new Driver();
+
+            driver.setDriverID(dto.getDriverID());
+
+            ack.setDriver(driver);
+
+        }
+
+        if (dto.getNotes() != null)
+
+            ack.setNotes(dto.getNotes());
+ 
+        return convertToDTO(driverAckRepository.save(ack));
+
+    }
+ 
+    /* ================= DELETE ================= */
+ 
+    @Override
+
+    public void delete(Long ackID) {
+
+        driverAckRepository.delete(findAck(ackID));
+
+    }
+ 
+    /* ================= HELPERS ================= */
+ 
+    private DriverAck findAck(Long id) {
+
+        return driverAckRepository.findById(id)
+
+                .orElseThrow(() ->
+
+                        new ResourceNotFoundException(
+
+                                "DriverAck not found with ID: " + id));
+
+    }
+ 
+    private DriverAckDTO convertToDTO(DriverAck ack) {
+ 
+        DriverAckDTO dto = new DriverAckDTO();
+
+        dto.setAckID(ack.getAckID());
+
+        dto.setDispatchID(ack.getDispatch().getDispatchID());
+
+        dto.setDriverID(ack.getDriver().getDriverID());
+
+        dto.setAckAt(ack.getAckAt());
+
+        dto.setNotes(ack.getNotes());
+
+        return dto;
+
+    }
+ 
+    private DriverAckResponseDTO buildResponse(DriverAck ack) {
+ 
+        DriverAckResponseDTO response = new DriverAckResponseDTO();
+ 
+        response.setAckID(ack.getAckID());
+
+        response.setAckAt(ack.getAckAt());
+
+        response.setNotes(ack.getNotes());
+ 
+        DispatchResponseDTO dispatchResponse =
+
+                dispatchService.fetchByID(
+
+                        ack.getDispatch().getDispatchID());
+
+        response.setDispatch(dispatchResponse);
+ 
+        DriverDTO driver =
+
+                driverService.fetchByID(
+
+                        ack.getDriver().getDriverID());
+
+        response.setDriver(driver);
+ 
+        return response;
+
+    }
+
+}
+ 

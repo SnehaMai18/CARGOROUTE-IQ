@@ -1,0 +1,172 @@
+/* ================================================================
+   EXCEPTIONS & CLAIMS MODULE
+   Supplements Bookings.css — imports all shared layout classes
+   from there and adds exception/claim-specific styles below.
+   ================================================================ */
+
+/* ── Page layout ─────────────────────────────────────────────── */
+
+.exceptions-page {
+  width: 100%;
+}
+
+.page-subtitle {
+  font-size: 13px;
+  color: #64748b;
+  margin: 2px 0 0;
+}
+
+/* ── Exception & Claim detail pages ─────────────────────────── */
+
+
+
+/* ── Claims sub-table inside ExceptionDetail ─────────────────── */
+
+.claims-sub-section {
+  margin-top: 18px;
+}
+
+.claims-sub-title {
+  font-size: 14px;
+  font-weight: 600;
+  color: #64748b;
+  margin: 0 0 10px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+/* ── Claim form panel (slide-in drawer style) ────────────────── */
+
+.claim-form-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.35);
+  z-index: 200;
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-end;
+}
+
+.claim-form-panel {
+  background: #fff;
+  width: 420px;
+  max-width: 95vw;
+  height: 100vh;
+  overflow-y: auto;
+  padding: 32px 28px 40px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  box-shadow: -4px 0 24px rgba(0, 0, 0, 0.15);
+}
+
+.claim-form-panel h2 {
+  font-size: 18px;
+  font-weight: 700;
+  color: #1a2b45;
+  margin: 0;
+}
+
+.claim-form-panel .form-section {
+  background: none;
+  border: none;
+  padding: 0;
+  gap: 14px;
+}
+
+/* ── Type badge variants (reuse .status-badge base from Bookings.css) ─── */
+
+/* Exception type icons sit inline with the badge */
+.type-badge-icon {
+  margin-right: 4px;
+  font-size: 12px;
+}
+
+/* ── Description truncation in table ────────────────────────── */
+
+.desc-cell {
+  max-width: 220px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  color: #475569;
+  font-size: 13px;
+}
+
+/* ── Amount display ─────────────────────────────────────────── */
+
+.amount-cell {
+  font-weight: 600;
+  color: #1a2b45;
+  font-family: 'SFMono-Regular', Consolas, monospace;
+}
+
+/* ── Info grid inside detail cards ─────────────────────────── */
+
+.info-grid-2 {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+
+.info-grid-3 {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 14px;
+}
+
+@media (max-width: 600px) {
+  .info-grid-2,
+  .info-grid-3 {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ── Claim total chip ────────────────────────────────────────── */
+
+.claim-total-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: #f0f9ff;
+  border: 1px solid #bae6fd;
+  border-radius: 20px;
+  padding: 4px 14px;
+  font-size: 13px;
+  font-weight: 600;
+  color: #0369a1;
+}
+
+/* ================================================================
+   RESPONSIVE — Exceptions & Claims
+   ================================================================ */
+
+/* ── Mobile (≤ 640px) ──────────────────────────────────────────── */
+@media (max-width: 640px) {
+  .exceptions-page,
+  .exception-detail-page { max-width: 100%; }
+
+  /* Claim slide-in panel becomes full screen */
+  .claim-form-panel {
+    width: 100vw;
+    max-width: 100vw;
+    padding: 24px 16px 40px;
+  }
+
+  /* Description cell wraps instead of truncating */
+  .desc-cell {
+    max-width: 140px;
+    white-space: nowrap;
+  }
+
+  /* Info grids collapse */
+  .info-grid-2,
+  .info-grid-3 { grid-template-columns: 1fr; }
+}
+
+/* ── Small mobile (≤ 400px) ────────────────────────────────────── */
+@media (max-width: 400px) {
+  .desc-cell {
+    max-width: 100px;
+  }
+}

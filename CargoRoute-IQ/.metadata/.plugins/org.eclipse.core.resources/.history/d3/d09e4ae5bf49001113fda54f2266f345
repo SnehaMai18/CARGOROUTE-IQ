@@ -1,0 +1,70 @@
+server:
+  port: 8080
+ 
+spring:
+  application:
+    name: API-GATEWAY
+  cloud:
+    gateway:
+      server:
+        webmvc:
+          routes:
+            # IDENTITY AND ACCESS MANAGEMENT
+            - id: IDENTITY-ACCESS-MANAGEMENT
+              uri: lb://IDENTITY-ACCESS-MANAGEMENT
+              predicates:
+                - Path=/cargoRoute/auth/**, /cargoRoute/user/**, /cargoRoute/internal/**, /cargoRoute/auditLogs/**
+ 
+            # NOTIFICATIONS AND TASKS
+            - id: NOTIFICATIONS-AND-TASK-LISTS
+              uri: lb://NOTIFICATIONS-AND-TASK-LISTS
+              predicates:
+                - Path=/cargoRoute/notifications/**, /cargoRoute/tasks/**
+ 
+            # FLEET SERVICE
+            - id: FLEET-SERVICE
+              uri: lb://FLEET-SERVICE
+              predicates:
+                - Path=/cargoRoute/vehicles/**, /cargoRoute/vehicleAvailability/**
+ 
+            # ROUTING SERVICE
+            - id: ROUTING-SERVICE
+              uri: lb://ROUTING-SERVICE
+              predicates:
+                - Path=/cargoRoute/loads/**, /cargoRoute/routingRules/**, /cargoRoute/routes/**
+ 
+            # DISPATCH SERVICE
+            - id: DISPATCH-SERVICE
+              uri: lb://DISPATCH-SERVICE
+              predicates:
+                - Path=/cargoRoute/dispatches/**, /cargoRoute/driver-acknowledgement/**, /cargoRoute/drivers/**
+ 
+            # MANIFEST SERVICE
+            - id: MANIFEST-SERVICE
+              uri: lb://MANIFEST-SERVICE
+              predicates:
+                - Path=/cargoRoute/manifests/**, /cargoRoute/handovers/**, /cargoRoute/proof-of-delivery/**
+ 
+            # BOOKING SERVICE
+            - id: BOOKING-SERVICE
+              uri: lb://BOOKING-SERVICE
+              predicates:
+                - Path=/cargoRoute/booking/**, /cargoRoute/shipper/**
+ 
+            # EXCEPTION SERVICE
+            - id: EXCEPTION-SERVICE
+              uri: lb://EXCEPTION-SERVICE
+              predicates:
+                - Path=/cargoRoute/exception/**, /cargoRoute/claim/**
+ 
+            # BILLING SERVICE
+            - id: BILLING-SERVICE
+              uri: lb://BILLING-SERVICE
+              predicates:
+                - Path=/cargoRoute/billing-lines/**, /cargoRoute/invoices/**, /cargoRoute/tariffs/**
+ 
+            # REPORT SERVICE
+            - id: REPORT-SERVICE
+              uri: lb://REPORT-SERVICE
+              predicates:
+                - Path=/cargoRoute/kpis/**, /cargoRoute/reports/**

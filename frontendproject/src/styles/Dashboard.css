@@ -1,0 +1,2186 @@
+/* -----------------------------------------------------------
+   Dashboard.css - CargoRoute IQ Redesign
+   Style: Visual Rich, Modern, SaaS (Stripe/Notion inspired)
+----------------------------------------------------------- */
+ 
+/* 1. Variables & Global Styles (Assumed global context, defining here for completeness) */
+:root {
+  --font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+ 
+  /* Color Palette */
+  --primary-purple: #d8caf3, /* main purple */
+  --primary-purple-dark: #6d28d9;
+ 
+  --secondary-blue: #d8caf3,; /* info blue */
+  --success-green: #10b981; /* positive green */
+  --danger-red: #ef4444; /* exception red */
+ 
+  /* Neutral Palette */
+  --bg-gradient-start: #f8fafc;
+  --bg-gradient-end: #eef2f6; /* subtle bluish tint */
+ 
+  --card-bg: #ffffff;
+  --text-main: #1e293b;
+  --text-muted: #64748b;
+  --text-light: #94a3b8;
+  --border-color: #e2e8f0;
+ 
+  /* Shadows */
+  --shadow-sm: 0 1px 3px 0 rgba(0, 0, 0, 0.05);
+  --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  --shadow-lg: 0 10px 15px -3px rgba(124, 58, 237, 0.08), 0 4px 6px -2px rgba(124, 58, 237, 0.03); /* purple tint shadow */
+ 
+  /* Transitions */
+  --transition-ease: all 0.2s ease-in-out;
+}
+ 
+body {
+  font-family: var(--font-family);
+  background: linear-gradient(135deg, var(--bg-gradient-start) 0%, var(--bg-gradient-end) 100%);
+  color: var(--text-main);
+  margin: 0;
+  -webkit-font-smoothing: antialiased;
+}
+ 
+/* 2. Layout & Global Containers */
+.dashboard-container {
+  width: min(100%, 1280px);
+  margin: 0 auto;
+  padding: 1.5rem 1.25rem;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem; /* Consistent spacing between major sections */
+}
+ 
+/* 2.5 Dashboard Page Header */
+.dashboard-page-header h1 {
+  font-size: 35px;
+  font-weight: 700;
+  background: linear-gradient(90deg, #3c1365, #5a189a, #7b2cbf);
+  color: #fff;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  letter-spacing: 0.5px;
+  margin: 0 0 0.5rem 0;
+}
+ 
+.dashboard-page-header .dashboard-subtitle {
+  font-size: 0.9rem;
+  color: var(--text-muted);
+  margin: 0;
+}
+ 
+/* 3. Global Typography & Headings */
+.card-title-lg {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--text-main);
+  margin: 0 0 0.25rem 0;
+}
+ 
+.card-subtitle {
+  font-size: 0.9rem;
+  color: var(--text-muted);
+  margin: 0;
+}
+ 
+.card-title-md {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: var(--text-main);
+  margin: 0;
+}
+ 
+/* 4. Common Card Styles */
+.wide-card, .main-card, .compact-card {
+  background-color: var(--card-bg);
+  border-radius: 16px;
+  border: 1px solid var(--border-color);
+  box-shadow: var(--shadow-sm);
+  transition: var(--transition-ease);
+}
+ 
+/* Hover lift effect for general cards */
+.wide-card:hover, .main-card:hover, .compact-card:hover {
+  box-shadow: var(--shadow-lg);
+  transform: translateY(-2px);
+}
+ 
+/* 5. TOP SECTION: KPI Cards Row */
+.kpi-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.5rem;
+}
+ 
+.kpi-card {
+  border-radius: 16px;
+  overflow: hidden; /* for gradient overflows */
+  transition: var(--transition-ease);
+  position: relative;
+  background: #f5f3fa;
+  border: 1px solid var(--border-color);
+  box-shadow: var(--shadow-sm);
+}
+ 
+.kpi-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 12px 20px -10px rgba(126, 92, 185, 0.15);
+    background: #ebe5ef;
+ 
+ 
+}
+ 
+.kpi-card-content {
+  padding: 1.5rem;
+}
+ 
+/* Specific Card Styling */
+ 
+/* Purple Gradient First Card */
+.kpi-card.purple-gradient {
+  background: #f5f3fa!important;
+  color: #1e0d29;
+  font-weight: 600;
+  border: none;
+}
+ 
+ 
+.kpi-card.purple-gradient .kpi-icon {
+  color: rgba(31, 26, 26, 0.5);
+}
+ 
+ 
+ 
+/* KPI Card Inner Elements */
+.kpi-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 0.5rem;
+  font-weight: 700;
+}
+ 
+.kpi-label {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: #070c14;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+ 
+.kpi-icon {
+  width: 20px;
+  height: 20px;
+ 
+}
+ 
+.kpi-value {
+  font-size: 2.5rem;
+  font-weight: 800;
+  line-height: 1;
+  margin-bottom: 0.25rem;
+  color:#d8caf3
+}.kpi-card.purple-gradient .kpi-value {
+  color: #1c0735!important;
+}
+.kpi-card.purple-gradient.exceptions .kpi-value {
+  color: #df6e6e!important;
+}
+.kpi-card.purple-gradient.loads .kpi-value {
+  color: #6edf99!important;
+}
+.kpi-card.purple-gradient.fleets .kpi-value {
+  color: #5c7ec3!important;
+}
+.kpi-subtext {
+  font-size: 0.85rem;
+  color: #8b8888!important;
+  margin: 0;
+}
+ 
+/* 6. PROGRESS SECTION: Report Generation */
+.progress-section-container {
+  margin-top: 0.5rem;
+}
+ 
+.progress-card {
+  padding: 1.5rem 2rem;
+}
+ 
+.progress-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+ 
+.progress-percentage {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--primary-purple);
+}
+ 
+.progress-bar-wrapper {
+  margin-bottom: 1rem;
+}
+ 
+.progress-bar-track {
+  width: 100%;
+  height: 12px;
+  background-color: var(--bg-gradient-end);
+  border-radius: 6px;
+  overflow: hidden;
+}
+ 
+.progress-bar-fill {
+  height: 100%;
+  background-color: var(--primary-purple);
+  border-radius: 6px;
+  transition: width 0.6s ease-out; /* Smooth growth animation */
+  position: relative;
+}
+ 
+/* Subtle Animated Stripes */
+.animated-stripes {
+  background-image: linear-gradient(
+    45deg,
+    rgba(255, 255, 255, 0.15) 25%,
+    transparent 25%,
+    transparent 50%,
+    rgba(255, 255, 255, 0.15) 50%,
+    rgba(255, 255, 255, 0.15) 75%,
+    transparent 75%,
+    transparent
+  );
+  background-size: 1rem 1rem;
+  animation: progress-stripes 1s linear infinite;
+}
+ 
+@keyframes progress-stripes {
+  from { background-position: 1rem 0; }
+  to { background-position: 0 0; }
+}
+ 
+.progress-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 0.9rem;
+  color: var(--text-muted);
+}
+ 
+.stat-highlight {
+  font-weight: 600;
+  color: var(--text-main);
+}
+ 
+.status-badge.processing {
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--primary-purple);
+  background-color: rgba(124, 58, 237, 0.1);
+  padding: 4px 10px;
+  border-radius: 20px;
+}
+ 
+/* 7. MIDDLE SECTION: Layout Grid (Large/Compact) */
+.dashboard-middle-grid {
+  display: flex;
+  align-items: flex-start;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+}
+
+.dashboard-middle-grid > .audit-logs-card {
+  flex: 2.2 1 0%;
+  min-width: 0;
+  align-self: stretch;
+}
+
+.dashboard-middle-grid > .quick-actions-card {
+  flex: 1 1 0%;
+  min-width: 0;
+  align-self: stretch;
+}
+
+@media (max-width: 1100px) {
+  .kpi-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+  .dashboard-middle-grid {
+    flex-direction: column;
+  }
+  .quick-actions-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 720px) {
+  .dashboard-container {
+    padding: 1rem;
+  }
+  .kpi-grid {
+    gap: 1rem;
+  }
+  .quick-actions-card,
+  .audit-logs-card {
+    padding: 1.25rem;
+  }
+}
+ 
+/* 8. LEFT CARD: Recent Audit Logs Table */
+.audit-logs-card {
+  padding: 1.75rem;
+  display: flex;
+  flex-direction: column;
+  background: rgba(255, 255, 255, 0.9);
+  border: 1px solid rgba(124, 58, 237, 0.12);
+  border-radius: 20px;
+  box-shadow: 0 14px 32px rgba(15, 23, 42, 0.06);
+  min-height: 470px;
+  overflow: hidden;
+}
+ 
+.card-header-actions {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1.25rem;
+}
+ 
+.text-btn {
+  background: none;
+  border: none;
+  color: var(--primary-purple);
+  font-weight: 600;
+  font-size: 0.9rem;
+  cursor: pointer;
+  padding: 0;
+  transition: var(--transition-ease);
+}
+ 
+.text-btn:hover {
+  color: var(--primary-purple-dark);
+  text-decoration: underline;
+}
+ 
+/* Table Styling */
+.audit-table-wrapper {
+  flex: 1;
+}
+ 
+.audit-table {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0;
+}
+ 
+.audit-table th,
+.audit-table td {
+  text-align: left;
+  padding: 1rem;
+  border-bottom: 1px solid var(--border-color);
+}
+ 
+.audit-table th {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: #ffffff;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  padding-bottom: 0.75rem;
+  background-color: #370a6e   ;
+}
+ 
+/* Table Row Hover */
+.audit-table tbody tr {
+  transition: var(--transition-ease);
+}
+ 
+.audit-table tbody tr:hover {
+  background-color: rgba(124, 58, 237, 0.02); /* Very subtle purple tint */
+}
+ 
+/* Cell Specific Styling */
+.user-cell {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  font-weight: 600;
+  color: var(--text-main);
+}
+ 
+.avatar-placeholder {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background-color: var(--bg-gradient-end);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  color: var(--text-muted);
+  font-size: 0.9rem;
+}
+ 
+.resource-cell {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  color: var(--text-main);
+  font-weight: 500;
+}
+ 
+.resource-icon {
+  width: 16px;
+  height: 16px;
+}
+ 
+.timestamp-cell {
+  color: var(--text-muted);
+  font-size: 0.9rem;
+}
+ 
+/* Remove border from last row */
+.audit-table tbody tr:last-child td {
+  border-bottom: none;
+}
+ 
+/* 9. RIGHT CARD: Quick Actions Grid */
+.quick-actions-card {
+  padding: 1.75rem;
+  background: rgba(255, 255, 255, 0.92);
+  border: 1px solid rgba(124, 58, 237, 0.12);
+  border-radius: 20px;
+  box-shadow: 0 14px 32px rgba(15, 23, 42, 0.06);
+}
+ 
+.quick-actions-card .card-title-md {
+  margin-bottom: 1.5rem;
+}
+ 
+.quick-actions-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1rem;
+  align-items: stretch;
+  grid-auto-rows: 1fr;
+}
+ 
+.action-card {
+  background: rgba(255, 255, 255, 0.95);
+  border: 1px solid rgba(124, 58, 237, 0.12);
+  border-radius: 18px;
+  padding: 1.5rem 1.35rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 1rem;
+  width: 100%;
+  min-height: 170px;
+  box-shadow: var(--shadow-sm);
+  transition: transform 0.28s ease, box-shadow 0.28s ease, border-color 0.28s ease, background 0.28s ease;
+  text-align: left;
+}
+ 
+.action-card:hover {
+  transform: translateY(-6px);
+  background: rgba(249, 246, 255, 0.92);
+  border-color: rgba(124, 58, 237, 0.22);
+  box-shadow: 0 18px 35px rgba(99, 102, 241, 0.14);
+}
+ 
+.action-card:focus-visible {
+  outline: 2px solid rgba(124, 58, 237, 0.3);
+  outline-offset: 3px;
+}
+ 
+.action-icon-wrapper {
+  width: 44px;
+  height: 44px;
+  padding: 0;
+  border-radius: 14px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+ 
+.action-icon-wrapper svg {
+  width: 20px;
+  height: 20px;
+}
+ 
+.action-text {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+ 
+.action-text strong {
+  display: block;
+  font-size: 1rem;
+  color: var(--text-main);
+  font-weight: 700;
+}
+ 
+.action-text p {
+  margin: 0;
+  font-size: 0.88rem;
+  color: var(--text-muted);
+  line-height: 1.5;
+}
+/* Premium Glassmorphism Overrides */
+.main-card, .compact-card, .wide-card {
+    background: rgba(255, 255, 255, 0.75);
+    backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.5);
+    box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.05);
+}
+ 
+/* The Animated Hero Gradient */
+.kpi-card.purple-gradient {
+    background: linear-gradient(135deg, #8b5cf6 0%, #6d28d9 100%);
+    box-shadow: 0 10px 25px -5px rgba(109, 40, 217, 0.4);
+    border: none;
+}
+ 
+ 
+/* Animated Progress Bar */
+.progress-bar-fill {
+    background: linear-gradient(90deg, #7c3aed, #a78bfa, #7c3aed);
+    background-size: 200% 100%;
+    animation: gradientFlow 2s linear infinite;
+}
+ 
+@keyframes gradientFlow {
+    0% { background-position: 100% 0%; }
+    100% { background-position: -100% 0%; }
+}
+
+/* ─────────────────────────────────────────────────────────── */
+/* 10. Loading Skeleton Animation                             */
+/* ─────────────────────────────────────────────────────────── */
+
+@keyframes skeleton-pulse {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.5;
+  }
+}
+
+.loading-skeleton {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.skeleton-row {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  padding: 12px 0;
+  border-bottom: 1px solid #f0f0f0;
+}
+
+.skeleton-cell {
+  animation: skeleton-pulse 1.5s ease-in-out infinite;
+  background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
+  background-size: 200% 100%;
+  animation: skeleton-pulse 1.5s ease-in-out infinite;
+}
+
+.skeleton-avatar {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+.skeleton-text {
+  height: 14px;
+  border-radius: 4px;
+  flex: 1;
+}
+
+.skeleton-row:last-child {
+  border-bottom: none;
+}
+
+/* ─────────────────────────────────────────────────────────── */
+/* 11. Empty State Style                                      */
+/* ─────────────────────────────────────────────────────────── */
+
+.empty-state {
+  padding: 20px;
+  text-align: center;
+  color: #999;
+  font-size: 14px;
+}
+
+/* ─────────────────────────────────────────────────────────── */
+/* 12. Audit Logs Table Styling (Dashboard)                   */
+/* ─────────────────────────────────────────────────────────── */
+
+.audit-logs-card .table-container {
+  margin-top: 1rem;
+  max-height: 360px;
+  overflow-y: auto;
+  width: 100%;
+  padding-right: 0.4rem;
+}
+
+.audit-logs-card .table-container::-webkit-scrollbar {
+  width: 8px;
+}
+
+.audit-logs-card .table-container::-webkit-scrollbar-thumb {
+  background: rgba(124, 58, 237, 0.22);
+  border-radius: 999px;
+}
+
+.audit-logs-table table.events-table {
+  width: 100%;
+  border-collapse: collapse;
+  table-layout: fixed;
+  min-width: 100%;
+}
+
+.audit-logs-table table.events-table thead {
+  position: sticky;
+  top: 0;
+  z-index: 3;
+}
+
+.audit-logs-table table.events-table thead tr {
+  background: linear-gradient(90deg, #3d2262, #321562);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+}
+
+.audit-logs-table table.events-table thead th {
+  padding: 12px 14px;
+  text-align: left;
+  font-weight: 700;
+  font-size: 13px;
+  color: #f8f9ff;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  vertical-align: middle;
+}
+
+.audit-logs-table table.events-table thead th:nth-child(1) {
+  width: 22%;
+  min-width: 160px;
+}
+
+.audit-logs-table table.events-table thead th:nth-child(2) {
+  width: 52%;
+}
+
+.audit-logs-table table.events-table thead th:nth-child(3) {
+  width: 26%;
+  text-align: right;
+  min-width: 150px;
+}
+
+.audit-logs-table table.events-table tbody tr {
+  border-bottom: 1px solid #eef2ff;
+  transition: background-color 0.2s ease, transform 0.2s ease;
+}
+
+.audit-logs-table table.events-table tbody tr:hover {
+  background-color: rgba(124, 58, 237, 0.04);
+  transform: translateY(-1px);
+}
+
+.audit-logs-table table.events-table tbody td {
+  padding: 12px 14px;
+  font-size: 14px;
+  color: #1f2937;
+  vertical-align: middle;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.audit-logs-table table.events-table tbody td:nth-child(2) span {
+  display: inline-block;
+  max-width: 100%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.audit-logs-table table.events-table tbody td:nth-child(1) {
+  min-width: 160px;
+}
+
+.audit-logs-table table.events-table tbody td:nth-child(3) {
+  text-align: right;
+}
+
+.audit-logs-table .resource-cell {
+  text-align: left;
+}
+
+.audit-logs-table .time-cell {
+  font-size: 12px;
+  color: #64748b;
+  white-space: nowrap;
+}
+
+/* ─────────────────────────────────────────────────────────── */
+/* 13. Shipper Dashboard Styles                               */
+/* ─────────────────────────────────────────────────────────── */
+
+.shipper-dashboard-error {
+  padding: 1rem;
+  background: #fee2e2;
+  border: 1px solid #fca5a5;
+  border-radius: 0.5rem;
+  margin-bottom: 1rem;
+  color: #991b1b;
+}
+
+.shipper-kpi-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1rem;
+  margin-bottom: 2rem;
+}
+
+.shipper-kpi-card {
+  background: white;
+  padding: 1.5rem;
+  border-radius: 8px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  border-left: 4px solid #6d28d9;
+}
+
+.shipper-kpi-card.pending {
+  border-left-color: #f59e0b;
+}
+
+.shipper-kpi-card.in-transit {
+  border-left-color: #3b82f6;
+}
+
+.shipper-kpi-card.delivered {
+  border-left-color: #10b981;
+}
+
+.shipper-kpi-card.exception {
+  border-left-color: #ef4444;
+}
+
+.shipper-kpi-card.claim {
+  border-left-color: #ec4899;
+}
+
+.shipper-kpi-card.pod {
+  border-left-color: #8b5cf6;
+}
+
+.shipper-kpi-label {
+  font-size: 12px;
+  font-weight: 600;
+  color: #6b7280;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin-bottom: 0.5rem;
+}
+
+.shipper-kpi-value {
+  font-size: 32px;
+  font-weight: 700;
+  color: #1e293b;
+  margin-bottom: 0.5rem;
+}
+
+.shipper-kpi-value.pending {
+  color: #f59e0b;
+}
+
+.shipper-kpi-value.in-transit {
+  color: #3b82f6;
+}
+
+.shipper-kpi-value.delivered {
+  color: #10b981;
+}
+
+.shipper-kpi-value.exception {
+  color: #ef4444;
+}
+
+.shipper-kpi-value.claim {
+  color: #ec4899;
+}
+
+.shipper-kpi-value.pod {
+  color: #8b5cf6;
+}
+
+.shipper-kpi-subtitle {
+  font-size: 13px;
+  color: #6b7280;
+}
+
+.shipper-recent-bookings {
+  margin-top: 2rem;
+}
+
+.shipper-recent-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+.shipper-recent-title {
+  font-size: 18px;
+  font-weight: 600;
+  color: #1e293b;
+  margin: 0;
+}
+
+.shipper-view-all-btn {
+  background: none;
+  border: none;
+  color: #6d28d9;
+  cursor: pointer;
+  font-size: 13px;
+  font-weight: 500;
+  text-decoration: underline;
+}
+
+.shipper-view-all-btn:hover {
+  color: #5a1fa3;
+}
+
+.shipper-bookings-table {
+  background: white;
+  border-radius: 8px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+}
+
+.shipper-bookings-table table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.shipper-bookings-table thead {
+  background-color: #f9fafb;
+  border-bottom: 1px solid #e5e7eb;
+}
+
+.shipper-bookings-table thead th {
+  padding: 12px 16px;
+  text-align: left;
+  font-size: 12px;
+  font-weight: 600;
+  color: #6b7280;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.shipper-bookings-table tbody tr {
+  border-bottom: 1px solid #f3f4f6;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.shipper-bookings-table tbody tr:hover {
+  background: #f9fafb;
+}
+
+.shipper-bookings-table tbody td {
+  padding: 12px 16px;
+  font-size: 13px;
+  color: #374151;
+}
+
+.shipper-bookings-table tbody td:first-child {
+  font-weight: 500;
+}
+
+.shipper-bookings-table tbody td:nth-child(4) {
+  color: #6b7280;
+}
+
+.shipper-status-badge {
+  display: inline-block;
+  padding: 4px 8px;
+  border-radius: 4px;
+  font-size: 12px;
+  font-weight: 500;
+}
+
+.shipper-status-badge.delivered {
+  background: #dcfce7;
+  color: #166534;
+}
+
+.shipper-status-badge.in-transit {
+  background: #dbeafe;
+  color: #1e40af;
+}
+
+.shipper-status-badge.pending {
+  background: #fef3c7;
+  color: #92400e;
+}
+
+.shipper-quick-actions {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1rem;
+  margin-top: 2rem;
+}
+
+.shipper-action-card {
+  background: white;
+  padding: 1.5rem;
+  border-radius: 8px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  cursor: pointer;
+  border: 2px solid #e5e7eb;
+  transition: all 0.2s;
+}
+
+.shipper-action-card:hover {
+  border-color: #6d28d9;
+  box-shadow: 0 4px 6px rgba(109, 40, 217, 0.1);
+}
+
+.shipper-action-card.exception:hover {
+  border-color: #ef4444;
+  box-shadow: 0 4px 6px rgba(239, 68, 68, 0.1);
+}
+
+.shipper-action-card.bookings:hover {
+  border-color: #3b82f6;
+  box-shadow: 0 4px 6px rgba(59, 130, 246, 0.1);
+}
+
+.shipper-action-icon {
+  font-size: 24px;
+  margin-bottom: 0.5rem;
+}
+
+.shipper-action-title {
+  font-size: 14px;
+  font-weight: 600;
+  color: #1e293b;
+  margin: 0 0 0.5rem 0;
+}
+
+.shipper-action-desc {
+  font-size: 12px;
+  color: #6b7280;
+  margin: 0;
+}
+
+/* ========== Dispatcher Dashboard Enhancements ========== */
+
+/* Smooth transitions for all interactive elements */
+.dashboard-interactive {
+  transition: all 0.2s ease;
+}
+
+/* KPI Cards hover effect */
+.kpi-card {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.kpi-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+}
+
+/* Alert card glow effect */
+.kpi-card.alert {
+  box-shadow: 0 0 20px rgba(239, 68, 68, 0.3);
+}
+
+/* Table row alternating colors */
+tbody tr {
+  transition: background-color 0.2s ease;
+}
+
+tbody tr:nth-child(even) {
+  background-color: #fafbfc;
+}
+
+tbody tr:hover {
+  background-color: #f0f9ff;
+}
+
+/* Search and filter inputs */
+input[type="text"],
+select {
+  transition: all 0.2s ease;
+}
+
+input[type="text"]:focus,
+select:focus {
+  outline: none;
+  border-color: #6d28d9;
+  box-shadow: 0 0 0 3px rgba(109, 40, 217, 0.1);
+}
+
+/* Quick action cards */
+.quick-action {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+  overflow: hidden;
+}
+
+.quick-action::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+  transition: left 0.5s ease;
+}
+
+.quick-action:hover::before {
+  left: 100%;
+}
+
+/* Loading state */
+.loading {
+  opacity: 0.6;
+  pointer-events: none;
+}
+
+/* Empty state styling */
+.empty-state {
+  text-align: center;
+  padding: 3rem 1rem;
+  color: #9ca3af;
+  font-size: 14px;
+}
+
+/* Status badge colors */
+.status-badge {
+  display: inline-block;
+  padding: 4px 8px;
+  border-radius: 4px;
+  font-size: 12px;
+  font-weight: 500;
+}
+
+.status-submitted {
+  background-color: #fef3c7;
+  color: #92400e;
+}
+
+.status-pending {
+  background-color: #fed7aa;
+  color: #92400e;
+}
+
+.status-dispatched {
+  background-color: #dbeafe;
+  color: #1e40af;
+}
+
+.status-in-transit {
+  background-color: #bfdbfe;
+  color: #1e40af;
+}
+
+.status-delivered {
+  background-color: #dcfce7;
+  color: #166534;
+}
+
+/* Responsive grid adjustments */
+@media (max-width: 768px) {
+  div[style*="gridTemplateColumns"] {
+    grid-template-columns: 1fr !important;
+  }
+}
+
+/* Animation for stat changes */
+@keyframes pulse {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.8;
+  }
+}
+
+.stat-changed {
+  animation: pulse 0.5s ease-in-out;
+}
+
+/* Accessibility improvements */
+button:focus-visible {
+  outline: 2px solid #6d28d9;
+  outline-offset: 2px;
+}
+
+input:focus-visible,
+select:focus-visible {
+  outline: 2px solid #6d28d9;
+  outline-offset: 2px;
+}
+
+/* ════════════════════════════════════════════════════════════════════
+   Driver Dashboard Styles
+   Modern, Professional, Data-Rich UI
+   ════════════════════════════════════════════════════════════════════ */
+
+/* ────────────────────────────────────────────────────────── */
+/* Driver KPI Grid */
+/* ────────────────────────────────────────────────────────── */
+
+.driver-kpi-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1.25rem;
+  margin-bottom: 2rem;
+}
+
+.driver-kpi-card {
+  background: var(--card-bg);
+  padding: 1.5rem;
+  border-radius: 10px;
+  border: 1px solid var(--border-color);
+  border-left: 4px solid var(--primary-purple);
+  box-shadow: var(--shadow-sm);
+  transition: var(--transition-ease);
+  position: relative;
+  overflow: hidden;
+}
+
+.driver-kpi-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-lg);
+}
+
+.driver-kpi-card.alert {
+  border-left-color: var(--danger-red);
+  background: rgba(239, 68, 68, 0.02);
+}
+
+.driver-kpi-card.alert:hover {
+  box-shadow: 0 10px 15px rgba(239, 68, 68, 0.1);
+}
+
+.driver-kpi-icon {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  font-size: 2rem;
+  opacity: 0.3;
+}
+
+.driver-stat-label {
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: var(--text-muted);
+  margin-bottom: 0.5rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.driver-stat-value {
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--text-main);
+}
+
+/* ────────────────────────────────────────────────────────── */
+/* Driver Loads Table Section */
+/* ────────────────────────────────────────────────────────── */
+
+.driver-loads-section {
+  margin-top: 2rem;
+}
+
+.driver-section-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1.5rem;
+}
+
+.driver-section-title {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--text-main);
+  margin: 0;
+}
+
+.driver-view-all-btn {
+  background: var(--primary-purple);
+  color: white;
+  border: none;
+  padding: 0.5rem 1.25rem;
+  border-radius: 6px;
+  font-weight: 600;
+  font-size: 0.875rem;
+  cursor: pointer;
+  transition: var(--transition-ease);
+}
+
+.driver-view-all-btn:hover {
+  background: var(--primary-purple-dark);
+  transform: translateY(-2px);
+}
+
+.driver-loads-table {
+  width: 100%;
+  border-collapse: collapse;
+  background: var(--card-bg);
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: var(--shadow-sm);
+  border: 1px solid var(--border-color);
+}
+
+.driver-loads-table thead {
+  background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%);
+  border-bottom: 2px solid var(--border-color);
+}
+
+.driver-loads-table thead th {
+  padding: 1rem;
+  text-align: left;
+  font-weight: 600;
+  font-size: 0.875rem;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.driver-loads-table tbody tr {
+  border-bottom: 1px solid var(--border-color);
+  transition: var(--transition-ease);
+  cursor: pointer;
+}
+
+.driver-loads-table tbody tr:hover {
+  background-color: var(--bg-gradient-start);
+  transform: scale(1.01);
+  box-shadow: inset 0 0 8px rgba(109, 40, 217, 0.05);
+}
+
+.driver-loads-table tbody td {
+  padding: 1rem;
+  font-size: 0.95rem;
+  color: var(--text-main);
+}
+
+.driver-load-id {
+  font-weight: 600;
+  color: var(--primary-purple);
+}
+
+.driver-load-route {
+  color: var(--text-muted);
+  font-size: 0.9rem;
+}
+
+/* Driver Status Badge */
+.driver-status-badge {
+  display: inline-block;
+  padding: 0.375rem 0.75rem;
+  border-radius: 6px;
+  font-weight: 600;
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  width: fit-content;
+}
+
+.driver-status-badge.assigned {
+  background-color: rgba(59, 130, 246, 0.1);
+  color: #3b82f6;
+}
+
+.driver-status-badge.inprogress {
+  background-color: rgba(245, 158, 11, 0.1);
+  color: #f59e0b;
+}
+
+.driver-status-badge.completed {
+  background-color: rgba(16, 185, 129, 0.1);
+  color: #10b981;
+}
+
+.driver-status-badge.delivered {
+  background-color: rgba(16, 185, 129, 0.1);
+  color: #10b981;
+}
+
+.driver-status-badge.pending {
+  background-color: rgba(239, 68, 68, 0.1);
+  color: #ef4444;
+}
+
+.driver-load-date {
+  color: var(--text-muted);
+  font-size: 0.9rem;
+}
+
+/* ────────────────────────────────────────────────────────── */
+/* Driver Empty State */
+/* ────────────────────────────────────────────────────────── */
+
+.driver-empty-state {
+  text-align: center;
+  padding: 3rem 2rem;
+  background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%);
+  border-radius: 10px;
+  border: 1px solid var(--border-color);
+}
+
+.driver-empty-state-icon {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+}
+
+.driver-empty-state-title {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: var(--text-main);
+  margin: 0 0 0.5rem 0;
+}
+
+.driver-empty-state-text {
+  font-size: 0.9rem;
+  color: var(--text-muted);
+  margin: 0;
+}
+
+/* ────────────────────────────────────────────────────────── */
+/* Driver Quick Actions */
+/* ────────────────────────────────────────────────────────── */
+
+.driver-quick-actions {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1.25rem;
+  margin-top: 2rem;
+}
+
+.driver-quick-action {
+  background: var(--card-bg);
+  padding: 1.75rem;
+  border-radius: 10px;
+  border: 1px solid var(--border-color);
+  text-align: center;
+  cursor: pointer;
+  transition: var(--transition-ease);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.driver-quick-action:hover {
+  transform: translateY(-6px);
+  box-shadow: var(--shadow-lg);
+  border-color: var(--primary-purple);
+  background: linear-gradient(135deg, rgba(109, 40, 217, 0.02) 0%, rgba(109, 40, 217, 0.01) 100%);
+}
+
+.driver-quick-action-icon {
+  font-size: 2.5rem;
+  margin-bottom: 0.75rem;
+}
+
+.driver-quick-action-title {
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--text-main);
+  margin: 0 0 0.5rem 0;
+}
+
+.driver-quick-action-subtitle {
+  font-size: 0.875rem;
+  color: var(--text-muted);
+  margin: 0;
+  line-height: 1.4;
+}
+
+/* ────────────────────────────────────────────────────────── */
+/* Driver Loading State */
+/* ────────────────────────────────────────────────────────── */
+
+.driver-loading-spinner {
+  display: inline-block;
+  width: 1rem;
+  height: 1rem;
+  border: 2px solid var(--border-color);
+  border-top-color: var(--primary-purple);
+  border-radius: 50%;
+  animation: spin 0.6s linear infinite;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.driver-loading-container {
+  text-align: center;
+  padding: 2rem;
+  color: var(--text-muted);
+}
+
+/* ────────────────────────────────────────────────────────── */
+/* Driver Dashboard Responsive Design */
+/* ────────────────────────────────────────────────────────── */
+
+@media (max-width: 1024px) {
+  .driver-kpi-grid {
+    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+    gap: 1rem;
+  }
+
+  .driver-quick-actions {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .driver-kpi-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .driver-loads-table thead th,
+  .driver-loads-table tbody td {
+    padding: 0.75rem;
+    font-size: 0.85rem;
+  }
+
+  .driver-quick-actions {
+    grid-template-columns: 1fr;
+  }
+
+  .driver-section-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1rem;
+  }
+
+  .driver-view-all-btn {
+    align-self: flex-start;
+  }
+}
+
+@media (max-width: 480px) {
+  .driver-stat-value {
+    font-size: 1.5rem;
+  }
+
+  .driver-section-title {
+    font-size: 1.1rem;
+  }
+
+  .driver-loads-table tbody tr {
+    display: block;
+    border-bottom: 2px solid var(--border-color);
+    margin-bottom: 1rem;
+  }
+
+  .driver-loads-table thead {
+    display: none;
+  }
+
+  .driver-loads-table tbody td {
+    display: block;
+    padding: 0.5rem;
+    border: none;
+    text-align: right;
+    position: relative;
+    padding-left: 50%;
+  }
+
+  .driver-loads-table tbody td:before {
+    content: attr(data-label);
+    position: absolute;
+    left: 0;
+    width: 50%;
+    text-align: left;
+    font-weight: 600;
+    color: var(--text-muted);
+  }
+}
+
+/* ════════════════════════════════════════════════════════════════════
+   Fleet Manager Dashboard Styles
+   Modern, Professional, Data-Rich UI
+   ════════════════════════════════════════════════════════════════════ */
+
+/* ────────────────────────────────────────────────────────── */
+/* Fleet KPI Grid */
+/* ────────────────────────────────────────────────────────── */
+
+.fleet-kpi-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1.25rem;
+  margin-bottom: 2rem;
+}
+
+.fleet-kpi-card {
+  background: var(--card-bg);
+  padding: 1.5rem;
+  border-radius: 10px;
+  border: 1px solid var(--border-color);
+  border-left: 4px solid var(--primary-purple);
+  box-shadow: var(--shadow-sm);
+  transition: var(--transition-ease);
+  position: relative;
+  overflow: hidden;
+}
+
+.fleet-kpi-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-lg);
+}
+
+.fleet-kpi-card.alert {
+  border-left-color: var(--warning-amber);
+  background: rgba(245, 158, 11, 0.02);
+}
+
+.fleet-kpi-card.alert:hover {
+  box-shadow: 0 10px 15px rgba(245, 158, 11, 0.1);
+}
+
+.fleet-kpi-icon {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  font-size: 2rem;
+  opacity: 0.3;
+}
+
+.fleet-stat-label {
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: var(--text-muted);
+  margin-bottom: 0.5rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.fleet-stat-value {
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--text-main);
+}
+
+/* ────────────────────────────────────────────────────────── */
+/* Fleet Section */
+/* ────────────────────────────────────────────────────────── */
+
+.fleet-section {
+  margin-top: 2rem;
+}
+
+.fleet-section-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1.5rem;
+}
+
+.fleet-section-title {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--text-main);
+  margin: 0;
+}
+
+.fleet-view-all-btn {
+  background: var(--primary-purple);
+  color: white;
+  border: none;
+  padding: 0.5rem 1.25rem;
+  border-radius: 6px;
+  font-weight: 600;
+  font-size: 0.875rem;
+  cursor: pointer;
+  transition: var(--transition-ease);
+}
+
+.fleet-view-all-btn:hover {
+  background: var(--primary-purple-dark);
+  transform: translateY(-2px);
+}
+
+/* Fleet Vehicles Table */
+.fleet-vehicles-table {
+  width: 100%;
+  border-collapse: collapse;
+  background: var(--card-bg);
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: var(--shadow-sm);
+  border: 1px solid var(--border-color);
+}
+
+.fleet-vehicles-table thead {
+  background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%);
+  border-bottom: 2px solid var(--border-color);
+}
+
+.fleet-vehicles-table thead th {
+  padding: 1rem;
+  text-align: left;
+  font-weight: 600;
+  font-size: 0.875rem;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.fleet-vehicles-table tbody tr {
+  border-bottom: 1px solid var(--border-color);
+  transition: var(--transition-ease);
+  cursor: pointer;
+}
+
+.fleet-vehicles-table tbody tr:hover {
+  background-color: var(--bg-gradient-start);
+}
+
+.fleet-vehicles-table tbody td {
+  padding: 1rem;
+  font-size: 0.95rem;
+  color: var(--text-main);
+}
+
+.fleet-vehicle-id {
+  font-weight: 600;
+  color: var(--primary-purple);
+}
+
+/* Fleet Status Badge */
+.fleet-status-badge {
+  display: inline-block;
+  padding: 0.375rem 0.75rem;
+  border-radius: 6px;
+  font-weight: 600;
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  width: fit-content;
+}
+
+.fleet-status-badge.active {
+  background-color: rgba(16, 185, 129, 0.1);
+  color: #10b981;
+}
+
+.fleet-status-badge.available {
+  background-color: rgba(59, 130, 246, 0.1);
+  color: #3b82f6;
+}
+
+.fleet-status-badge.maintenance {
+  background-color: rgba(245, 158, 11, 0.1);
+  color: #f59e0b;
+}
+
+.fleet-status-badge.inactive {
+  background-color: rgba(107, 114, 128, 0.1);
+  color: #6b7280;
+}
+
+/* ────────────────────────────────────────────────────────── */
+/* Fleet Empty State */
+/* ────────────────────────────────────────────────────────── */
+
+.fleet-empty-state {
+  text-align: center;
+  padding: 3rem 2rem;
+  background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%);
+  border-radius: 10px;
+  border: 1px solid var(--border-color);
+}
+
+.fleet-empty-state-icon {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+}
+
+.fleet-empty-state-title {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: var(--text-main);
+  margin: 0 0 0.5rem 0;
+}
+
+.fleet-empty-state-text {
+  font-size: 0.9rem;
+  color: var(--text-muted);
+  margin: 0;
+}
+
+/* ────────────────────────────────────────────────────────── */
+/* Fleet Quick Actions */
+/* ────────────────────────────────────────────────────────── */
+
+.fleet-quick-actions {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1.25rem;
+  margin-top: 2rem;
+}
+
+.fleet-quick-action {
+  background: var(--card-bg);
+  padding: 1.75rem;
+  border-radius: 10px;
+  border: 1px solid var(--border-color);
+  text-align: center;
+  cursor: pointer;
+  transition: var(--transition-ease);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.fleet-quick-action:hover {
+  transform: translateY(-6px);
+  box-shadow: var(--shadow-lg);
+  border-color: var(--primary-purple);
+  background: linear-gradient(135deg, rgba(109, 40, 217, 0.02) 0%, rgba(109, 40, 217, 0.01) 100%);
+}
+
+.fleet-quick-action-icon {
+  font-size: 2.5rem;
+  margin-bottom: 0.75rem;
+}
+
+.fleet-quick-action-title {
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--text-main);
+  margin: 0 0 0.5rem 0;
+}
+
+.fleet-quick-action-subtitle {
+  font-size: 0.875rem;
+  color: var(--text-muted);
+  margin: 0;
+  line-height: 1.4;
+}
+
+/* ────────────────────────────────────────────────────────── */
+/* Fleet Loading State */
+/* ────────────────────────────────────────────────────────── */
+
+.fleet-loading-spinner {
+  display: inline-block;
+  width: 1rem;
+  height: 1rem;
+  border: 2px solid var(--border-color);
+  border-top-color: var(--primary-purple);
+  border-radius: 50%;
+  animation: spin 0.6s linear infinite;
+}
+
+.fleet-loading-container {
+  text-align: center;
+  padding: 2rem;
+  color: var(--text-muted);
+}
+
+/* ────────────────────────────────────────────────────────── */
+/* Fleet Dashboard Responsive Design */
+/* ────────────────────────────────────────────────────────── */
+
+@media (max-width: 1024px) {
+  .fleet-kpi-grid {
+    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+    gap: 1rem;
+  }
+
+  .fleet-quick-actions {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .fleet-kpi-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .fleet-vehicles-table thead th,
+  .fleet-vehicles-table tbody td {
+    padding: 0.75rem;
+    font-size: 0.85rem;
+  }
+
+  .fleet-quick-actions {
+    grid-template-columns: 1fr;
+  }
+
+  .fleet-section-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1rem;
+  }
+
+  .fleet-view-all-btn {
+    align-self: flex-start;
+  }
+}
+
+/* ════════════════════════════════════════════════════════════════════
+   Warehouse Manager Dashboard Styles
+   Modern, Professional, Data-Rich UI
+   ════════════════════════════════════════════════════════════════════ */
+
+/* ────────────────────────────────────────────────────────── */
+/* Warehouse KPI Grid */
+/* ────────────────────────────────────────────────────────── */
+
+.warehouse-kpi-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1.25rem;
+  margin-bottom: 2rem;
+}
+
+.warehouse-kpi-card {
+  background: var(--card-bg);
+  padding: 1.5rem;
+  border-radius: 10px;
+  border: 1px solid var(--border-color);
+  border-left: 4px solid var(--primary-purple);
+  box-shadow: var(--shadow-sm);
+  transition: var(--transition-ease);
+  position: relative;
+  overflow: hidden;
+}
+
+.warehouse-kpi-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-lg);
+}
+
+.warehouse-kpi-card.alert {
+  border-left-color: var(--danger-red);
+  background: rgba(239, 68, 68, 0.02);
+}
+
+.warehouse-kpi-card.alert:hover {
+  box-shadow: 0 10px 15px rgba(239, 68, 68, 0.1);
+}
+
+.warehouse-kpi-icon {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  font-size: 2rem;
+  opacity: 0.3;
+}
+
+.warehouse-stat-label {
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: var(--text-muted);
+  margin-bottom: 0.5rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.warehouse-stat-value {
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--text-main);
+}
+
+/* ────────────────────────────────────────────────────────── */
+/* Warehouse Section */
+/* ────────────────────────────────────────────────────────── */
+
+.warehouse-section {
+  margin-top: 2rem;
+}
+
+.warehouse-section-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1.5rem;
+}
+
+.warehouse-section-title {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--text-main);
+  margin: 0;
+}
+
+.warehouse-view-all-btn {
+  background: var(--primary-purple);
+  color: white;
+  border: none;
+  padding: 0.5rem 1.25rem;
+  border-radius: 6px;
+  font-weight: 600;
+  font-size: 0.875rem;
+  cursor: pointer;
+  transition: var(--transition-ease);
+}
+
+.warehouse-view-all-btn:hover {
+  background: var(--primary-purple-dark);
+  transform: translateY(-2px);
+}
+
+/* Warehouse Tables */
+.warehouse-manifests-table,
+.warehouse-exceptions-table {
+  width: 100%;
+  border-collapse: collapse;
+  background: var(--card-bg);
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: var(--shadow-sm);
+  border: 1px solid var(--border-color);
+}
+
+.warehouse-manifests-table thead,
+.warehouse-exceptions-table thead {
+  background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%);
+  border-bottom: 2px solid var(--border-color);
+}
+
+.warehouse-manifests-table thead th,
+.warehouse-exceptions-table thead th {
+  padding: 1rem;
+  text-align: left;
+  font-weight: 600;
+  font-size: 0.875rem;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.warehouse-manifests-table tbody tr,
+.warehouse-exceptions-table tbody tr {
+  border-bottom: 1px solid var(--border-color);
+  transition: var(--transition-ease);
+  cursor: pointer;
+}
+
+.warehouse-manifests-table tbody tr:hover,
+.warehouse-exceptions-table tbody tr:hover {
+  background-color: var(--bg-gradient-start);
+}
+
+.warehouse-manifests-table tbody td,
+.warehouse-exceptions-table tbody td {
+  padding: 1rem;
+  font-size: 0.95rem;
+  color: var(--text-main);
+}
+
+.warehouse-manifest-id,
+.warehouse-exception-id {
+  font-weight: 600;
+  color: var(--primary-purple);
+}
+
+/* Warehouse Status Badge */
+.warehouse-status-badge {
+  display: inline-block;
+  padding: 0.375rem 0.75rem;
+  border-radius: 6px;
+  font-weight: 600;
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  width: fit-content;
+}
+
+.warehouse-status-badge.pending {
+  background-color: rgba(245, 158, 11, 0.1);
+  color: #f59e0b;
+}
+
+.warehouse-status-badge.inprocess {
+  background-color: rgba(59, 130, 246, 0.1);
+  color: #3b82f6;
+}
+
+.warehouse-status-badge.completed {
+  background-color: rgba(16, 185, 129, 0.1);
+  color: #10b981;
+}
+
+.warehouse-status-badge.open {
+  background-color: rgba(239, 68, 68, 0.1);
+  color: #ef4444;
+}
+
+.warehouse-status-badge.resolved {
+  background-color: rgba(16, 185, 129, 0.1);
+  color: #10b981;
+}
+
+/* ────────────────────────────────────────────────────────── */
+/* Warehouse Empty State */
+/* ────────────────────────────────────────────────────────── */
+
+.warehouse-empty-state {
+  text-align: center;
+  padding: 3rem 2rem;
+  background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%);
+  border-radius: 10px;
+  border: 1px solid var(--border-color);
+}
+
+.warehouse-empty-state-icon {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+}
+
+.warehouse-empty-state-title {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: var(--text-main);
+  margin: 0 0 0.5rem 0;
+}
+
+.warehouse-empty-state-text {
+  font-size: 0.9rem;
+  color: var(--text-muted);
+  margin: 0;
+}
+
+/* ────────────────────────────────────────────────────────── */
+/* Warehouse Quick Actions */
+/* ────────────────────────────────────────────────────────── */
+
+.warehouse-quick-actions {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1.25rem;
+  margin-top: 2rem;
+}
+
+.warehouse-quick-action {
+  background: var(--card-bg);
+  padding: 1.75rem;
+  border-radius: 10px;
+  border: 1px solid var(--border-color);
+  text-align: center;
+  cursor: pointer;
+  transition: var(--transition-ease);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.warehouse-quick-action:hover {
+  transform: translateY(-6px);
+  box-shadow: var(--shadow-lg);
+  border-color: var(--primary-purple);
+  background: linear-gradient(135deg, rgba(109, 40, 217, 0.02) 0%, rgba(109, 40, 217, 0.01) 100%);
+}
+
+.warehouse-quick-action-icon {
+  font-size: 2.5rem;
+  margin-bottom: 0.75rem;
+}
+
+.warehouse-quick-action-title {
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--text-main);
+  margin: 0 0 0.5rem 0;
+}
+
+.warehouse-quick-action-subtitle {
+  font-size: 0.875rem;
+  color: var(--text-muted);
+  margin: 0;
+  line-height: 1.4;
+}
+
+/* ────────────────────────────────────────────────────────── */
+/* Warehouse Loading State */
+/* ────────────────────────────────────────────────────────── */
+
+.warehouse-loading-spinner {
+  display: inline-block;
+  width: 1rem;
+  height: 1rem;
+  border: 2px solid var(--border-color);
+  border-top-color: var(--primary-purple);
+  border-radius: 50%;
+  animation: spin 0.6s linear infinite;
+}
+
+.warehouse-loading-container {
+  text-align: center;
+  padding: 2rem;
+  color: var(--text-muted);
+}
+
+/* ────────────────────────────────────────────────────────── */
+/* Warehouse Dashboard Responsive Design */
+/* ────────────────────────────────────────────────────────── */
+
+@media (max-width: 1024px) {
+  .warehouse-kpi-grid {
+    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+    gap: 1rem;
+  }
+
+  .warehouse-quick-actions {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .warehouse-kpi-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .warehouse-manifests-table thead th,
+  .warehouse-manifests-table tbody td,
+  .warehouse-exceptions-table thead th,
+  .warehouse-exceptions-table tbody td {
+    padding: 0.75rem;
+    font-size: 0.85rem;
+  }
+
+  .warehouse-quick-actions {
+    grid-template-columns: 1fr;
+  }
+
+  .warehouse-section-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1rem;
+  }
+
+  .warehouse-view-all-btn {
+    align-self: flex-start;
+  }
+}

@@ -1,0 +1,932 @@
+.tasks-page {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+
+.tasks-header {
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 24px;
+}
+
+.page-title-group {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.page-title-icon {
+  font-size: 24px;
+}
+
+.tasks-title {
+  margin: 0;
+  font-size: 28px;
+  color: #111827;
+  flex: 1;
+}
+
+.tasks-subtitle {
+  margin: 0;
+  color: #64748b;
+  font-size: 14px;
+}
+
+.tasks-header-actions {
+  position: absolute;
+  top: 0;
+  right: 0;
+  display: flex;
+  gap: 8px;
+}
+
+.tasks-btn {
+  border: 1px solid #d1d5db;
+  background: #fff;
+  color: #1f2937;
+  border-radius: 8px;
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+  padding: 8px 14px;
+}
+
+.tasks-btn:hover {
+  background: #f8fafc;
+}
+
+.tasks-btn-primary {
+  background: #370a6e    ;
+  border-color: #370a6e    ;
+  color: #fff;
+}
+
+.tasks-btn-primary:hover {
+  background: #370a6e    ;
+}
+
+.tasks-btn-back {
+  width: 44px;
+  height: 44px;
+  background: #fff;
+  border: 1px solid #d7e4ef;
+  border-radius: 12px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  font-size: 20px;
+  color: #370a6e    ;
+  flex-shrink: 0;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+  transition: all 0.2s ease;
+}
+
+.tasks-btn-back:hover {
+  border-color: #b3d9f2;
+  background: #f0f7ff;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.08);
+}
+
+.btn-create-task {
+  width: 40px;
+  height: 40px;
+  border-radius: 999px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 22px;
+  line-height: 1;
+  padding: 0;
+}
+
+/* ── CREATE BUTTON (Matching Bookings Style) ── */
+.btn-primary {
+  background: #370a6e    ;
+  border: none;
+  color: #fff;
+  border-radius: 8px;
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+  padding: 8px 16px;
+  transition: all 0.2s ease;
+}
+
+.btn-primary:hover {
+  background: #370a6e    ;
+}
+
+.expand-btn {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 14px;
+}
+
+.expand-btn-icon {
+  font-size: 20px;
+  line-height: 1;
+}
+
+.expand-btn-label {
+  font-weight: 500;
+}
+
+/* Icon button style for task creation - show only the plus icon and display tooltip on hover */
+.expand-btn.icon-btn {
+  width: 44px;
+  height: 44px;
+  padding: 0;
+  gap: 0;
+  position: relative;
+  justify-content: center;
+  align-items: center;
+  border-radius: 12px;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+  transition: background 0.2s ease, box-shadow 0.2s ease, transform 0.2s ease;
+}
+
+.expand-btn.icon-btn .expand-btn-label {
+  display: none;
+}
+
+.expand-btn.icon-btn:hover {
+  background: #370a6e    ;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.expand-btn.icon-btn:hover::after {
+  content: attr(title);
+  position: absolute;
+  bottom: calc(100% + 8px);
+  left: 50%;
+  transform: translateX(-50%);
+  padding: 6px 10px;
+  background: #1e293b;
+  color: #fff;
+  font-size: 12px;
+  border-radius: 6px;
+  white-space: nowrap;
+  pointer-events: none;
+  z-index: 1000;
+}
+
+.tasks-error {
+  border: 1px solid #fecaca;
+  background: #fef2f2;
+  color: #b91c1c;
+  border-radius: 10px;
+  padding: 10px 12px;
+  font-size: 14px;
+}
+
+.tasks-stats-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(150px, 1fr));
+  gap: 10px;
+}
+
+.tasks-stat-card {
+  border: 1px solid #e5e7eb;
+  background: #fff;
+  border-radius: 12px;
+  padding: 14px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.tasks-stat-label {
+  font-size: 12px;
+  color: #64748b;
+  font-weight: 600;
+}
+
+.tasks-stat-value {
+  font-size: 28px;
+  font-weight: 700;
+  color: #0f172a;
+}
+
+.tasks-toolbar {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  margin-bottom: 14px;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.tasks-search-wrapper {
+  flex: 1;
+  max-width: 400px;
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.tasks-search-icon {
+  position: absolute;
+  left: 12px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #9ca3af;
+  font-size: 14px;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.tasks-search {
+  width: 100%;
+  border: 1px solid #e0e0e0;
+  background: #f8f9fb;
+  border-radius: 6px;
+  padding: 8px 12px 8px 34px;
+  font-size: 13px;
+  outline: none;
+  transition: all 0.2s ease;
+  box-sizing: border-box;
+}
+
+.tasks-search:focus {
+  border-color: #370a6e    ;
+  background: #fff;
+  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
+}
+
+.tasks-filter-wrapper {
+  display: inline-flex;
+  align-items: center;
+  justify-content: space-between;
+  width: fit-content;
+  min-width: 120px;
+  padding: 0 12px;
+  border: 1px solid #d1d5db;
+  border-radius: 8px;
+  background: #fff;
+  box-sizing: border-box;
+  position: relative;
+}
+
+.tasks-filter-wrapper::after {
+  content: '▾';
+  margin-left: 10px;
+  color: #6b7280;
+  font-size: 12px;
+  pointer-events: none;
+}
+
+.tasks-select {
+  border: none;
+  background: transparent;
+  padding: 10px 0;
+  font-size: 13px;
+  cursor: pointer;
+  outline: none;
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  min-width: 80px;
+}
+
+.tasks-select:focus {
+  outline: none;
+}
+
+.tasks-card {
+  background: #fff;
+  border: 1px solid #e5e7eb;
+  border-radius: 12px;
+  padding: 14px;
+}
+
+.tasks-section-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 10px;
+}
+
+.tasks-section-head h3 {
+  margin: 0;
+  color: #111827;
+  font-size: 17px;
+}
+
+.tasks-scope-pill {
+  border: 1px solid #dbeafe;
+  background: #eff6ff;
+  color: #370a6e    ;
+  border-radius: 999px;
+  padding: 4px 10px;
+  font-size: 11px;
+  font-weight: 700;
+}
+
+.tasks-list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.task-item {
+  border: 1px solid #e5e7eb;
+  border-radius: 12px;
+  padding: 12px;
+  background: #fff;
+}
+
+.task-item-top {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+}
+
+.task-priority {
+  border-radius: 999px;
+  padding: 3px 9px;
+  font-size: 11px;
+  font-weight: 700;
+}
+
+.task-priority-urgent {
+  background: #fee2e2;
+  color: #b91c1c;
+}
+
+.task-priority-high {
+  background: #ffedd5;
+  color: #c2410c;
+}
+
+.task-priority-medium {
+  background: #fef3c7;
+  color: #b45309;
+}
+
+.task-priority-low {
+  background: #ecfeff;
+  color: #0e7490;
+}
+
+.task-due {
+  margin-top: 8px;
+  color: #64748b;
+  font-size: 12px;
+}
+
+.task-desc {
+  margin: 8px 0;
+  color: #111827;
+  font-size: 14px;
+}
+
+.task-bottom {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+}
+
+.task-related {
+  color: #475569;
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.task-view-btn {
+  border: 1px solid #d1d5db;
+  background: #fff;
+  border-radius: 8px;
+  padding: 6px 10px;
+  font-size: 12px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.task-view-btn:hover {
+  background: #f8fafc;
+}
+
+.task-view-btn:disabled {
+  opacity: 0.45;
+  cursor: not-allowed;
+}
+
+.tasks-empty {
+  padding: 34px 16px;
+  text-align: center;
+  color: #94a3b8;
+  font-size: 14px;
+}
+
+.tasks-status {
+  display: inline-block;
+  border-radius: 999px;
+  padding: 3px 10px;
+  font-size: 11px;
+  font-weight: 700;
+}
+
+.tasks-status-pending {
+  background: #fff7ed;
+  color: #c2410c;
+}
+
+.tasks-status-completed {
+  background: #ecfdf3;
+  color: #15803d;
+}
+
+.tasks-status-inprogress {
+  background: #eff6ff;
+  color: #1d4ed8;
+}
+
+.tasks-status-cancelled {
+  background: #fef2f2;
+  color: #b91c1c;
+}
+
+@media (max-width: 900px) {
+  .tasks-stats-grid {
+    grid-template-columns: repeat(2, minmax(140px, 1fr));
+  }
+}
+
+@media (max-width: 640px) {
+  .tasks-stats-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .tasks-header-actions {
+    width: 100%;
+  }
+
+  .tasks-header-actions .tasks-btn {
+    flex: 1;
+  }
+}
+
+.tasks-form-card,
+.tasks-detail-card {
+  border: 1px solid #e5e7eb;
+  border-radius: 12px;
+  background: #fff;
+  padding: 14px;
+}
+
+.tasks-form-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(240px, 1fr));
+  gap: 12px;
+}
+
+.tasks-form-field {
+  display: flex;
+  flex-direction: column;
+}
+
+.tasks-form-field-full {
+  grid-column: 1 / -1;
+}
+
+.tasks-form-field label {
+  font-size: 12px;
+  font-weight: 700;
+  color: #475569;
+  margin-bottom: 6px;
+}
+
+.tasks-form-field input,
+.tasks-form-field select,
+.tasks-form-field textarea {
+  border: 1px solid #d1d5db;
+  border-radius: 8px;
+  background: #fff;
+  font-size: 14px;
+  padding: 9px 11px;
+}
+
+.tasks-form-field textarea {
+  resize: vertical;
+}
+
+.tasks-form-field small {
+  min-height: 14px;
+  margin-top: 4px;
+  color: #b91c1c;
+  font-size: 11px;
+}
+
+.tasks-form-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 8px;
+  margin-top: 10px;
+}
+
+.tasks-detail-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(220px, 1fr));
+  gap: 10px 14px;
+}
+
+.tasks-detail-row {
+  border: 1px dashed #e2e8f0;
+  border-radius: 10px;
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.tasks-detail-row span {
+  color: #64748b;
+  font-size: 12px;
+}
+
+.tasks-detail-row strong {
+  color: #0f172a;
+  font-size: 14px;
+}
+
+.tasks-detail-description {
+  margin-top: 12px;
+}
+
+.tasks-detail-description h3 {
+  margin: 0 0 8px;
+  font-size: 16px;
+  color: #111827;
+}
+
+.tasks-detail-description p {
+  margin: 0;
+  color: #334155;
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+.tasks-inline-select {
+  min-width: 160px;
+  border: 1px solid #d1d5db;
+  border-radius: 8px;
+  padding: 6px 8px;
+  font-size: 13px;
+  background: #fff;
+}
+
+.tasks-inline-input {
+  min-width: 160px;
+  border: 1px solid #d1d5db;
+  border-radius: 8px;
+  padding: 6px 8px;
+  font-size: 13px;
+  background: #fff;
+}
+
+.tasks-inline-textarea {
+  width: 100%;
+  border: 1px solid #d1d5db;
+  border-radius: 10px;
+  padding: 10px 12px;
+  font-size: 14px;
+  color: #334155;
+  line-height: 1.5;
+  resize: vertical;
+}
+
+.tasks-inline-note {
+  margin-top: 10px;
+  font-size: 12px;
+  color: #64748b;
+}
+
+@media (max-width: 760px) {
+  .tasks-form-grid,
+  .tasks-detail-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ================================================================
+   TASK DETAIL PAGE – Matching Notifications Style
+   ================================================================ */
+
+.bookings-page {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  padding: 24px;
+}
+
+/* ── HEADER (Subtitle below Title) ── */
+.bookings-page .page-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 12px;
+  flex-wrap: wrap;
+  margin-bottom: 0;
+}
+
+.bookings-page .header-left {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.bookings-page .page-title-group {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.bookings-page .page-title-icon {
+  font-size: 24px;
+}
+
+.bookings-page .page-title {
+  font-size: 26px;
+  font-weight: 700;
+  color: #1e293b;
+  margin: 0;
+}
+
+.bookings-page .page-subtitle {
+  font-size: 14px;
+  color: #64748b;
+  margin: 0;
+}
+
+/* ── HEADER BUTTONS (Fixed Styles) ── */
+.bookings-page .header-actions {
+  display: flex;
+  gap: 10px;
+}
+
+.bookings-page .notification-action-btn {
+  appearance: none;
+  -webkit-appearance: none;
+  border-radius: 8px;
+  height: 36px;
+  padding: 0 16px;
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s ease;
+  font-family: inherit;
+}
+
+.bookings-page .btn-secondary {
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  color: #475569;
+}
+
+.bookings-page .btn-secondary:hover {
+  background: #f8fafc;
+}
+
+.bookings-page .btn-primary {
+  background: #370a6e    ;
+  border: 1px solid #370a6e    ;
+  color: #ffffff;
+}
+
+.bookings-page .btn-primary:hover {
+  background: #370a6e    ;
+}
+
+.bookings-page .btn-primary:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.bookings-page .btn-danger-outline {
+  background: #ffffff;
+  border: 1px solid #fee2e2;
+  color: #ef4444;
+}
+
+/* ── MAIN CONTENT CARD ── */
+.bookings-page .content-card {
+  background: #ffffff;
+  border: 1px solid #e5e7eb;
+  border-radius: 12px;
+  padding: 14px;
+}
+
+/* ── STATS GRID for Notifications ── */
+.bookings-page .stats-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(150px, 1fr));
+  gap: 10px;
+}
+
+.bookings-page .stat-card {
+  border: 1px solid #e5e7eb;
+  background: #fff;
+  border-radius: 12px;
+  padding: 14px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.bookings-page .stat-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
+
+.bookings-page .stat-label {
+  font-size: 12px;
+  color: #64748b;
+  font-weight: 600;
+  text-transform: uppercase;
+}
+
+.bookings-page .stat-value {
+  font-size: 28px;
+  font-weight: 700;
+  color: #0f172a;
+}
+
+/* ── EMPTY STATE ── */
+.bookings-page .empty-state {
+  padding: 34px 16px;
+  text-align: center;
+  color: #94a3b8;
+  font-size: 14px;
+}
+
+.bookings-page .empty-icon {
+  font-size: 32px;
+  margin-bottom: 10px;
+}
+
+/* ── TASK DETAIL GRID ── */
+.bookings-page .tasks-detail-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(220px, 1fr));
+  gap: 10px 14px;
+  margin-bottom: 20px;
+}
+
+.bookings-page .tasks-detail-row {
+  border: 1px dashed #e2e8f0;
+  border-radius: 10px;
+  padding: 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.bookings-page .tasks-detail-row span {
+  color: #64748b;
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.bookings-page .tasks-detail-row strong {
+  color: #1e293b;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+/* ── TASK DESCRIPTION SECTION ── */
+.bookings-page .tasks-detail-description {
+  margin-top: 20px;
+  padding-top: 20px;
+  border-top: 1px dashed #e2e8f0;
+}
+
+.bookings-page .tasks-detail-description h3 {
+  margin: 0 0 12px;
+  font-size: 16px;
+  font-weight: 700;
+  color: #1e293b;
+}
+
+.bookings-page .tasks-detail-description p {
+  margin: 0;
+  color: #475569;
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+/* ── FORM ELEMENTS ── */
+.bookings-page .filter-select-custom {
+  appearance: none;
+  background-color: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 8px;
+  padding: 8px 32px 8px 12px;
+  font-size: 14px;
+  font-weight: 500;
+  color: #475569;
+  cursor: pointer;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 24' stroke='%2394a3b8'%3E%3Cpath stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M19 9l-7 7-7-7'%3E%3C/path%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 10px center;
+  background-size: 14px;
+}
+
+.bookings-page .filter-select-custom:hover {
+  border-color: #cbd5e1;
+}
+
+.bookings-page .filter-select-custom:focus {
+  outline: none;
+  border-color: #370a6e    ;
+  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
+}
+
+/* ── FORM ACTIONS ── */
+.bookings-page .form-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+  margin-top: 20px;
+}
+
+.bookings-page .inline-note {
+  margin-top: 12px;
+  font-size: 12px;
+  color: #94a3b8;
+}
+
+/* ── ERROR STATE ── */
+.bookings-page .tasks-error {
+  background: #fef2f2;
+  border: 1px solid #fecaca;
+  color: #b91c1c;
+  border-radius: 10px;
+  padding: 12px 14px;
+  font-size: 14px;
+  margin-bottom: 16px;
+}
+
+/* ── TASK STATUS BADGES ── */
+.bookings-page .tasks-status {
+  display: inline-block;
+  border-radius: 999px;
+  padding: 4px 10px;
+  font-size: 11px;
+  font-weight: 700;
+}
+
+.bookings-page .tasks-status-pending {
+  background: #fff7ed;
+  color: #c2410c;
+}
+
+.bookings-page .tasks-status-completed {
+  background: #ecfdf3;
+  color: #15803d;
+}
+
+.bookings-page .tasks-status-inprogress {
+  background: #eff6ff;
+  color: #370a6e    ;
+}
+
+.bookings-page .tasks-status-cancelled {
+  background: #fef2f2;
+  color: #b91c1c;
+}
+
+/* ── RESPONSIVE ── */
+@media (max-width: 760px) {
+  .bookings-page .tasks-detail-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .bookings-page .page-header {
+    flex-direction: column;
+    gap: 16px;
+  }
+
+  .bookings-page .header-actions {
+    width: 100%;
+  }
+
+  .bookings-page .header-actions .notification-action-btn {
+    flex: 1;
+  }
+}

@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<qualifiedTypeNameHistroy>
+    <fullyQualifiedTypeName name="com.example.demo.clients.TaskClient"/>
+    <fullyQualifiedTypeName name="org.springframework.boot.data.jpa.test.autoconfigure.DataJpaTest"/>
+    <fullyQualifiedTypeName name="org.springframework.boot.jpa.test.autoconfigure.TestEntityManager"/>
+    <fullyQualifiedTypeName name="com.example.demo.clients.NotificationClient"/>
+    <fullyQualifiedTypeName name="com.example.demo.clients.RoleResolverClient"/>
+    <fullyQualifiedTypeName name="org.springframework.security.access.prepost.PreAuthorize"/>
+</qualifiedTypeNameHistroy>

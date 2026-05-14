@@ -1,0 +1,17 @@
+{
+	"folders": [
+		{
+			"path": "../.."
+		},
+		{
+			"path": "../../../../Documents/workspace-spring-tools-for-eclipse-5.0.1.RELEASE/DispatchService"
+		},
+		{
+			"path": "../../../../Documents/workspace-spring-tools-for-eclipse-5.0.1.RELEASE/RoutingService"
+		},
+		{
+			"path": "../../../../Documents/workspace-spring-tools-for-eclipse-5.0.1.RELEASE/FleetService"
+		}
+	],
+	"settings": {}
+}
